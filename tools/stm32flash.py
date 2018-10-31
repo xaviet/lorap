@@ -425,7 +425,7 @@ def main():
   parser = argparse.ArgumentParser(description=VERSION_STR)
   parser.add_argument('-V', '--version', action='version', version=VERSION_STR)
   parser.add_argument('-v', '--verbose', action='count', help='increase verbosity *', default=2)
-  parser.add_argument('-p', '--port', help='Serial port eg: /dev/ttyS0 or COM1', default='/dev/ttyS0') # required=True, 
+  parser.add_argument('-p', '--port', help='Serial port eg: /dev/ttyS0 or COM1', default='/dev/ttyUSB0') # required=True, 
   parser.add_argument('-b', '--baud', help='Baud-rate (9600 - 115200)', default=115200)
   parser.add_argument('-a', '--address', help='Set address for reading or writing')
   parser.add_argument('-s', '--size', help='Set size for reading')

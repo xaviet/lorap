@@ -20,6 +20,7 @@ indent_mode=3
 [project]
 name=lorap
 base_path=/home/mose/code/lorap/
+description=
 
 [long line marker]
 long_line_behaviour=1
@@ -29,7 +30,7 @@ long_line_column=72
 current_page=0
 
 [VTE]
-last_dir=/home/mose
+last_dir=/home/mose/code/lorap/loragw_app/src
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;

@@ -12,7 +12,7 @@
       <ColumnEntry name="columnHeader.label.type" width="68" resizable="true" enable="true"/>
       <ColumnEntry name="columnHeader.label.summary" width="320" resizable="true" enable="true"/>
       <ColumnEntry name="columnHeader.label.description" width="420" resizable="true" enable="true"/>
-      <ColumnEntry name="columnHeader.label.modificationDate" width="571" resizable="true" enable="true"/>
+      <ColumnEntry name="columnHeader.label.modificationDate" width="572" resizable="true" enable="true"/>
       <ColumnEntry name="columnHeader.label.annotation" width="70" resizable="true" enable="false"/>
       <ColumnEntry name="columnHeader.label.revision" width="70" resizable="true" enable="false"/>
       <ColumnEntry name="columnHeader.label.resolution" width="115" resizable="true" enable="false"/>
