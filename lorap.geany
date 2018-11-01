@@ -21,16 +21,19 @@ indent_mode=3
 name=lorap
 base_path=/home/mose/code/lorap/
 description=
+file_patterns=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
+current_page=1
+FILE_NAME_0=509;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fser.py;0;2
+FILE_NAME_1=13012;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fstm32flash.py;0;2
 
 [VTE]
-last_dir=/home/mose/code/lorap/loragw_app/src
+last_dir=/home/mose/code/lorap/tools
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
@@ -39,3 +42,12 @@ ignored_dirs_patterns=.*;CVS;
 ignored_file_patterns=*.o;*.obj;*.a;*.lib;*.so;*.dll;*.lo;*.la;*.class;*.jar;*.pyc;*.mo;*.gmo;
 generate_tag_prefs=0
 external_dirs=
+
+[build-menu]
+EX_00_LB=_Execute
+EX_00_CM=python3 "%f"
+EX_00_WD=
+PythonFT_00_LB=_Compile
+PythonFT_00_CM=python3 -m py_compile "%f"
+PythonFT_00_WD=
+filetypes=Python;

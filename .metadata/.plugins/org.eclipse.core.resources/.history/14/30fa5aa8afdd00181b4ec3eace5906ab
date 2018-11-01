@@ -1,0 +1,16 @@
+/*
+ * drv_gpio.h
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#ifndef DRV_GPIO_H_
+#define DRV_GPIO_H_
+
+#include "global.h"
+#include "tools_lib.h"
+
+void init_gpio();
+
+#endif /* DRV_GPIO_H_ */

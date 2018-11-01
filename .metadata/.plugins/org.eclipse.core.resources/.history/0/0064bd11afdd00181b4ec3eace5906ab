@@ -1,0 +1,16 @@
+/*
+ * dev_gpio.h
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#ifndef DEV_GPIO_H_
+#define DEV_GPIO_H_
+
+#include "global.h"
+#include "tools_lib.h"
+
+void init_gpio();
+
+#endif /* DEV_GPIO_H_ */

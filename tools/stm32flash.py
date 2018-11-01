@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
   stm32flash.py
-  ref : stm32flash.py -p /dev/ttyS0 -w stm32f103c8t6_stdperiph.bin -f -t -v
+  ref : ./stm32flash.py -w stm32f103c8t6_stdperiph.bin -f -t
 '''
 
 import time
@@ -131,11 +131,13 @@ class Stm32bl():
   def _reset_mcu(self, ispFlag = 1):
     '''Reset MCU'''
     self._serial_port.setRTS(1)
+    time.sleep(0.1)
     self._serial_port.setDTR(0)
-    time.sleep(0.2)
+    time.sleep(0.1)
     self._serial_port.setRTS(ispFlag)
+    time.sleep(0.1)
     self._serial_port.setDTR(1)
-    time.sleep(0.2)
+    time.sleep(0.1)
 
   def _connect(self, repeat = 1):
     '''connect to boot-loader'''
@@ -152,7 +154,7 @@ class Stm32bl():
 
   def exit_bootloader(self):
     '''Exit boot-loader and restart MCU'''
-    self._reset_mcu(ispFlag = 0);
+    self._reset_mcu(ispFlag = 1);
 
   def _talk(self, data_wr, cnt_rd, timeout=1):
     '''talk with boot-loader'''
@@ -419,6 +421,14 @@ class Stm32bl():
   def close(self):
     self._serial_port.close()
 
+  def listen_serial(self):
+    while(1):
+      r = self._serial_port.read(256)
+      r = list(r)
+      if(len(r)):
+        for el0 in r:    
+          print(chr(el0), end = '')
+
 def main():
   '''Main application'''
   startTime = time.time()
@@ -472,6 +482,7 @@ def main():
       stm32bl.cmd_go(address)
     if args.reset:
       stm32bl.exit_bootloader()
+    stm32bl.listen_serial()
     stm32bl.close()
   except Stm32BLException as err:
     print('ERROR: %s' % err)

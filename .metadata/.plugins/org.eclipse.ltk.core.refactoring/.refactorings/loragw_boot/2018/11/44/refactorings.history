@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;loragw_boot/inc/gglobal.h&apos; to &apos;global.h&apos;" description="Rename resource &apos;gglobal.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="inc/gglobal.h" name="global.h" stamp="1541050889100" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;loragw_boot/inc/dev_gpio.h&apos; to &apos;drv_gpio.h&apos;" description="Rename resource &apos;dev_gpio.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="inc/dev_gpio.h" name="drv_gpio.h" stamp="1541060478946" updateReferences="true"/>
+</session>

@@ -2757,6 +2757,7 @@ AIRCR_VECTKEY_MASK	./loragw_app/StdPeriph_Driver/src/misc.c	47;"	macro	file:
 AIRCR_VECTKEY_MASK	./loragw_boot/StdPeriph_Driver/src/misc.c	47;"	macro	file:
 AIRCR_VECTKEY_MASK	./loramote_app/StdPeriph_Driver/src/misc.c	47;"	macro	file:
 AIRCR_VECTKEY_MASK	./loramote_boot/StdPeriph_Driver/src/misc.c	47;"	macro	file:
+ALIGNMARK	./loramote_boot/inc/config.h	24;"	macro
 ALRH	./loragw_app/CMSIS/device/stm32f10x.h	1122;"	member	struct:__anon276
 ALRH	./loragw_boot/CMSIS/device/stm32f10x.h	1122;"	member	struct:__anon39
 ALRH	./loramote_app/CMSIS/device/stm32f10x.h	1122;"	member	struct:__anon197
@@ -2793,6 +2794,7 @@ APBAHBPrescTable	./loragw_app/StdPeriph_Driver/src/stm32f10x_rcc.c	193;"	variabl
 APBAHBPrescTable	./loragw_boot/StdPeriph_Driver/src/stm32f10x_rcc.c	193;"	variable	file:
 APBAHBPrescTable	./loramote_app/StdPeriph_Driver/src/stm32f10x_rcc.c	193;"	variable	file:
 APBAHBPrescTable	./loramote_boot/StdPeriph_Driver/src/stm32f10x_rcc.c	193;"	variable	file:
+APP_PROG_ADDRESS	./loramote_boot/inc/main.h	38;"	macro
 AR	./loragw_app/CMSIS/device/stm32f10x.h	908;"	member	struct:__anon263
 AR	./loragw_boot/CMSIS/device/stm32f10x.h	908;"	member	struct:__anon26
 AR	./loramote_app/CMSIS/device/stm32f10x.h	908;"	member	struct:__anon184
@@ -2805,10 +2807,6 @@ ARG	./loragw_app/CMSIS/device/stm32f10x.h	1136;"	member	struct:__anon277
 ARG	./loragw_boot/CMSIS/device/stm32f10x.h	1136;"	member	struct:__anon40
 ARG	./loramote_app/CMSIS/device/stm32f10x.h	1136;"	member	struct:__anon198
 ARG	./loramote_boot/CMSIS/device/stm32f10x.h	1136;"	member	struct:__anon119
-argparse	./loragw_app/Debug/ser.py	9;"	namespace
-argparse	./loragw_app/Debug/stm32flash.py	9;"	namespace
-argparse	./loramote_app/Debug/ser.py	9;"	namespace
-argparse	./loramote_app/Debug/stm32flash.py	9;"	namespace
 argparse	./tools/ser.py	9;"	namespace
 argparse	./tools/stm32flash.py	9;"	namespace
 ARR	./loragw_app/CMSIS/device/stm32f10x.h	1210;"	member	struct:__anon279
@@ -9432,8 +9430,6 @@ CLKEN_BitNumber	./loragw_app/StdPeriph_Driver/src/stm32f10x_sdio.c	46;"	macro	fi
 CLKEN_BitNumber	./loragw_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	46;"	macro	file:
 CLKEN_BitNumber	./loramote_app/StdPeriph_Driver/src/stm32f10x_sdio.c	46;"	macro	file:
 CLKEN_BitNumber	./loramote_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	46;"	macro	file:
-close	./loragw_app/Debug/stm32flash.py	419;"	member	class:Stm32bl
-close	./loramote_app/Debug/stm32flash.py	419;"	member	class:Stm32bl
 close	./tools/stm32flash.py	419;"	member	class:Stm32bl
 CMAR	./loragw_app/CMSIS/device/stm32f10x.h	803;"	member	struct:__anon259
 CMAR	./loragw_boot/CMSIS/device/stm32f10x.h	803;"	member	struct:__anon22
@@ -9443,8 +9439,6 @@ CMD	./loragw_app/CMSIS/device/stm32f10x.h	1137;"	member	struct:__anon277
 CMD	./loragw_boot/CMSIS/device/stm32f10x.h	1137;"	member	struct:__anon40
 CMD	./loramote_app/CMSIS/device/stm32f10x.h	1137;"	member	struct:__anon198
 CMD	./loramote_boot/CMSIS/device/stm32f10x.h	1137;"	member	struct:__anon119
-CMD_ACK	./loragw_app/Debug/stm32flash.py	48;"	variable	class:Stm32bl
-CMD_ACK	./loramote_app/Debug/stm32flash.py	48;"	variable	class:Stm32bl
 CMD_ACK	./tools/stm32flash.py	48;"	variable	class:Stm32bl
 CMD_ATACMD_BB	./loragw_app/StdPeriph_Driver/src/stm32f10x_sdio.c	66;"	macro	file:
 CMD_ATACMD_BB	./loragw_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	66;"	macro	file:
@@ -9458,73 +9452,35 @@ CMD_ENCMDCOMPL_BB	./loragw_app/StdPeriph_Driver/src/stm32f10x_sdio.c	58;"	macro	
 CMD_ENCMDCOMPL_BB	./loragw_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	58;"	macro	file:
 CMD_ENCMDCOMPL_BB	./loramote_app/StdPeriph_Driver/src/stm32f10x_sdio.c	58;"	macro	file:
 CMD_ENCMDCOMPL_BB	./loramote_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	58;"	macro	file:
-CMD_ERASE	./loragw_app/Debug/stm32flash.py	56;"	variable	class:Stm32bl
-CMD_ERASE	./loramote_app/Debug/stm32flash.py	56;"	variable	class:Stm32bl
 CMD_ERASE	./tools/stm32flash.py	56;"	variable	class:Stm32bl
-CMD_EXTENDED_ERASE	./loragw_app/Debug/stm32flash.py	57;"	variable	class:Stm32bl
-CMD_EXTENDED_ERASE	./loramote_app/Debug/stm32flash.py	57;"	variable	class:Stm32bl
 CMD_EXTENDED_ERASE	./tools/stm32flash.py	57;"	variable	class:Stm32bl
-CMD_GET	./loragw_app/Debug/stm32flash.py	50;"	variable	class:Stm32bl
-CMD_GET	./loramote_app/Debug/stm32flash.py	50;"	variable	class:Stm32bl
 CMD_GET	./tools/stm32flash.py	50;"	variable	class:Stm32bl
-CMD_GET_ID	./loragw_app/Debug/stm32flash.py	52;"	variable	class:Stm32bl
-CMD_GET_ID	./loramote_app/Debug/stm32flash.py	52;"	variable	class:Stm32bl
 CMD_GET_ID	./tools/stm32flash.py	52;"	variable	class:Stm32bl
-CMD_GET_VERSION	./loragw_app/Debug/stm32flash.py	51;"	variable	class:Stm32bl
-CMD_GET_VERSION	./loramote_app/Debug/stm32flash.py	51;"	variable	class:Stm32bl
 CMD_GET_VERSION	./tools/stm32flash.py	51;"	variable	class:Stm32bl
-cmd_go	./loragw_app/Debug/stm32flash.py	259;"	member	class:Stm32bl
-CMD_GO	./loragw_app/Debug/stm32flash.py	54;"	variable	class:Stm32bl
-cmd_go	./loramote_app/Debug/stm32flash.py	259;"	member	class:Stm32bl
-CMD_GO	./loramote_app/Debug/stm32flash.py	54;"	variable	class:Stm32bl
 cmd_go	./tools/stm32flash.py	259;"	member	class:Stm32bl
 CMD_GO	./tools/stm32flash.py	54;"	variable	class:Stm32bl
-CMD_INIT	./loragw_app/Debug/stm32flash.py	47;"	variable	class:Stm32bl
-CMD_INIT	./loramote_app/Debug/stm32flash.py	47;"	variable	class:Stm32bl
 CMD_INIT	./tools/stm32flash.py	47;"	variable	class:Stm32bl
 CMD_NIEN_BB	./loragw_app/StdPeriph_Driver/src/stm32f10x_sdio.c	62;"	macro	file:
 CMD_NIEN_BB	./loragw_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	62;"	macro	file:
 CMD_NIEN_BB	./loramote_app/StdPeriph_Driver/src/stm32f10x_sdio.c	62;"	macro	file:
 CMD_NIEN_BB	./loramote_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	62;"	macro	file:
-CMD_NOACK	./loragw_app/Debug/stm32flash.py	49;"	variable	class:Stm32bl
-CMD_NOACK	./loramote_app/Debug/stm32flash.py	49;"	variable	class:Stm32bl
 CMD_NOACK	./tools/stm32flash.py	49;"	variable	class:Stm32bl
 CMD_OFFSET	./loragw_app/StdPeriph_Driver/src/stm32f10x_sdio.c	52;"	macro	file:
 CMD_OFFSET	./loragw_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	52;"	macro	file:
 CMD_OFFSET	./loramote_app/StdPeriph_Driver/src/stm32f10x_sdio.c	52;"	macro	file:
 CMD_OFFSET	./loramote_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	52;"	macro	file:
-cmd_readout_protect	./loragw_app/Debug/stm32flash.py	315;"	member	class:Stm32bl
-CMD_READOUT_PROTECT	./loragw_app/Debug/stm32flash.py	60;"	variable	class:Stm32bl
-cmd_readout_protect	./loramote_app/Debug/stm32flash.py	315;"	member	class:Stm32bl
-CMD_READOUT_PROTECT	./loramote_app/Debug/stm32flash.py	60;"	variable	class:Stm32bl
 cmd_readout_protect	./tools/stm32flash.py	315;"	member	class:Stm32bl
 CMD_READOUT_PROTECT	./tools/stm32flash.py	60;"	variable	class:Stm32bl
-cmd_readout_unprotect	./loragw_app/Debug/stm32flash.py	322;"	member	class:Stm32bl
-CMD_READOUT_UNPROTECT	./loragw_app/Debug/stm32flash.py	61;"	variable	class:Stm32bl
-cmd_readout_unprotect	./loramote_app/Debug/stm32flash.py	322;"	member	class:Stm32bl
-CMD_READOUT_UNPROTECT	./loramote_app/Debug/stm32flash.py	61;"	variable	class:Stm32bl
 cmd_readout_unprotect	./tools/stm32flash.py	322;"	member	class:Stm32bl
 CMD_READOUT_UNPROTECT	./tools/stm32flash.py	61;"	variable	class:Stm32bl
-CMD_READ_MEMORY	./loragw_app/Debug/stm32flash.py	53;"	variable	class:Stm32bl
-CMD_READ_MEMORY	./loramote_app/Debug/stm32flash.py	53;"	variable	class:Stm32bl
 CMD_READ_MEMORY	./tools/stm32flash.py	53;"	variable	class:Stm32bl
 CMD_SDIOSUSPEND_BB	./loragw_app/StdPeriph_Driver/src/stm32f10x_sdio.c	54;"	macro	file:
 CMD_SDIOSUSPEND_BB	./loragw_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	54;"	macro	file:
 CMD_SDIOSUSPEND_BB	./loramote_app/StdPeriph_Driver/src/stm32f10x_sdio.c	54;"	macro	file:
 CMD_SDIOSUSPEND_BB	./loramote_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	54;"	macro	file:
-CMD_WRITE_MEMORY	./loragw_app/Debug/stm32flash.py	55;"	variable	class:Stm32bl
-CMD_WRITE_MEMORY	./loramote_app/Debug/stm32flash.py	55;"	variable	class:Stm32bl
 CMD_WRITE_MEMORY	./tools/stm32flash.py	55;"	variable	class:Stm32bl
-cmd_write_protect	./loragw_app/Debug/stm32flash.py	300;"	member	class:Stm32bl
-CMD_WRITE_PROTECT	./loragw_app/Debug/stm32flash.py	58;"	variable	class:Stm32bl
-cmd_write_protect	./loramote_app/Debug/stm32flash.py	300;"	member	class:Stm32bl
-CMD_WRITE_PROTECT	./loramote_app/Debug/stm32flash.py	58;"	variable	class:Stm32bl
 cmd_write_protect	./tools/stm32flash.py	300;"	member	class:Stm32bl
 CMD_WRITE_PROTECT	./tools/stm32flash.py	58;"	variable	class:Stm32bl
-cmd_write_unprotect	./loragw_app/Debug/stm32flash.py	309;"	member	class:Stm32bl
-CMD_WRITE_UNPROTECT	./loragw_app/Debug/stm32flash.py	59;"	variable	class:Stm32bl
-cmd_write_unprotect	./loramote_app/Debug/stm32flash.py	309;"	member	class:Stm32bl
-CMD_WRITE_UNPROTECT	./loramote_app/Debug/stm32flash.py	59;"	variable	class:Stm32bl
 cmd_write_unprotect	./tools/stm32flash.py	309;"	member	class:Stm32bl
 CMD_WRITE_UNPROTECT	./tools/stm32flash.py	59;"	variable	class:Stm32bl
 CNDTR	./loragw_app/CMSIS/device/stm32f10x.h	801;"	member	struct:__anon259
@@ -9543,11 +9499,9 @@ CNTL	./loragw_app/CMSIS/device/stm32f10x.h	1120;"	member	struct:__anon276
 CNTL	./loragw_boot/CMSIS/device/stm32f10x.h	1120;"	member	struct:__anon39
 CNTL	./loramote_app/CMSIS/device/stm32f10x.h	1120;"	member	struct:__anon197
 CNTL	./loramote_boot/CMSIS/device/stm32f10x.h	1120;"	member	struct:__anon118
-CommandNotAllowedException	./loragw_app/Debug/stm32flash.py	28;"	class
-CommandNotAllowedException	./loramote_app/Debug/stm32flash.py	28;"	class
 CommandNotAllowedException	./tools/stm32flash.py	28;"	class
-ConnectingException	./loragw_app/Debug/stm32flash.py	22;"	class
-ConnectingException	./loramote_app/Debug/stm32flash.py	22;"	class
+COMMONBUFFERLENGTH	./loramote_boot/inc/config.h	21;"	macro
+CONFIG_H_	./loramote_boot/inc/config.h	9;"	macro
 ConnectingException	./tools/stm32flash.py	22;"	class
 cooperator	./tools/testlora.py	341;"	function
 cooperator_command	./tools/testlora.py	367;"	function
@@ -10243,7 +10197,11 @@ CRC	./loragw_app/CMSIS/device/stm32f10x.h	1444;"	macro
 CRC	./loragw_boot/CMSIS/device/stm32f10x.h	1444;"	macro
 CRC	./loramote_app/CMSIS/device/stm32f10x.h	1444;"	macro
 CRC	./loramote_boot/CMSIS/device/stm32f10x.h	1444;"	macro
+crc8	./loramote_boot/inc/main.h	57;"	member	struct:SflashEnvValue
+crc8	./loramote_boot/inc/main.h	61;"	prototype	signature:(u8* chars, u8 length)
+crc8	./loramote_boot/src/main.c	69;"	function	signature:(u8* chars, u8 length)
 crc8	./tools/upgrade.py	18;"	function
+CRC8POLY	./loramote_boot/inc/main.h	41;"	macro
 CRCPR	./loragw_app/CMSIS/device/stm32f10x.h	1170;"	member	struct:__anon278
 CRCPR	./loragw_boot/CMSIS/device/stm32f10x.h	1170;"	member	struct:__anon41
 CRCPR	./loramote_app/CMSIS/device/stm32f10x.h	1170;"	member	struct:__anon199
@@ -11123,6 +11081,7 @@ Data1	./loragw_app/CMSIS/device/stm32f10x.h	931;"	member	struct:__anon264
 Data1	./loragw_boot/CMSIS/device/stm32f10x.h	931;"	member	struct:__anon27
 Data1	./loramote_app/CMSIS/device/stm32f10x.h	931;"	member	struct:__anon185
 Data1	./loramote_boot/CMSIS/device/stm32f10x.h	931;"	member	struct:__anon106
+DATA_SIZE	./loramote_boot/inc/main.h	40;"	macro
 datetime	./tools/testlora.py	19;"	namespace
 datetime	./tools/upgrade.py	15;"	namespace
 DBGAFR_LOCATION_MASK	./loragw_app/StdPeriph_Driver/src/stm32f10x_gpio.c	69;"	macro	file:
@@ -11539,6 +11498,8 @@ Default_Handler	./loragw_app/startup/startup_stm32.s	99;"	label
 Default_Handler	./loragw_boot/startup/startup_stm32.s	99;"	label
 Default_Handler	./loramote_app/startup/startup_stm32.s	99;"	label
 Default_Handler	./loramote_boot/startup/startup_stm32.s	99;"	label
+delay_1us	./loramote_boot/inc/main.h	62;"	prototype	signature:(u32 n)
+delay_1us	./loramote_boot/src/main.c	91;"	function	signature:(u32 n)
 DEMCR	./loragw_app/CMSIS/core/core_cm3.h	625;"	member	struct:__anon245
 DEMCR	./loragw_boot/CMSIS/core/core_cm3.h	625;"	member	struct:__anon8
 DEMCR	./loramote_app/CMSIS/core/core_cm3.h	625;"	member	struct:__anon166
@@ -13583,6 +13544,8 @@ DR9	./loragw_app/CMSIS/device/stm32f10x.h	589;"	member	struct:__anon250
 DR9	./loragw_boot/CMSIS/device/stm32f10x.h	589;"	member	struct:__anon13
 DR9	./loramote_app/CMSIS/device/stm32f10x.h	589;"	member	struct:__anon171
 DR9	./loramote_boot/CMSIS/device/stm32f10x.h	589;"	member	struct:__anon92
+DRV_FLASH_H_	./loramote_boot/inc/drv_flash.h	9;"	macro
+DRV_USART_H_	./loramote_boot/inc/drv_usart.h	9;"	macro
 DR_ADDRESS	./loragw_app/StdPeriph_Driver/src/stm32f10x_adc.c	140;"	macro	file:
 DR_ADDRESS	./loragw_boot/StdPeriph_Driver/src/stm32f10x_adc.c	140;"	macro	file:
 DR_ADDRESS	./loramote_app/StdPeriph_Driver/src/stm32f10x_adc.c	140;"	macro	file:
@@ -13624,6 +13587,7 @@ ENCMDCOMPL_BitNumber	./loragw_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	57;"	ma
 ENCMDCOMPL_BitNumber	./loramote_app/StdPeriph_Driver/src/stm32f10x_sdio.c	57;"	macro	file:
 ENCMDCOMPL_BitNumber	./loramote_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	57;"	macro	file:
 enter	./tools/tkex.py	50;"	function	function:createToolTip
+envFlag	./loramote_boot/inc/main.h	47;"	member	struct:SflashEnvValue
 environ	./loragw_app/src/syscalls.c	66;"	variable
 environ	./loragw_boot/src/syscalls.c	66;"	variable
 environ	./loramote_app/src/syscalls.c	66;"	variable
@@ -13632,8 +13596,6 @@ EraseTimeout	./loragw_app/StdPeriph_Driver/src/stm32f10x_flash.c	85;"	macro	file
 EraseTimeout	./loragw_boot/StdPeriph_Driver/src/stm32f10x_flash.c	85;"	macro	file:
 EraseTimeout	./loramote_app/StdPeriph_Driver/src/stm32f10x_flash.c	85;"	macro	file:
 EraseTimeout	./loramote_boot/StdPeriph_Driver/src/stm32f10x_flash.c	85;"	macro	file:
-erase_blocks	./loragw_app/Debug/stm32flash.py	410;"	member	class:Stm32bl
-erase_blocks	./loramote_app/Debug/stm32flash.py	410;"	member	class:Stm32bl
 erase_blocks	./tools/stm32flash.py	410;"	member	class:Stm32bl
 ERROR	./loragw_app/CMSIS/device/stm32f10x.h	524;"	enumerator	enum:__anon248
 ERROR	./loragw_boot/CMSIS/device/stm32f10x.h	524;"	enumerator	enum:__anon11
@@ -14827,8 +14789,6 @@ EWUP_BitNumber	./loragw_app/StdPeriph_Driver/src/stm32f10x_pwr.c	65;"	macro	file
 EWUP_BitNumber	./loragw_boot/StdPeriph_Driver/src/stm32f10x_pwr.c	65;"	macro	file:
 EWUP_BitNumber	./loramote_app/StdPeriph_Driver/src/stm32f10x_pwr.c	65;"	macro	file:
 EWUP_BitNumber	./loramote_boot/StdPeriph_Driver/src/stm32f10x_pwr.c	65;"	macro	file:
-exit_bootloader	./loragw_app/Debug/stm32flash.py	153;"	member	class:Stm32bl
-exit_bootloader	./loramote_app/Debug/stm32flash.py	153;"	member	class:Stm32bl
 exit_bootloader	./tools/stm32flash.py	153;"	member	class:Stm32bl
 EXTI	./loragw_app/CMSIS/device/stm32f10x.h	1407;"	macro
 EXTI	./loragw_boot/CMSIS/device/stm32f10x.h	1407;"	macro
@@ -15618,6 +15578,7 @@ FA1R	./loragw_app/CMSIS/device/stm32f10x.h	724;"	member	struct:__anon254
 FA1R	./loragw_boot/CMSIS/device/stm32f10x.h	724;"	member	struct:__anon17
 FA1R	./loramote_app/CMSIS/device/stm32f10x.h	724;"	member	struct:__anon175
 FA1R	./loramote_boot/CMSIS/device/stm32f10x.h	724;"	member	struct:__anon96
+FALSE	./loramote_boot/inc/config.h	14;"	macro
 FFA1R	./loragw_app/CMSIS/device/stm32f10x.h	722;"	member	struct:__anon254
 FFA1R	./loragw_boot/CMSIS/device/stm32f10x.h	722;"	member	struct:__anon17
 FFA1R	./loramote_app/CMSIS/device/stm32f10x.h	722;"	member	struct:__anon175
@@ -15795,6 +15756,10 @@ FLASH_EnableWriteProtection	./loramote_app/StdPeriph_Driver/inc/stm32f10x_flash.
 FLASH_EnableWriteProtection	./loramote_app/StdPeriph_Driver/src/stm32f10x_flash.c	975;"	function	signature:(uint32_t FLASH_Pages)
 FLASH_EnableWriteProtection	./loramote_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	379;"	prototype	signature:(uint32_t FLASH_Pages)
 FLASH_EnableWriteProtection	./loramote_boot/StdPeriph_Driver/src/stm32f10x_flash.c	975;"	function	signature:(uint32_t FLASH_Pages)
+FLASH_END_ADDR	./loramote_boot/inc/drv_flash.h	30;"	macro
+FLASH_ENV_VALUE_SECTOR	./loramote_boot/inc/drv_flash.h	32;"	macro
+flash_erase	./loramote_boot/inc/drv_flash.h	35;"	prototype	signature:(u32 sector, u32 count)
+flash_erase	./loramote_boot/src/drv_flash.c	17;"	function	signature:(u32 sector, u32 count)
 FLASH_EraseAllBank1Pages	./loragw_app/StdPeriph_Driver/inc/stm32f10x_flash.h	395;"	prototype	signature:(void)
 FLASH_EraseAllBank1Pages	./loragw_app/StdPeriph_Driver/src/stm32f10x_flash.c	555;"	function	signature:(void)
 FLASH_EraseAllBank1Pages	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	395;"	prototype	signature:(void)
@@ -15835,6 +15800,8 @@ FLASH_ErasePage	./loramote_app/StdPeriph_Driver/inc/stm32f10x_flash.h	373;"	prot
 FLASH_ErasePage	./loramote_app/StdPeriph_Driver/src/stm32f10x_flash.c	419;"	function	signature:(uint32_t Page_Address)
 FLASH_ErasePage	./loramote_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	373;"	prototype	signature:(uint32_t Page_Address)
 FLASH_ErasePage	./loramote_boot/StdPeriph_Driver/src/stm32f10x_flash.c	419;"	function	signature:(uint32_t Page_Address)
+flash_erase_disable_irq	./loramote_boot/inc/drv_flash.h	38;"	prototype	signature:(u32 sector, u32 count)
+flash_erase_disable_irq	./loramote_boot/src/drv_flash.c	51;"	function	signature:(u32 sector, u32 count)
 FLASH_ERROR_PG	./loragw_app/StdPeriph_Driver/inc/stm32f10x_flash.h	53;"	enumerator	enum:__anon287
 FLASH_ERROR_PG	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	53;"	enumerator	enum:__anon50
 FLASH_ERROR_PG	./loramote_app/StdPeriph_Driver/inc/stm32f10x_flash.h	53;"	enumerator	enum:__anon208
@@ -16011,6 +15978,8 @@ FLASH_HalfCycleAccess_Enable	./loragw_app/StdPeriph_Driver/inc/stm32f10x_flash.h
 FLASH_HalfCycleAccess_Enable	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	85;"	macro
 FLASH_HalfCycleAccess_Enable	./loramote_app/StdPeriph_Driver/inc/stm32f10x_flash.h	85;"	macro
 FLASH_HalfCycleAccess_Enable	./loramote_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	85;"	macro
+flash_init	./loramote_boot/inc/drv_flash.h	34;"	prototype	signature:()
+flash_init	./loramote_boot/src/drv_flash.c	12;"	function
 FLASH_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	184;"	enumerator	enum:IRQn
 FLASH_IRQn	./loragw_boot/CMSIS/device/stm32f10x.h	184;"	enumerator	enum:IRQn
 FLASH_IRQn	./loramote_app/CMSIS/device/stm32f10x.h	184;"	enumerator	enum:IRQn
@@ -16191,6 +16160,8 @@ FLASH_RDP_RDP	./loragw_app/CMSIS/device/stm32f10x.h	7843;"	macro
 FLASH_RDP_RDP	./loragw_boot/CMSIS/device/stm32f10x.h	7843;"	macro
 FLASH_RDP_RDP	./loramote_app/CMSIS/device/stm32f10x.h	7843;"	macro
 FLASH_RDP_RDP	./loramote_boot/CMSIS/device/stm32f10x.h	7843;"	macro
+flash_read	./loramote_boot/inc/drv_flash.h	37;"	prototype	signature:(u32 sector, u8* buffer, u32 length)
+flash_read	./loramote_boot/src/drv_flash.c	45;"	function	signature:(u32 sector, u8* buffer, u32 length)
 FLASH_ReadOutProtection	./loragw_app/StdPeriph_Driver/inc/stm32f10x_flash.h	380;"	prototype	signature:(FunctionalState NewState)
 FLASH_ReadOutProtection	./loragw_app/StdPeriph_Driver/src/stm32f10x_flash.c	1049;"	function	signature:(FunctionalState NewState)
 FLASH_ReadOutProtection	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	380;"	prototype	signature:(FunctionalState NewState)
@@ -16203,6 +16174,13 @@ FLASH_R_BASE	./loragw_app/CMSIS/device/stm32f10x.h	1355;"	macro
 FLASH_R_BASE	./loragw_boot/CMSIS/device/stm32f10x.h	1355;"	macro
 FLASH_R_BASE	./loramote_app/CMSIS/device/stm32f10x.h	1355;"	macro
 FLASH_R_BASE	./loramote_boot/CMSIS/device/stm32f10x.h	1355;"	macro
+FLASH_SECTOR_ADDR	./loramote_boot/inc/drv_flash.h	31;"	macro
+FLASH_SECTOR_NUM	./loramote_boot/inc/drv_flash.h	15;"	macro
+FLASH_SECTOR_NUM	./loramote_boot/inc/drv_flash.h	20;"	macro
+FLASH_SECTOR_NUM	./loramote_boot/inc/drv_flash.h	25;"	macro
+FLASH_SECTOR_SIZE	./loramote_boot/inc/drv_flash.h	16;"	macro
+FLASH_SECTOR_SIZE	./loramote_boot/inc/drv_flash.h	21;"	macro
+FLASH_SECTOR_SIZE	./loramote_boot/inc/drv_flash.h	26;"	macro
 FLASH_SetLatency	./loragw_app/StdPeriph_Driver/inc/stm32f10x_flash.h	368;"	prototype	signature:(uint32_t FLASH_Latency)
 FLASH_SetLatency	./loragw_app/StdPeriph_Driver/src/stm32f10x_flash.c	254;"	function	signature:(uint32_t FLASH_Latency)
 FLASH_SetLatency	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	368;"	prototype	signature:(uint32_t FLASH_Latency)
@@ -16227,9 +16205,8 @@ FLASH_SR_WRPRTERR	./loragw_app/CMSIS/device/stm32f10x.h	7809;"	macro
 FLASH_SR_WRPRTERR	./loragw_boot/CMSIS/device/stm32f10x.h	7809;"	macro
 FLASH_SR_WRPRTERR	./loramote_app/CMSIS/device/stm32f10x.h	7809;"	macro
 FLASH_SR_WRPRTERR	./loramote_boot/CMSIS/device/stm32f10x.h	7809;"	macro
-FLASH_START	./loragw_app/Debug/stm32flash.py	63;"	variable	class:Stm32bl
-FLASH_START	./loramote_app/Debug/stm32flash.py	63;"	variable	class:Stm32bl
 FLASH_START	./tools/stm32flash.py	63;"	variable	class:Stm32bl
+FLASH_START_ADDR	./loramote_boot/inc/drv_flash.h	29;"	macro
 FLASH_Status	./loragw_app/StdPeriph_Driver/inc/stm32f10x_flash.h	57;"	typedef	typeref:enum:__anon287
 FLASH_Status	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	57;"	typedef	typeref:enum:__anon50
 FLASH_Status	./loramote_app/StdPeriph_Driver/inc/stm32f10x_flash.h	57;"	typedef	typeref:enum:__anon208
@@ -16306,6 +16283,10 @@ FLASH_WaitForLastOperation	./loramote_app/StdPeriph_Driver/inc/stm32f10x_flash.h
 FLASH_WaitForLastOperation	./loramote_app/StdPeriph_Driver/src/stm32f10x_flash.c	1595;"	function	signature:(uint32_t Timeout)
 FLASH_WaitForLastOperation	./loramote_boot/StdPeriph_Driver/inc/stm32f10x_flash.h	390;"	prototype	signature:(uint32_t Timeout)
 FLASH_WaitForLastOperation	./loramote_boot/StdPeriph_Driver/src/stm32f10x_flash.c	1595;"	function	signature:(uint32_t Timeout)
+flash_write	./loramote_boot/inc/drv_flash.h	36;"	prototype	signature:(u32 sector, u8* buffer, u32 length)
+flash_write	./loramote_boot/src/drv_flash.c	30;"	function	signature:(u32 sector, u8* buffer, u32 length)
+flash_write_disable_irq	./loramote_boot/inc/drv_flash.h	39;"	prototype	signature:(u32 sector, u8* buffer, u32 length)
+flash_write_disable_irq	./loramote_boot/src/drv_flash.c	61;"	function	signature:(u32 sector, u8* buffer, u32 length)
 FLASH_WRP0_nWRP0	./loragw_app/CMSIS/device/stm32f10x.h	7860;"	macro
 FLASH_WRP0_nWRP0	./loragw_boot/CMSIS/device/stm32f10x.h	7860;"	macro
 FLASH_WRP0_nWRP0	./loramote_app/CMSIS/device/stm32f10x.h	7860;"	macro
@@ -19882,6 +19863,8 @@ FunctionalState	./loragw_app/CMSIS/device/stm32f10x.h	521;"	typedef	typeref:enum
 FunctionalState	./loragw_boot/CMSIS/device/stm32f10x.h	521;"	typedef	typeref:enum:__anon10
 FunctionalState	./loramote_app/CMSIS/device/stm32f10x.h	521;"	typedef	typeref:enum:__anon168
 FunctionalState	./loramote_boot/CMSIS/device/stm32f10x.h	521;"	typedef	typeref:enum:__anon89
+get_char_from_hex	./loramote_boot/inc/drv_usart.h	29;"	prototype	signature:(u8 value)
+get_char_from_hex	./loramote_boot/src/drv_usart.c	150;"	function	signature:(u8 value)
 GPIOA	./loragw_app/CMSIS/device/stm32f10x.h	1408;"	macro
 GPIOA	./loragw_boot/CMSIS/device/stm32f10x.h	1408;"	macro
 GPIOA	./loramote_app/CMSIS/device/stm32f10x.h	1408;"	macro
@@ -21304,6 +21287,7 @@ gui_command_loragw_ok	./tools/testlora.py	326;"	function
 gui_command_loragw_upgrade_ok	./tools/testlora.py	322;"	function
 gui_command_loramote_ok	./tools/testlora.py	318;"	function
 gui_command_setup_start	./tools/testlora.py	330;"	function
+gwIp	./loramote_boot/inc/main.h	51;"	member	struct:SflashEnvValue
 g_pfnVectors	./loragw_app/startup/startup_stm32.s	115;"	label
 g_pfnVectors	./loragw_boot/startup/startup_stm32.s	115;"	label
 g_pfnVectors	./loramote_app/startup/startup_stm32.s	115;"	label
@@ -21321,6 +21305,7 @@ HFSR	./loragw_boot/CMSIS/core/core_cm3.h	166;"	member	struct:__anon2
 HFSR	./loramote_app/CMSIS/core/core_cm3.h	166;"	member	struct:__anon160
 HFSR	./loramote_boot/CMSIS/core/core_cm3.h	166;"	member	struct:__anon81
 hidetip	./tools/tkex.py	41;"	member	class:ToolTip
+HIGH	./loramote_boot/inc/config.h	18;"	macro
 History	./loragw_app/StdPeriph_Driver/Release_Notes.html	106;"	anchor
 History	./loragw_boot/StdPeriph_Driver/Release_Notes.html	106;"	anchor
 History	./loramote_app/StdPeriph_Driver/Release_Notes.html	106;"	anchor
@@ -22726,6 +22711,7 @@ IP	./loragw_app/CMSIS/core/core_cm3.h	144;"	member	struct:__anon238
 IP	./loragw_boot/CMSIS/core/core_cm3.h	144;"	member	struct:__anon1
 IP	./loramote_app/CMSIS/core/core_cm3.h	144;"	member	struct:__anon159
 IP	./loramote_boot/CMSIS/core/core_cm3.h	144;"	member	struct:__anon80
+ip	./loramote_boot/inc/main.h	48;"	member	struct:SflashEnvValue
 IRQn	./loragw_app/CMSIS/device/stm32f10x.h	167;"	enum
 IRQn	./loragw_boot/CMSIS/device/stm32f10x.h	167;"	enum
 IRQn	./loramote_app/CMSIS/device/stm32f10x.h	167;"	enum
@@ -24558,6 +24544,8 @@ JSQR_JSQ_Set	./loragw_app/StdPeriph_Driver/src/stm32f10x_adc.c	126;"	macro	file:
 JSQR_JSQ_Set	./loragw_boot/StdPeriph_Driver/src/stm32f10x_adc.c	126;"	macro	file:
 JSQR_JSQ_Set	./loramote_app/StdPeriph_Driver/src/stm32f10x_adc.c	126;"	macro	file:
 JSQR_JSQ_Set	./loramote_boot/StdPeriph_Driver/src/stm32f10x_adc.c	126;"	macro	file:
+jumper	./loramote_boot/inc/main.h	60;"	prototype	signature:()
+jumper	./loramote_boot/src/main.c	51;"	function	signature:(void)
 KEYR	./loragw_app/CMSIS/device/stm32f10x.h	904;"	member	struct:__anon263
 KEYR	./loragw_boot/CMSIS/device/stm32f10x.h	904;"	member	struct:__anon26
 KEYR	./loramote_app/CMSIS/device/stm32f10x.h	904;"	member	struct:__anon184
@@ -24596,8 +24584,6 @@ LOAD	./loragw_app/CMSIS/core/core_cm3.h	368;"	member	struct:__anon240
 LOAD	./loragw_boot/CMSIS/core/core_cm3.h	368;"	member	struct:__anon3
 LOAD	./loramote_app/CMSIS/core/core_cm3.h	368;"	member	struct:__anon161
 LOAD	./loramote_boot/CMSIS/core/core_cm3.h	368;"	member	struct:__anon82
-log	./loragw_app/Debug/stm32flash.py	105;"	member	class:Stm32bl
-log	./loramote_app/Debug/stm32flash.py	105;"	member	class:Stm32bl
 log	./tools/stm32flash.py	105;"	member	class:Stm32bl
 LoopCopyDataInit	./loragw_app/startup/startup_stm32.s	58;"	label
 LoopCopyDataInit	./loragw_boot/startup/startup_stm32.s	58;"	label
@@ -24611,6 +24597,8 @@ LoopForever	./loragw_app/startup/startup_stm32.s	84;"	label
 LoopForever	./loragw_boot/startup/startup_stm32.s	84;"	label
 LoopForever	./loramote_app/startup/startup_stm32.s	84;"	label
 LoopForever	./loramote_boot/startup/startup_stm32.s	84;"	label
+LORABUFFERMAXLENGTH	./loramote_boot/inc/config.h	20;"	macro
+LOW	./loramote_boot/inc/config.h	19;"	macro
 LSB_MASK	./loragw_app/StdPeriph_Driver/src/stm32f10x_gpio.c	66;"	macro	file:
 LSB_MASK	./loragw_boot/StdPeriph_Driver/src/stm32f10x_gpio.c	66;"	macro	file:
 LSB_MASK	./loramote_app/StdPeriph_Driver/src/stm32f10x_gpio.c	66;"	macro	file:
@@ -24627,6 +24615,7 @@ LTR	./loragw_app/CMSIS/device/stm32f10x.h	554;"	member	struct:__anon249
 LTR	./loragw_boot/CMSIS/device/stm32f10x.h	554;"	member	struct:__anon12
 LTR	./loramote_app/CMSIS/device/stm32f10x.h	554;"	member	struct:__anon170
 LTR	./loramote_boot/CMSIS/device/stm32f10x.h	554;"	member	struct:__anon91
+mac	./loramote_boot/inc/main.h	50;"	member	struct:SflashEnvValue
 MACA0HR	./loragw_app/CMSIS/device/stm32f10x.h	832;"	member	struct:__anon261
 MACA0HR	./loragw_boot/CMSIS/device/stm32f10x.h	832;"	member	struct:__anon24
 MACA0HR	./loramote_app/CMSIS/device/stm32f10x.h	832;"	member	struct:__anon182
@@ -24707,21 +24696,16 @@ MACVLANTR	./loragw_app/CMSIS/device/stm32f10x.h	825;"	member	struct:__anon261
 MACVLANTR	./loragw_boot/CMSIS/device/stm32f10x.h	825;"	member	struct:__anon24
 MACVLANTR	./loramote_app/CMSIS/device/stm32f10x.h	825;"	member	struct:__anon182
 MACVLANTR	./loramote_boot/CMSIS/device/stm32f10x.h	825;"	member	struct:__anon103
-main	./loragw_app/Debug/hex2bin.py	10;"	function
-main	./loragw_app/Debug/ser.py	13;"	function
-main	./loragw_app/Debug/stm32flash.py	422;"	function
 main	./loragw_app/src/main.c	15;"	function	signature:(void)
 main	./loragw_boot/src/main.c	15;"	function	signature:(void)
-main	./loramote_app/Debug/hex2bin.py	10;"	function
-main	./loramote_app/Debug/ser.py	13;"	function
-main	./loramote_app/Debug/stm32flash.py	422;"	function
 main	./loramote_app/src/main.c	15;"	function	signature:(void)
-main	./loramote_boot/src/main.c	15;"	function	signature:(void)
+main	./loramote_boot/src/main.c	13;"	function	signature:(void)
 main	./tools/hex2bin.py	10;"	function
 main	./tools/ser.py	13;"	function
 main	./tools/stm32flash.py	422;"	function
 main	./tools/testlora.py	411;"	function
 main	./tools/upgrade.py	52;"	function
+MAIN_H_	./loramote_boot/inc/main.h	9;"	macro
 MAPR	./loragw_app/CMSIS/device/stm32f10x.h	1019;"	member	struct:__anon271
 MAPR	./loragw_boot/CMSIS/device/stm32f10x.h	1019;"	member	struct:__anon34
 MAPR	./loramote_app/CMSIS/device/stm32f10x.h	1019;"	member	struct:__anon192
@@ -24742,8 +24726,7 @@ MASK	./loragw_app/CMSIS/device/stm32f10x.h	1149;"	member	struct:__anon277
 MASK	./loragw_boot/CMSIS/device/stm32f10x.h	1149;"	member	struct:__anon40
 MASK	./loramote_app/CMSIS/device/stm32f10x.h	1149;"	member	struct:__anon198
 MASK	./loramote_boot/CMSIS/device/stm32f10x.h	1149;"	member	struct:__anon119
-mass_erase	./loragw_app/Debug/stm32flash.py	392;"	member	class:Stm32bl
-mass_erase	./loramote_app/Debug/stm32flash.py	392;"	member	class:Stm32bl
+mask	./loramote_boot/inc/main.h	49;"	member	struct:SflashEnvValue
 mass_erase	./tools/stm32flash.py	392;"	member	class:Stm32bl
 mBox	./tools/tkex.py	14;"	namespace
 MCR	./loragw_app/CMSIS/device/stm32f10x.h	705;"	member	struct:__anon254
@@ -25007,17 +24990,9 @@ NMI_Handler	./loragw_app/inc/stm32f10x_it.h	38;"	prototype	signature:(void)
 NMI_Handler	./loragw_boot/inc/stm32f10x_it.h	38;"	prototype	signature:(void)
 NMI_Handler	./loramote_app/inc/stm32f10x_it.h	38;"	prototype	signature:(void)
 NMI_Handler	./loramote_boot/inc/stm32f10x_it.h	38;"	prototype	signature:(void)
-NoAckCommandException	./loragw_app/Debug/stm32flash.py	37;"	class
-NoAckCommandException	./loramote_app/Debug/stm32flash.py	37;"	class
 NoAckCommandException	./tools/stm32flash.py	37;"	class
-NoAckDataException	./loragw_app/Debug/stm32flash.py	40;"	class
-NoAckDataException	./loramote_app/Debug/stm32flash.py	40;"	class
 NoAckDataException	./tools/stm32flash.py	40;"	class
-NoAckException	./loragw_app/Debug/stm32flash.py	34;"	class
-NoAckException	./loramote_app/Debug/stm32flash.py	34;"	class
 NoAckException	./tools/stm32flash.py	34;"	class
-NoAnswerException	./loragw_app/Debug/stm32flash.py	25;"	class
-NoAnswerException	./loramote_app/Debug/stm32flash.py	25;"	class
 NoAnswerException	./tools/stm32flash.py	25;"	class
 NonMaskableInt_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	170;"	enumerator	enum:IRQn
 NonMaskableInt_IRQn	./loragw_boot/CMSIS/device/stm32f10x.h	170;"	enumerator	enum:IRQn
@@ -26047,6 +26022,8 @@ ODR	./loragw_app/CMSIS/device/stm32f10x.h	1006;"	member	struct:__anon270
 ODR	./loragw_boot/CMSIS/device/stm32f10x.h	1006;"	member	struct:__anon33
 ODR	./loramote_app/CMSIS/device/stm32f10x.h	1006;"	member	struct:__anon191
 ODR	./loramote_boot/CMSIS/device/stm32f10x.h	1006;"	member	struct:__anon112
+OFF	./loramote_boot/inc/config.h	16;"	macro
+ON	./loramote_boot/inc/config.h	17;"	macro
 OPTKEYR	./loragw_app/CMSIS/device/stm32f10x.h	905;"	member	struct:__anon263
 OPTKEYR	./loragw_boot/CMSIS/device/stm32f10x.h	905;"	member	struct:__anon26
 OPTKEYR	./loramote_app/CMSIS/device/stm32f10x.h	905;"	member	struct:__anon184
@@ -26141,6 +26118,7 @@ PFR	./loragw_app/CMSIS/core/core_cm3.h	171;"	member	struct:__anon239
 PFR	./loragw_boot/CMSIS/core/core_cm3.h	171;"	member	struct:__anon2
 PFR	./loramote_app/CMSIS/core/core_cm3.h	171;"	member	struct:__anon160
 PFR	./loramote_boot/CMSIS/core/core_cm3.h	171;"	member	struct:__anon81
+pFun	./loramote_boot/inc/main.h	43;"	typedef
 PID0	./loragw_app/CMSIS/core/core_cm3.h	436;"	member	struct:__anon241
 PID0	./loragw_boot/CMSIS/core/core_cm3.h	436;"	member	struct:__anon4
 PID0	./loramote_app/CMSIS/core/core_cm3.h	436;"	member	struct:__anon162
@@ -26223,8 +26201,6 @@ PRES	./loragw_app/CMSIS/device/stm32f10x.h	740;"	member	struct:__anon255
 PRES	./loragw_boot/CMSIS/device/stm32f10x.h	740;"	member	struct:__anon18
 PRES	./loramote_app/CMSIS/device/stm32f10x.h	740;"	member	struct:__anon176
 PRES	./loramote_boot/CMSIS/device/stm32f10x.h	740;"	member	struct:__anon97
-print_buffer	./loragw_app/Debug/stm32flash.py	84;"	member	class:Stm32bl
-print_buffer	./loramote_app/Debug/stm32flash.py	84;"	member	class:Stm32bl
 print_buffer	./tools/stm32flash.py	84;"	member	class:Stm32bl
 PRLH	./loragw_app/CMSIS/device/stm32f10x.h	1110;"	member	struct:__anon276
 PRLH	./loragw_boot/CMSIS/device/stm32f10x.h	1110;"	member	struct:__anon39
@@ -29472,8 +29448,6 @@ READ_BIT	./loragw_app/CMSIS/device/stm32f10x.h	8308;"	macro
 READ_BIT	./loragw_boot/CMSIS/device/stm32f10x.h	8308;"	macro
 READ_BIT	./loramote_app/CMSIS/device/stm32f10x.h	8308;"	macro
 READ_BIT	./loramote_boot/CMSIS/device/stm32f10x.h	8308;"	macro
-read_memory	./loragw_app/Debug/stm32flash.py	329;"	member	class:Stm32bl
-read_memory	./loramote_app/Debug/stm32flash.py	329;"	member	class:Stm32bl
 read_memory	./tools/stm32flash.py	329;"	member	class:Stm32bl
 READ_REG	./loragw_app/CMSIS/device/stm32f10x.h	8314;"	macro
 READ_REG	./loragw_boot/CMSIS/device/stm32f10x.h	8314;"	macro
@@ -30411,6 +30385,9 @@ s16	./loragw_app/CMSIS/device/stm32f10x.h	488;"	typedef
 s16	./loragw_boot/CMSIS/device/stm32f10x.h	488;"	typedef
 s16	./loramote_app/CMSIS/device/stm32f10x.h	488;"	typedef
 s16	./loramote_boot/CMSIS/device/stm32f10x.h	488;"	typedef
+s1Dip	./loramote_boot/inc/main.h	52;"	member	struct:SflashEnvValue
+s1Dport	./loramote_boot/inc/main.h	53;"	member	struct:SflashEnvValue
+s1Sport	./loramote_boot/inc/main.h	54;"	member	struct:SflashEnvValue
 s32	./loragw_app/CMSIS/device/stm32f10x.h	487;"	typedef
 s32	./loragw_boot/CMSIS/device/stm32f10x.h	487;"	typedef
 s32	./loramote_app/CMSIS/device/stm32f10x.h	487;"	typedef
@@ -32443,14 +32420,8 @@ SDIO_WriteData	./loramote_boot/StdPeriph_Driver/inc/stm32f10x_sdio.h	499;"	proto
 SDIO_WriteData	./loramote_boot/StdPeriph_Driver/src/stm32f10x_sdio.c	508;"	function	signature:(uint32_t Data)
 select	./tools/testlora.py	14;"	namespace
 select	./tools/upgrade.py	10;"	namespace
-serial	./loragw_app/Debug/ser.py	10;"	namespace
-serial	./loragw_app/Debug/stm32flash.py	10;"	namespace
-serial	./loramote_app/Debug/ser.py	10;"	namespace
-serial	./loramote_app/Debug/stm32flash.py	10;"	namespace
 serial	./tools/ser.py	10;"	namespace
 serial	./tools/stm32flash.py	10;"	namespace
-SerialException	./loragw_app/Debug/stm32flash.py	19;"	class
-SerialException	./loramote_app/Debug/stm32flash.py	19;"	class
 SerialException	./tools/stm32flash.py	19;"	class
 SET	./loragw_app/CMSIS/device/stm32f10x.h	519;"	enumerator	enum:__anon246
 SET	./loragw_boot/CMSIS/device/stm32f10x.h	519;"	enumerator	enum:__anon9
@@ -32528,6 +32499,7 @@ sFilterRegister	./loramote_app/CMSIS/device/stm32f10x.h	727;"	member	struct:__an
 sFilterRegister	./loramote_app/CMSIS/device/stm32f10x.h	729;"	member	struct:__anon175
 sFilterRegister	./loramote_boot/CMSIS/device/stm32f10x.h	727;"	member	struct:__anon96
 sFilterRegister	./loramote_boot/CMSIS/device/stm32f10x.h	729;"	member	struct:__anon96
+SflashEnvValue	./loramote_boot/inc/main.h	45;"	struct
 SHCSR	./loragw_app/CMSIS/core/core_cm3.h	164;"	member	struct:__anon239
 SHCSR	./loragw_boot/CMSIS/core/core_cm3.h	164;"	member	struct:__anon2
 SHCSR	./loramote_app/CMSIS/core/core_cm3.h	164;"	member	struct:__anon160
@@ -33366,12 +33338,10 @@ STIR	./loragw_app/CMSIS/core/core_cm3.h	146;"	member	struct:__anon238
 STIR	./loragw_boot/CMSIS/core/core_cm3.h	146;"	member	struct:__anon1
 STIR	./loramote_app/CMSIS/core/core_cm3.h	146;"	member	struct:__anon159
 STIR	./loramote_boot/CMSIS/core/core_cm3.h	146;"	member	struct:__anon80
-Stm32bl	./loragw_app/Debug/stm32flash.py	44;"	class
-Stm32bl	./loramote_app/Debug/stm32flash.py	44;"	class
 Stm32bl	./tools/stm32flash.py	44;"	class
-Stm32BLException	./loragw_app/Debug/stm32flash.py	16;"	class
-Stm32BLException	./loramote_app/Debug/stm32flash.py	16;"	class
 Stm32BLException	./tools/stm32flash.py	16;"	class
+STM32F103C8T6	./loramote_boot/inc/config.h	26;"	macro
+STM32F103RCT6	./loramote_boot/inc/config.h	28;"	macro
 sTxMailBox	./loragw_app/CMSIS/device/stm32f10x.h	714;"	member	struct:__anon254
 sTxMailBox	./loragw_boot/CMSIS/device/stm32f10x.h	714;"	member	struct:__anon17
 sTxMailBox	./loramote_app/CMSIS/device/stm32f10x.h	714;"	member	struct:__anon175
@@ -33397,10 +33367,6 @@ SWTRIGR	./loragw_app/CMSIS/device/stm32f10x.h	767;"	member	struct:__anon257
 SWTRIGR	./loragw_boot/CMSIS/device/stm32f10x.h	767;"	member	struct:__anon20
 SWTRIGR	./loramote_app/CMSIS/device/stm32f10x.h	767;"	member	struct:__anon178
 SWTRIGR	./loramote_boot/CMSIS/device/stm32f10x.h	767;"	member	struct:__anon99
-sys	./loragw_app/Debug/hex2bin.py	8;"	namespace
-sys	./loragw_app/Debug/ser.py	11;"	namespace
-sys	./loramote_app/Debug/hex2bin.py	8;"	namespace
-sys	./loramote_app/Debug/ser.py	11;"	namespace
 sys	./tools/hex2bin.py	8;"	namespace
 sys	./tools/ser.py	11;"	namespace
 sys	./tools/testlora.py	15;"	namespace
@@ -33626,6 +33592,8 @@ TAMPER_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	182;"	enumerator	enum:IRQn
 TAMPER_IRQn	./loragw_boot/CMSIS/device/stm32f10x.h	182;"	enumerator	enum:IRQn
 TAMPER_IRQn	./loramote_app/CMSIS/device/stm32f10x.h	182;"	enumerator	enum:IRQn
 TAMPER_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	182;"	enumerator	enum:IRQn
+TASKINTERVALTIME	./loramote_boot/inc/config.h	23;"	macro
+TASKSTARTUPDELAY	./loramote_boot/inc/config.h	22;"	macro
 TCR	./loragw_app/CMSIS/core/core_cm3.h	423;"	member	struct:__anon241
 TCR	./loragw_boot/CMSIS/core/core_cm3.h	423;"	member	struct:__anon4
 TCR	./loramote_app/CMSIS/core/core_cm3.h	423;"	member	struct:__anon162
@@ -34152,10 +34120,6 @@ TIM9_BASE	./loragw_app/CMSIS/device/stm32f10x.h	1332;"	macro
 TIM9_BASE	./loragw_boot/CMSIS/device/stm32f10x.h	1332;"	macro
 TIM9_BASE	./loramote_app/CMSIS/device/stm32f10x.h	1332;"	macro
 TIM9_BASE	./loramote_boot/CMSIS/device/stm32f10x.h	1332;"	macro
-time	./loragw_app/Debug/ser.py	8;"	namespace
-time	./loragw_app/Debug/stm32flash.py	8;"	namespace
-time	./loramote_app/Debug/ser.py	8;"	namespace
-time	./loramote_app/Debug/stm32flash.py	8;"	namespace
 time	./tools/ser.py	8;"	namespace
 time	./tools/stm32flash.py	8;"	namespace
 time	./tools/testlora.py	13;"	namespace
@@ -36621,6 +36585,7 @@ TRISE	./loragw_app/CMSIS/device/stm32f10x.h	1046;"	member	struct:__anon272
 TRISE	./loragw_boot/CMSIS/device/stm32f10x.h	1046;"	member	struct:__anon35
 TRISE	./loramote_app/CMSIS/device/stm32f10x.h	1046;"	member	struct:__anon193
 TRISE	./loramote_boot/CMSIS/device/stm32f10x.h	1046;"	member	struct:__anon114
+TRUE	./loramote_boot/inc/config.h	15;"	macro
 TSOM_BitNumber	./loragw_app/StdPeriph_Driver/src/stm32f10x_cec.c	66;"	macro	file:
 TSOM_BitNumber	./loragw_boot/StdPeriph_Driver/src/stm32f10x_cec.c	66;"	macro	file:
 TSOM_BitNumber	./loramote_app/StdPeriph_Driver/src/stm32f10x_cec.c	66;"	macro	file:
@@ -36733,9 +36698,9 @@ udpsocket_command_close	./tools/testlora.py	403;"	function
 udpsocket_command_rx_tx	./tools/testlora.py	385;"	function
 udpsocket_command_set	./tools/testlora.py	44;"	variable
 udpsocket_command_setup_start	./tools/testlora.py	396;"	function
-UnexpectedAnswerException	./loragw_app/Debug/stm32flash.py	31;"	class
-UnexpectedAnswerException	./loramote_app/Debug/stm32flash.py	31;"	class
 UnexpectedAnswerException	./tools/stm32flash.py	31;"	class
+UPGRADE_DATA_ADDRESS	./loramote_boot/inc/main.h	37;"	macro
+upgrade_flag	./loramote_boot/inc/main.h	56;"	member	struct:SflashEnvValue
 UsageFault_Handler	./loragw_app/inc/stm32f10x_it.h	42;"	prototype	signature:(void)
 UsageFault_Handler	./loragw_boot/inc/stm32f10x_it.h	42;"	prototype	signature:(void)
 UsageFault_Handler	./loramote_app/inc/stm32f10x_it.h	42;"	prototype	signature:(void)
@@ -36752,6 +36717,10 @@ USART1_BASE	./loragw_app/CMSIS/device/stm32f10x.h	1327;"	macro
 USART1_BASE	./loragw_boot/CMSIS/device/stm32f10x.h	1327;"	macro
 USART1_BASE	./loramote_app/CMSIS/device/stm32f10x.h	1327;"	macro
 USART1_BASE	./loramote_boot/CMSIS/device/stm32f10x.h	1327;"	macro
+usart1_init	./loramote_boot/inc/drv_usart.h	19;"	prototype	signature:(u32 baudRate)
+usart1_init	./loramote_boot/src/drv_usart.c	16;"	function	signature:(u32 baudRate)
+USART1_IRQHandler	./loramote_boot/inc/drv_usart.h	20;"	prototype	signature:()
+USART1_IRQHandler	./loramote_boot/src/drv_usart.c	51;"	function	signature:(void)
 USART1_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	215;"	enumerator	enum:IRQn
 USART1_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	234;"	enumerator	enum:IRQn
 USART1_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	263;"	enumerator	enum:IRQn
@@ -36784,6 +36753,7 @@ USART1_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	317;"	enumerator	enum:IRQn
 USART1_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	358;"	enumerator	enum:IRQn
 USART1_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	402;"	enumerator	enum:IRQn
 USART1_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	447;"	enumerator	enum:IRQn
+USART1_IRQ_call	./loramote_boot/inc/drv_usart.h	15;"	variable
 USART2	./loragw_app/CMSIS/device/stm32f10x.h	1394;"	macro
 USART2	./loragw_boot/CMSIS/device/stm32f10x.h	1394;"	macro
 USART2	./loramote_app/CMSIS/device/stm32f10x.h	1394;"	macro
@@ -36792,6 +36762,10 @@ USART2_BASE	./loragw_app/CMSIS/device/stm32f10x.h	1300;"	macro
 USART2_BASE	./loragw_boot/CMSIS/device/stm32f10x.h	1300;"	macro
 USART2_BASE	./loramote_app/CMSIS/device/stm32f10x.h	1300;"	macro
 USART2_BASE	./loramote_boot/CMSIS/device/stm32f10x.h	1300;"	macro
+usart2_init	./loramote_boot/inc/drv_usart.h	21;"	prototype	signature:(u32 baudRate)
+usart2_init	./loramote_boot/src/drv_usart.c	59;"	function	signature:(u32 baudRate)
+USART2_IRQHandler	./loramote_boot/inc/drv_usart.h	22;"	prototype	signature:()
+USART2_IRQHandler	./loramote_boot/src/drv_usart.c	94;"	function	signature:(void)
 USART2_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	216;"	enumerator	enum:IRQn
 USART2_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	235;"	enumerator	enum:IRQn
 USART2_IRQn	./loragw_app/CMSIS/device/stm32f10x.h	264;"	enumerator	enum:IRQn
@@ -36824,6 +36798,7 @@ USART2_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	318;"	enumerator	enum:IRQn
 USART2_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	359;"	enumerator	enum:IRQn
 USART2_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	403;"	enumerator	enum:IRQn
 USART2_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	448;"	enumerator	enum:IRQn
+USART2_IRQ_call	./loramote_boot/inc/drv_usart.h	16;"	variable
 USART3	./loragw_app/CMSIS/device/stm32f10x.h	1395;"	macro
 USART3	./loragw_boot/CMSIS/device/stm32f10x.h	1395;"	macro
 USART3	./loramote_app/CMSIS/device/stm32f10x.h	1395;"	macro
@@ -36856,6 +36831,7 @@ USART3_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	319;"	enumerator	enum:IRQn
 USART3_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	360;"	enumerator	enum:IRQn
 USART3_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	404;"	enumerator	enum:IRQn
 USART3_IRQn	./loramote_boot/CMSIS/device/stm32f10x.h	449;"	enumerator	enum:IRQn
+USARTX	./loramote_boot/inc/drv_usart.h	13;"	macro
 USART_BaudRate	./loragw_app/StdPeriph_Driver/inc/stm32f10x_usart.h	52;"	member	struct:__anon311
 USART_BaudRate	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_usart.h	52;"	member	struct:__anon74
 USART_BaudRate	./loramote_app/StdPeriph_Driver/inc/stm32f10x_usart.h	52;"	member	struct:__anon232
@@ -37258,6 +37234,8 @@ USART_Init	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_usart.h	366;"	prototype	
 USART_Init	./loragw_boot/StdPeriph_Driver/src/stm32f10x_usart.c	176;"	function	signature:(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
 USART_Init	./loramote_app/StdPeriph_Driver/inc/stm32f10x_usart.h	366;"	prototype	signature:(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
 USART_Init	./loramote_app/StdPeriph_Driver/src/stm32f10x_usart.c	176;"	function	signature:(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
+usart_init	./loramote_boot/inc/drv_usart.h	18;"	prototype	signature:()
+usart_init	./loramote_boot/src/drv_usart.c	10;"	function
 USART_Init	./loramote_boot/StdPeriph_Driver/inc/stm32f10x_usart.h	366;"	prototype	signature:(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
 USART_Init	./loramote_boot/StdPeriph_Driver/src/stm32f10x_usart.c	176;"	function	signature:(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
 USART_InitTypeDef	./loragw_app/StdPeriph_Driver/inc/stm32f10x_usart.h	76;"	typedef	typeref:struct:__anon311
@@ -37452,6 +37430,18 @@ USART_SendData	./loramote_app/StdPeriph_Driver/inc/stm32f10x_usart.h	378;"	proto
 USART_SendData	./loramote_app/StdPeriph_Driver/src/stm32f10x_usart.c	592;"	function	signature:(USART_TypeDef* USARTx, uint16_t Data)
 USART_SendData	./loramote_boot/StdPeriph_Driver/inc/stm32f10x_usart.h	378;"	prototype	signature:(USART_TypeDef* USARTx, uint16_t Data)
 USART_SendData	./loramote_boot/StdPeriph_Driver/src/stm32f10x_usart.c	592;"	function	signature:(USART_TypeDef* USARTx, uint16_t Data)
+usart_send_byte	./loramote_boot/inc/drv_usart.h	23;"	prototype	signature:(USART_TypeDef* USARTx, char ch)
+usart_send_byte	./loramote_boot/src/drv_usart.c	102;"	function	signature:(USART_TypeDef* USARTx, char ch)
+usart_send_string	./loramote_boot/inc/drv_usart.h	27;"	prototype	signature:(char* pString)
+usart_send_string	./loramote_boot/src/drv_usart.c	133;"	function	signature:(char* pString)
+usart_send_u16	./loramote_boot/inc/drv_usart.h	25;"	prototype	signature:(u16 value)
+usart_send_u16	./loramote_boot/src/drv_usart.c	119;"	function	signature:(u16 value)
+usart_send_u32	./loramote_boot/inc/drv_usart.h	26;"	prototype	signature:(u32 value)
+usart_send_u32	./loramote_boot/src/drv_usart.c	125;"	function	signature:(u32 value)
+usart_send_u8	./loramote_boot/inc/drv_usart.h	24;"	prototype	signature:(u8 value)
+usart_send_u8	./loramote_boot/src/drv_usart.c	108;"	function	signature:(u8 value)
+usart_send_u8_array	./loramote_boot/inc/drv_usart.h	28;"	prototype	signature:(u8* data, u32 length)
+usart_send_u8_array	./loramote_boot/src/drv_usart.c	141;"	function	signature:(u8* data, u32 length)
 USART_SetAddress	./loragw_app/StdPeriph_Driver/inc/stm32f10x_usart.h	373;"	prototype	signature:(USART_TypeDef* USARTx, uint8_t USART_Address)
 USART_SetAddress	./loragw_app/StdPeriph_Driver/src/stm32f10x_usart.c	476;"	function	signature:(USART_TypeDef* USARTx, uint8_t USART_Address)
 USART_SetAddress	./loragw_boot/StdPeriph_Driver/inc/stm32f10x_usart.h	373;"	prototype	signature:(USART_TypeDef* USARTx, uint8_t USART_Address)
@@ -39249,8 +39239,7 @@ VECT_TAB_OFFSET	./loragw_app/src/system_stm32f10x.c	128;"	macro	file:
 VECT_TAB_OFFSET	./loragw_boot/src/system_stm32f10x.c	128;"	macro	file:
 VECT_TAB_OFFSET	./loramote_app/src/system_stm32f10x.c	128;"	macro	file:
 VECT_TAB_OFFSET	./loramote_boot/src/system_stm32f10x.c	128;"	macro	file:
-VERSION_STR	./loragw_app/Debug/stm32flash.py	13;"	variable
-VERSION_STR	./loramote_app/Debug/stm32flash.py	13;"	variable
+ver	./loramote_boot/inc/main.h	55;"	member	struct:SflashEnvValue
 VERSION_STR	./tools/stm32flash.py	13;"	variable
 vs16	./loragw_app/CMSIS/device/stm32f10x.h	496;"	typedef
 vs16	./loragw_boot/CMSIS/device/stm32f10x.h	496;"	typedef
@@ -39305,11 +39294,7 @@ vuc8	./loragw_boot/CMSIS/device/stm32f10x.h	517;"	typedef
 vuc8	./loramote_app/CMSIS/device/stm32f10x.h	517;"	typedef
 vuc8	./loramote_boot/CMSIS/device/stm32f10x.h	517;"	typedef
 win	./tools/tkex.py	58;"	variable
-write_file	./loragw_app/Debug/stm32flash.py	364;"	member	class:Stm32bl
-write_file	./loramote_app/Debug/stm32flash.py	364;"	member	class:Stm32bl
 write_file	./tools/stm32flash.py	364;"	member	class:Stm32bl
-write_memory	./loragw_app/Debug/stm32flash.py	354;"	member	class:Stm32bl
-write_memory	./loramote_app/Debug/stm32flash.py	354;"	member	class:Stm32bl
 write_memory	./tools/stm32flash.py	354;"	member	class:Stm32bl
 WRITE_REG	./loragw_app/CMSIS/device/stm32f10x.h	8312;"	macro
 WRITE_REG	./loragw_boot/CMSIS/device/stm32f10x.h	8312;"	macro
@@ -39543,38 +39528,16 @@ _close	./loragw_app/src/syscalls.c	137;"	function	signature:(int file)
 _close	./loragw_boot/src/syscalls.c	137;"	function	signature:(int file)
 _close	./loramote_app/src/syscalls.c	137;"	function	signature:(int file)
 _close	./loramote_boot/src/syscalls.c	137;"	function	signature:(int file)
-_cmd_erase	./loragw_app/Debug/stm32flash.py	274;"	member	class:Stm32bl
-_cmd_erase	./loramote_app/Debug/stm32flash.py	274;"	member	class:Stm32bl
 _cmd_erase	./tools/stm32flash.py	274;"	member	class:Stm32bl
-_cmd_extended_erase	./loragw_app/Debug/stm32flash.py	286;"	member	class:Stm32bl
-_cmd_extended_erase	./loramote_app/Debug/stm32flash.py	286;"	member	class:Stm32bl
 _cmd_extended_erase	./tools/stm32flash.py	286;"	member	class:Stm32bl
-_cmd_get	./loragw_app/Debug/stm32flash.py	213;"	member	class:Stm32bl
-_cmd_get	./loramote_app/Debug/stm32flash.py	213;"	member	class:Stm32bl
 _cmd_get	./tools/stm32flash.py	213;"	member	class:Stm32bl
-_cmd_get_id	./loragw_app/Debug/stm32flash.py	241;"	member	class:Stm32bl
-_cmd_get_id	./loramote_app/Debug/stm32flash.py	241;"	member	class:Stm32bl
 _cmd_get_id	./tools/stm32flash.py	241;"	member	class:Stm32bl
-_cmd_get_version	./loragw_app/Debug/stm32flash.py	227;"	member	class:Stm32bl
-_cmd_get_version	./loramote_app/Debug/stm32flash.py	227;"	member	class:Stm32bl
 _cmd_get_version	./tools/stm32flash.py	227;"	member	class:Stm32bl
-_cmd_read_memory	./loragw_app/Debug/stm32flash.py	251;"	member	class:Stm32bl
-_cmd_read_memory	./loramote_app/Debug/stm32flash.py	251;"	member	class:Stm32bl
 _cmd_read_memory	./tools/stm32flash.py	251;"	member	class:Stm32bl
-_cmd_write_memory	./loragw_app/Debug/stm32flash.py	266;"	member	class:Stm32bl
-_cmd_write_memory	./loramote_app/Debug/stm32flash.py	266;"	member	class:Stm32bl
 _cmd_write_memory	./tools/stm32flash.py	266;"	member	class:Stm32bl
-_connect	./loragw_app/Debug/stm32flash.py	140;"	member	class:Stm32bl
-_connect	./loramote_app/Debug/stm32flash.py	140;"	member	class:Stm32bl
 _connect	./tools/stm32flash.py	140;"	member	class:Stm32bl
-_convert_16bit	./loragw_app/Debug/stm32flash.py	207;"	member	class:Stm32bl
-_convert_16bit	./loramote_app/Debug/stm32flash.py	207;"	member	class:Stm32bl
 _convert_16bit	./tools/stm32flash.py	207;"	member	class:Stm32bl
-_convert_32bit	./loragw_app/Debug/stm32flash.py	198;"	member	class:Stm32bl
-_convert_32bit	./loramote_app/Debug/stm32flash.py	198;"	member	class:Stm32bl
 _convert_32bit	./tools/stm32flash.py	198;"	member	class:Stm32bl
-_convert_version	./loragw_app/Debug/stm32flash.py	194;"	member	class:Stm32bl
-_convert_version	./loramote_app/Debug/stm32flash.py	194;"	member	class:Stm32bl
 _convert_version	./tools/stm32flash.py	194;"	member	class:Stm32bl
 _execve	./loragw_app/src/syscalls.c	200;"	function	signature:(char *name, char **argv, char **env)
 _execve	./loragw_boot/src/syscalls.c	200;"	function	signature:(char *name, char **argv, char **env)
@@ -39621,25 +39584,17 @@ _open	./loragw_boot/src/syscalls.c	159;"	function	signature:(char *path, int fla
 _open	./loramote_app/src/syscalls.c	159;"	function	signature:(char *path, int flags, ...)
 _open	./loramote_boot/src/syscalls.c	159;"	function	signature:(char *path, int flags, ...)
 _quit	./tools/tkex.py	243;"	function
-_read	./loragw_app/Debug/stm32flash.py	122;"	member	class:Stm32bl
 _read	./loragw_app/src/syscalls.c	91;"	function	signature:(int file, char *ptr, int len)
 _read	./loragw_boot/src/syscalls.c	91;"	function	signature:(int file, char *ptr, int len)
-_read	./loramote_app/Debug/stm32flash.py	122;"	member	class:Stm32bl
 _read	./loramote_app/src/syscalls.c	91;"	function	signature:(int file, char *ptr, int len)
 _read	./loramote_boot/src/syscalls.c	91;"	function	signature:(int file, char *ptr, int len)
 _read	./tools/stm32flash.py	122;"	member	class:Stm32bl
-_reset_mcu	./loragw_app/Debug/stm32flash.py	131;"	member	class:Stm32bl
-_reset_mcu	./loramote_app/Debug/stm32flash.py	131;"	member	class:Stm32bl
 _reset_mcu	./tools/stm32flash.py	131;"	member	class:Stm32bl
 _sbrk	./loragw_app/src/syscalls.c	114;"	function	signature:(int incr)
 _sbrk	./loragw_boot/src/syscalls.c	114;"	function	signature:(int incr)
 _sbrk	./loramote_app/src/syscalls.c	114;"	function	signature:(int incr)
 _sbrk	./loramote_boot/src/syscalls.c	114;"	function	signature:(int incr)
-_send_command	./loragw_app/Debug/stm32flash.py	172;"	member	class:Stm32bl
-_send_command	./loramote_app/Debug/stm32flash.py	172;"	member	class:Stm32bl
 _send_command	./tools/stm32flash.py	172;"	member	class:Stm32bl
-_send_data	./loragw_app/Debug/stm32flash.py	185;"	member	class:Stm32bl
-_send_data	./loramote_app/Debug/stm32flash.py	185;"	member	class:Stm32bl
 _send_data	./tools/stm32flash.py	185;"	member	class:Stm32bl
 _spin	./tools/tkex.py	114;"	function
 _spin2	./tools/tkex.py	119;"	function
@@ -39647,8 +39602,6 @@ _stat	./loragw_app/src/syscalls.c	182;"	function	signature:(char *file, struct s
 _stat	./loragw_boot/src/syscalls.c	182;"	function	signature:(char *file, struct stat *st)
 _stat	./loramote_app/src/syscalls.c	182;"	function	signature:(char *file, struct stat *st)
 _stat	./loramote_boot/src/syscalls.c	182;"	function	signature:(char *file, struct stat *st)
-_talk	./loragw_app/Debug/stm32flash.py	157;"	member	class:Stm32bl
-_talk	./loramote_app/Debug/stm32flash.py	157;"	member	class:Stm32bl
 _talk	./tools/stm32flash.py	157;"	member	class:Stm32bl
 _times	./loragw_app/src/syscalls.c	177;"	function	signature:(struct tms *buf)
 _times	./loragw_boot/src/syscalls.c	177;"	function	signature:(struct tms *buf)
@@ -39662,10 +39615,8 @@ _wait	./loragw_app/src/syscalls.c	165;"	function	signature:(int *status)
 _wait	./loragw_boot/src/syscalls.c	165;"	function	signature:(int *status)
 _wait	./loramote_app/src/syscalls.c	165;"	function	signature:(int *status)
 _wait	./loramote_boot/src/syscalls.c	165;"	function	signature:(int *status)
-_write	./loragw_app/Debug/stm32flash.py	117;"	member	class:Stm32bl
 _write	./loragw_app/src/syscalls.c	103;"	function	signature:(int file, char *ptr, int len)
 _write	./loragw_boot/src/syscalls.c	103;"	function	signature:(int file, char *ptr, int len)
-_write	./loramote_app/Debug/stm32flash.py	117;"	member	class:Stm32bl
 _write	./loramote_app/src/syscalls.c	103;"	function	signature:(int file, char *ptr, int len)
 _write	./loramote_boot/src/syscalls.c	103;"	function	signature:(int file, char *ptr, int len)
 _write	./tools/stm32flash.py	117;"	member	class:Stm32bl
@@ -39945,8 +39896,6 @@ __I	./loramote_app/CMSIS/core/core_cm3.h	111;"	macro
 __I	./loramote_app/CMSIS/core/core_cm3.h	113;"	macro
 __I	./loramote_boot/CMSIS/core/core_cm3.h	111;"	macro
 __I	./loramote_boot/CMSIS/core/core_cm3.h	113;"	macro
-__init__	./loragw_app/Debug/stm32flash.py	65;"	member	class:Stm32bl
-__init__	./loramote_app/Debug/stm32flash.py	65;"	member	class:Stm32bl
 __init__	./tools/stm32flash.py	65;"	member	class:Stm32bl
 __init__	./tools/tkex.py	18;"	member	class:ToolTip
 __INLINE	./loragw_app/CMSIS/core/core_cm3.c	29;"	macro	file:

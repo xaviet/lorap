@@ -1,0 +1,40 @@
+/*
+ * config.h
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#ifndef CONFIG_H_
+#define CONFIG_H_
+
+#include "stm32f10x.h"
+
+//|--------------|
+//|flask_max_addr|
+//|              |  env data (last sector)
+//|  0x08XXXXX   |
+//|--------------|
+//|              |
+//|              |  empty (?)
+//|              |
+//|--------------|
+//|  0x0800fbff  |
+//|              |  upgrade data(26K Bytes)
+//|  0x08009400  |
+//|--------------|
+//|  0x080093ff  |
+//|              |  app prog(26K Bytes)
+//|  0x08002c00  |
+//|--------------|
+//|  0x08001fff  |
+//|              |  bootloader(11K Bytes)
+//|  0x08000000  |
+//----------------
+#define UPGRADE_DATA_ADDRESS ((void*)0x08009400)
+#define APP_PROG_ADDRESS ((void*)0x08002C00)
+
+#define DATA_SIZE ((u32)(26 * 1024))
+#define CRC8POLY 0x07 // // X8 + X2 + X1 + 1
+
+#endif /* CONFIG_H_ */

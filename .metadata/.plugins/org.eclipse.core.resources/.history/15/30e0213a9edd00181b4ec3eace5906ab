@@ -1,0 +1,16 @@
+/*
+ * main.h
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#ifndef MAIN_H_
+#define MAIN_H_
+
+#include "global.h"
+
+typedef void (*pFun)();
+void jumper();
+
+#endif /* MAIN_H_ */

@@ -1,0 +1,17 @@
+/*
+ * main.h
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#ifndef MAIN_H_
+#define MAIN_H_
+
+#include "global.h"
+
+void jumper();
+u8 crc8(u8* chars, u8 length);
+void delay_1us(u32 n);
+
+#endif /* MAIN_H_ */

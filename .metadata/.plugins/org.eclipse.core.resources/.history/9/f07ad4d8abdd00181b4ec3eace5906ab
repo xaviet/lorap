@@ -1,0 +1,39 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#include "main.h"
+#include "drv_usart.h"
+
+int main(void)
+{
+  init();
+  loop();
+}
+
+void init()
+{
+  // 外设使能时钟
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+//  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+
+  init_usart();
+}
+
+void loop()
+{
+  while(TRUE)
+  {
+    usart_send_string("Hi\r\n");
+    delay_1us(1000000);
+  }
+}
+
+void jumper()
+{
+
+}

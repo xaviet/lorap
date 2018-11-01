@@ -1,0 +1,33 @@
+/*
+ * drv_gpio.c
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#include "drv_gpio.h"
+
+void init_gpio()
+{
+  led_init();
+}
+
+void led_init()
+{
+  GPIO_InitTypeDef GPIO_InitStructure;
+   GPIO_InitStructure.GPIO_Pin = LEDPIN;
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+   GPIO_Init(LEDGPIO, &GPIO_InitStructure);
+   for(int i = 0; i < 10; i++)
+   {
+     led_set(ON);
+     delay_1us(32768);
+     led_set(OFF);
+     delay_1us(32768);
+   }
+   GPIO_InitStructure.GPIO_Pin = REBOOTPIN;
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+   GPIO_Init(REBOOTGPIO, &GPIO_InitStructure);
+}

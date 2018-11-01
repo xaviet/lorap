@@ -1,0 +1,37 @@
+/*
+ * tools_lib.c
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#include "tools_lib.h"
+
+u8 crc8(u8* chars, u8 length)
+{
+  u8 rt = 0x00;
+  u8 i;
+  while(length--)
+  {
+    rt = (u8)(((u32)rt ^ (*chars++)) & 0xff);
+    for(i = 8; i > 0; --i)
+    {
+      if(rt & 0x80)
+      {
+        rt = (u8)((((u32)rt << 1) ^ CRC8POLY) & 0xff);
+      }
+      else
+      {
+        rt = (u8)(((u32)rt << 1) & 0xff);
+      }
+    }
+  }
+  return(rt);
+}
+
+void delay_1us(u32 n)
+{
+  u32 i = 8 * n;
+  while(i--);
+}
+

@@ -1,0 +1,13 @@
+/*
+ * drv_usart.c
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#include "drv_usart.h"
+
+void usart_init()
+{
+  usart1_init(115200);
+}

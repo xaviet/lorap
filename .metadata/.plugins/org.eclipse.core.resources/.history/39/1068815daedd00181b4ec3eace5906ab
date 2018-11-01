@@ -1,0 +1,57 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#include "main.h"
+#include "drv_usart.h"
+#include "drv_flash.h"
+
+int main(void)
+{
+  init();
+  loop();
+}
+
+void init()
+{
+  // 外设使能时钟
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+//  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+
+  init_usart();
+  usart_send_string("\r\nboot init\r\n");
+
+  // jump app
+  jumper();
+}
+
+void loop()
+{
+  while(TRUE)
+  {
+    usart_send_string("Hi\r\n");
+    delay_1us(1000000);
+  }
+}
+
+void jumper()
+{
+  if(((*(vu32*)APP_PROG_ADDRESS) & 0x2FFE0000) == 0x20000000)
+  {
+    usart_send_string("\r\njump to app\r\n");
+    pFun jump = (pFun)*(volatile u32*)(APP_PROG_ADDRESS + 4);
+    NVIC_SetVectorTable(NVIC_VectTab_FLASH, (u32)APP_PROG_ADDRESS);
+    __set_MSP(*(volatile u32*)APP_PROG_ADDRESS);
+  //  SCB->VTOR = (u32)IAP_ADDRESS;
+  //  asm volatile("msr msp, %0"::"g"(*(volatile u32*) IAP_ADDRESS));
+    jump();
+  }
+  else
+  {
+    usart_send_string("\r\njump fault\r\n");
+  }
+}

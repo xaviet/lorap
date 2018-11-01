@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 '''
   ser.py
-  ref : stm32flash.py -p /dev/ttyS0 -w stm32f103c8t6_stdperiph.bin -f -t -v
+  ref : ./stm32flash.py -w stm32f103c8t6_stdperiph.bin -f -t
 '''
 
 import time
-import argparse
 import serial
 import sys
 
@@ -19,21 +18,13 @@ def main(a):
           stopbits = 1,
           timeout = 0
         )
-  servo = 0
   while(1):
     r = s.read(256)
     r = list(r)
     if(len(r)):
-      #print('\n[%10.3f recv]' % (time.time(), ))
       for el0 in r:    
         print(chr(el0), end = '')
-      #time.sleep(1)
-    # print()
-    # print('[%10.3f send] %d' % (time.time(), servo, ))
-    # s.write(bytes([servo]))
-    # servo += 1
-    # if(servo > 8):
-      # servo = 0
+      #s.write(bytes(b'hello\n'))
 
 if(__name__ == '__main__'):
   main(sys.argv)
