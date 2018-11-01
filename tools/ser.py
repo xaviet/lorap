@@ -18,6 +18,8 @@ def main(a):
           stopbits = 1,
           timeout = 0
         )
+  s.setRTS(0)
+  s.setDTR(0)
   while(1):
     r = s.read(256)
     r = list(r)

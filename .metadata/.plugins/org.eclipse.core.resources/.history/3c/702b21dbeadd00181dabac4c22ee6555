@@ -39,26 +39,26 @@ void init()
   init_global();
   usart_send_string("\r\ninit_global\r\n");
 
-  struct SflashEnvValue flashEnvValue;
-  flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-  if((flashEnvValue.upgradeFlag == TRUE) &&
-      (flashEnvValue.crc8 == crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1)))
-  {
-    usart_send_string("upgrading\r\n");
-    for(int i = 0; i < FLASH_SIZE_TO_SECTOR(flashEnvValue.upgradeDataSize); i++)
-    {
-      flash_erase(FLASH_APP_PROG_SECTOR + 1, 1);
-      flash_write(FLASH_APP_PROG_SECTOR + i, (u8*)FLASH_SECTOR_TO_ADDR(FLASH_UPGRADE_PROG_SECTOR + i), FLASH_SECTOR_SIZE);
-    }
-    flashEnvValue.upgradeFlag = 0x00;
-    flashEnvValue.crc8 = crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1);
-    flash_erase(FLASH_ENV_DATA_SECTOR, 1);
-    flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-    usart_send_string("OK\r\n");
-  }
-
-  // jump app
-  jumper();
+//  struct SflashEnvValue flashEnvValue;
+//  flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+//  if((flashEnvValue.upgradeFlag == TRUE) &&
+//      (flashEnvValue.crc8 == crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1)))
+//  {
+//    usart_send_string("upgrading\r\n");
+//    for(int i = 0; i < FLASH_SIZE_TO_SECTOR(flashEnvValue.upgradeDataSize); i++)
+//    {
+//      flash_erase(FLASH_APP_PROG_SECTOR + 1, 1);
+//      flash_write(FLASH_APP_PROG_SECTOR + i, (u8*)FLASH_SECTOR_TO_ADDR(FLASH_UPGRADE_PROG_SECTOR + i), FLASH_SECTOR_SIZE);
+//    }
+//    flashEnvValue.upgradeFlag = 0x00;
+//    flashEnvValue.crc8 = crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+//    flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+//    flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+//    usart_send_string("OK\r\n");
+//  }
+//
+//  // jump app
+//  jumper();
 }
 
 void loop()

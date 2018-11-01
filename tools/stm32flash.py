@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
   stm32flash.py
-  ref : ./stm32flash.py -w stm32f103c8t6_stdperiph.bin -f -t
+  ref : ./stm32flash.py -w ../loragw_boot/Debug/loragw_boot.bin -f -t
 '''
 
 import time
@@ -130,14 +130,23 @@ class Stm32bl():
 
   def _reset_mcu(self, ispFlag = 1):
     '''Reset MCU'''
-    self._serial_port.setRTS(1)
-    time.sleep(0.1)
+    self._serial_port.setRTS(0)
     self._serial_port.setDTR(0)
     time.sleep(0.1)
+
+    # boot0
     self._serial_port.setRTS(ispFlag)
+    self._serial_port.setDTR(0)
     time.sleep(0.1)
+
+    # reset
+    self._serial_port.setRTS(ispFlag)
     self._serial_port.setDTR(1)
     time.sleep(0.1)
+
+    self._serial_port.setRTS(0)
+    self._serial_port.setDTR(0)
+
 
   def _connect(self, repeat = 1):
     '''connect to boot-loader'''
@@ -154,7 +163,7 @@ class Stm32bl():
 
   def exit_bootloader(self):
     '''Exit boot-loader and restart MCU'''
-    self._reset_mcu(ispFlag = 1);
+    self._reset_mcu(ispFlag = 0);
 
   def _talk(self, data_wr, cnt_rd, timeout=1):
     '''talk with boot-loader'''
@@ -482,7 +491,7 @@ def main():
       stm32bl.cmd_go(address)
     if args.reset:
       stm32bl.exit_bootloader()
-    stm32bl.listen_serial()
+    #stm32bl.listen_serial()
     stm32bl.close()
   except Stm32BLException as err:
     print('ERROR: %s' % err)
