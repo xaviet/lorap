@@ -79,6 +79,7 @@ class Stm32bl():
     self._boot_version = self._cmd_get()
     self._option_bytes = self._cmd_get_version()
     self._dev_id = self._cmd_get_id()
+    self.binsize = 0
 
   @staticmethod
   def print_buffer(addr, data, bytes_per_line=16):
@@ -132,20 +133,21 @@ class Stm32bl():
     '''Reset MCU'''
     self._serial_port.setRTS(0)
     self._serial_port.setDTR(0)
-    time.sleep(0.1)
+    time.sleep(0.2)
 
     # boot0
     self._serial_port.setRTS(ispFlag)
     self._serial_port.setDTR(0)
-    time.sleep(0.1)
+    time.sleep(0.2)
 
     # reset
     self._serial_port.setRTS(ispFlag)
     self._serial_port.setDTR(1)
-    time.sleep(0.1)
+    time.sleep(0.2)
 
     self._serial_port.setRTS(0)
     self._serial_port.setDTR(0)
+    time.sleep(0.2)
 
 
   def _connect(self, repeat = 1):
@@ -377,6 +379,7 @@ class Stm32bl():
     binfile = open(file_name, 'rb')
     mem = list(binfile.read())
     size = len(mem)
+    self.binsize = size
     if size % 4:
       mem += [0] * (size % 4)
       size = len(mem)
@@ -495,6 +498,7 @@ def main():
     stm32bl.close()
   except Stm32BLException as err:
     print('ERROR: %s' % err)
+  print('write size: ', stm32bl.binsize)
   print('timer: ', time.time() - startTime)
   
 

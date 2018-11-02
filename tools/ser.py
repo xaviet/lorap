@@ -25,7 +25,7 @@ def main(a):
     r = list(r)
     if(len(r)):
       for el0 in r:    
-        print(chr(el0), end = '')
+        print(chr(el0 & 0xff), end = '')
       #s.write(bytes(b'hello\n'))
 
 if(__name__ == '__main__'):

@@ -28,9 +28,11 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
-FILE_NAME_0=509;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fser.py;0;2
-FILE_NAME_1=13012;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fstm32flash.py;0;2
+current_page=3
+FILE_NAME_0=3795;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fstm32flash.py;0;2
+FILE_NAME_1=334;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fhex2bin.py;0;2
+FILE_NAME_2=450;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fburn.py;0;2
+FILE_NAME_3=447;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fser.py;0;2
 
 [VTE]
 last_dir=/home/mose/code/lorap/tools
