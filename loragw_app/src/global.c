@@ -35,6 +35,10 @@ void init_global()
     else
     {
       globalV.flashEnvValue.envFlag = ON;
+      globalV.flashEnvValue.id[0] = GWID0;
+      globalV.flashEnvValue.id[1] = GWID1;
+      globalV.flashEnvValue.id[2] = GWID2;
+      globalV.flashEnvValue.id[3] = GWID3;
       globalV.flashEnvValue.ip[0] = IP0;
       globalV.flashEnvValue.ip[1] = IP1;
       globalV.flashEnvValue.ip[2] = IP2;
@@ -68,11 +72,11 @@ void init_global()
       flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
       usart_send_string("\tLoad default OK\r\n");
     }
-    usart_send_string("\tGWID:\t");
+    usart_send_string("\tGWID: ");
     usart_send_u8_array(globalV.flashEnvValue.id, 4);
-    usart_send_string("\tIP:\t");
+    usart_send_string("\tIP: ");
     usart_send_u8_array(globalV.flashEnvValue.ip, 4);
-    usart_send_string("\tserver IP:\t");
+    usart_send_string("\tserver IP: ");
     usart_send_u8_array(globalV.flashEnvValue.s1Dip, 4);
     usart_send_string("\r\n");
   }

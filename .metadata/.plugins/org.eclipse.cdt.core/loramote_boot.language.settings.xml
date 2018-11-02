@@ -3385,18 +3385,6 @@
 					<entry kind="includePath" name="/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_DSP">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_CRYPTO">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_QRDMX">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_SIMD32">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
 					<entry kind="includePath" name="/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1/arm-atollic-eabi/armv7-m">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>

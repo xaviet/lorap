@@ -12,8 +12,8 @@
 
 struct SflashEnvValue
 {
-  __IO u8 envFlag; // 0: default; 1: valid
-  __IO u8 upgradeFlag; // 0: default; 1: valid upgrade
+  __IO u8 envFlag; // 1: valid
+  __IO u8 upgradeFlag; // 1: valid upgrade
   u32 upgradeDataSize;
   u32 appAddrBase;
   u8 ver;

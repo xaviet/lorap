@@ -1,0 +1,42 @@
+/*
+ * drv_timer.c
+ *
+ *  Created on: Nov 2, 2018
+ *      Author: mose
+ */
+
+#include "drv_timer.h"
+
+void init_timer()
+{
+
+}
+
+void timer1Init()
+{
+  if (TIM_GetITStatus(TIM1, TIM_IT_Update) != RESET) //检查 TIM1 更新中断发生与否
+  {
+    TIM_ClearFlag(TIM1, TIM_IT_Update ); //清除 TIM1 更新中断标志
+    call_fun(TIM1_IRQ_call);
+  }
+}
+
+void TIM1_UP_IRQHandler()
+{
+
+}
+
+void timer2Init()
+{
+
+}
+
+void TIM2_UP_IRQHandler()
+{
+  if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) //检查 TIM1 更新中断发生与否
+   {
+     TIM_ClearFlag(TIM2, TIM_IT_Update ); //清除 TIM1 更新中断标志
+     call_fun(TIM2_IRQ_call);
+   }
+}
+

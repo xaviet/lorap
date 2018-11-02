@@ -1,0 +1,54 @@
+/*
+ * drv_timer.c
+ *
+ *  Created on: Nov 2, 2018
+ *      Author: mose
+ */
+
+#include "drv_timer.h"
+
+void init_timer()
+{
+  timer_init(TIM1);
+}
+
+void timer_init(u32 timN, u16 period, u16 prescaler);
+{
+  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+   TIM_TimeBaseStructure.TIM_Period = 2-1; //设置自动重装载寄存器周期的值 2 * 0.5ms = 1ms
+   TIM_TimeBaseStructure.TIM_Prescaler =36000-1; //设置时钟频率除数的预分频值 36000 / 72MHz = 0.5ms
+   TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //设置时钟分割
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //TIM 向上计数
+   TIM_TimeBaseStructure.TIM_RepetitionCounter = 0; //重复计数，重复溢出多少次,一个溢出中断
+   TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+   //允许更新中断
+   NVIC_InitTypeDef NVIC_InitStructure;
+   TIM_ITConfig(TIM1,TIM_IT_Update,ENABLE );
+   //中断优先级 NVIC 设置
+   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+   NVIC_InitStructure.NVIC_IRQChannel = TIM1_UP_IRQn; //TIM1 中断
+   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2; //先占优先级 2 级
+   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2; //从优先级 2 级
+   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ 通道被使能
+   NVIC_Init(&NVIC_InitStructure); //初始化 NVIC 寄存器
+   TIM_Cmd(TIM1, ENABLE); //使能 TIM1
+}
+
+void TIM1_UP_IRQHandler()
+{
+  if (TIM_GetITStatus(TIM1, TIM_IT_Update) != RESET) //检查 TIM1 更新中断发生与否
+  {
+    TIM_ClearFlag(TIM1, TIM_IT_Update ); //清除 TIM1 更新中断标志
+    call_fun(TIM1_IRQ_call);
+  }
+}
+
+void TIM2_UP_IRQHandler()
+{
+  if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) //检查 TIM1 更新中断发生与否
+   {
+     TIM_ClearFlag(TIM2, TIM_IT_Update ); //清除 TIM1 更新中断标志
+     call_fun(TIM2_IRQ_call);
+   }
+}
+

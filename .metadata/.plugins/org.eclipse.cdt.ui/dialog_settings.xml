@@ -3,8 +3,8 @@
 	<item value="Default C source template" key="LastUsedSourceTemplate"/>
 	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
-		<item value="156" key="size.height"/>
-		<item value="521" key="size.width"/>
+		<item value="150" key="size.height"/>
+		<item value="515" key="size.width"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>

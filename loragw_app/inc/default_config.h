@@ -8,12 +8,13 @@
 #ifndef DEFAULT_CONFIG_H_
 #define DEFAULT_CONFIG_H_
 
-// 0x6c8000:433mhz 0x6c4000:432mhz bw:62.5khz sf:8 crc:on SymbTimeout:0x03ff
-#define GWID0 0x00
-#define GWID1 0x00
-#define GWID2 0x00
-#define GWID3 0x01
+#define GWID0 0xff
+#define GWID1 0xff
+#define GWID2 0xff
+#define GWID3 0xff
 #define VER 0x01
+
+// 0x6c8000:433mhz 0x6c4000:432mhz bw:62.5khz sf:8 crc:on SymbTimeout:0x03ff
 #define FRMSB 0x6c
 #define FRMIB 0x40
 #define FRLSB 0x00

@@ -1,0 +1,23 @@
+/*
+ * drv_timer.h
+ *
+ *  Created on: Nov 2, 2018
+ *      Author: mose
+ */
+
+#ifndef DRV_TIMER_H_
+#define DRV_TIMER_H_
+
+#include "global.h"
+#include "tools_lib.h"
+
+void (*TIM1_IRQ_call)();
+void (*TIM2_IRQ_call)();
+
+void init_timer();
+void timer1Init();
+void TIM1_UP_IRQHandler();
+void timer2Init();
+void TIM2_UP_IRQHandler();
+
+#endif /* DRV_TIMER_H_ */

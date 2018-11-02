@@ -9,6 +9,7 @@
 #include "drv_usart.h"
 #include "drv_flash.h"
 #include "drv_gpio.h"
+#include "drv_timer.h"
 
 int main(void)
 {
@@ -19,16 +20,18 @@ int main(void)
 void init()
 {
   // 外设使能时钟
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2
+			 , ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |
 //			 RCC_APB2Periph_GPIOB |
-			 RCC_APB2Periph_USART1
+			 RCC_APB2Periph_USART1 |
+			 RCC_APB2Periph_TIM1
 			 , ENABLE);
+  init_usart();
   init_global();
   init_gpio();
-  init_usart();
   init_flash();
-
-  usart_send_string("\r\n\tApp\r\n");
+  init_timer();
 }
 
 void loop()

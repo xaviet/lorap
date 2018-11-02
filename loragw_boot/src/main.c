@@ -24,14 +24,14 @@ void init()
 			 RCC_APB2Periph_USART1
 			 , ENABLE);
 
-  init_gpio();
   init_usart();
+  init_gpio();
   init_flash();
   init_global();
 
   struct SflashEnvValue flashEnvValue;
   flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-  usart_send_string("\r\n\tBoot ver: ");
+  usart_send_string("\r\n\************************************************\r\n\tBoot app ver: ");
   usart_send_u8(flashEnvValue.ver);
   usart_send_string(" upgrade: ");
   usart_send_u8(flashEnvValue.upgradeFlag);

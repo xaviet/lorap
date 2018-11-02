@@ -6,6 +6,7 @@
  */
 
 #include "drv_usart.h"
+#include "drv_gpio.h"
 
 void init_usart()
 {
@@ -14,20 +15,13 @@ void init_usart()
 
 void usart_init(USART_TypeDef* usartN, GPIO_TypeDef* gpio, u16 txPin, u16 rxPin, u32 baudRate, u32 irqN)
 {
-  GPIO_InitTypeDef GPIO_InitStrue;
-  USART_InitTypeDef USART_InitStrue;
-  NVIC_InitTypeDef NVIC_InitStrue;
-  //复位串口 -> 可以没有
+  //复位串口
   USART_DeInit(usartN);
   // 初始化 串口对应IO口  USART1(TX-PA9/RX-PA10)
-  GPIO_InitStrue.GPIO_Mode = GPIO_Mode_AF_PP;
-  GPIO_InitStrue.GPIO_Pin = txPin;
-  GPIO_InitStrue.GPIO_Speed = GPIO_Speed_2MHz;
-  GPIO_Init(gpio, &GPIO_InitStrue);
-  GPIO_InitStrue.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-  GPIO_InitStrue.GPIO_Pin = rxPin;
-  GPIO_Init(gpio, &GPIO_InitStrue);
+  gpio_init(txPin, gpio, GPIO_Speed_2MHz, GPIO_Mode_AF_PP);
+  gpio_init(rxPin, gpio, GPIO_Speed_2MHz, GPIO_Mode_IN_FLOATING);
   // 初始化 串口模式状态
+  USART_InitTypeDef USART_InitStrue;
   USART_InitStrue.USART_BaudRate = baudRate; // 波特率
   USART_InitStrue.USART_HardwareFlowControl = USART_HardwareFlowControl_None; // 硬件流控制
   USART_InitStrue.USART_Mode = USART_Mode_Tx|USART_Mode_Rx; // 发送 接收 模式都使用
@@ -38,6 +32,7 @@ void usart_init(USART_TypeDef* usartN, GPIO_TypeDef* gpio, u16 txPin, u16 rxPin,
   USART_Cmd(usartN, ENABLE);//使能串口
   USART_ITConfig(usartN,USART_IT_RXNE, ENABLE);//开启接收中断
   // 初始化 中断优先级
+  NVIC_InitTypeDef NVIC_InitStrue;
   NVIC_InitStrue.NVIC_IRQChannel = irqN;
   NVIC_InitStrue.NVIC_IRQChannelCmd = ENABLE;
   NVIC_InitStrue.NVIC_IRQChannelPreemptionPriority = 2;

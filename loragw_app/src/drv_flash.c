@@ -37,16 +37,16 @@ u32 flash_write(u32 sector, u8* buffer, u32 length)
   FLASH_Unlock();
   u8 rt = TRUE;
   u16 data = 0;
-  for(u32 i = 0; i < length; i += 2)
+  vu32 i = 0;
+  for(i = 0; i < length; i += 2)
   {
     data = (*(buffer + i + 1) << 8) + (*(buffer + i));
     if(FLASH_ProgramHalfWord((FLASH_SECTOR_TO_ADDR(sector) + i), data) != FLASH_COMPLETE)
     {
-      rt = FALSE;
       break;
     }
   }
-  rt = length;
+  rt = (i >= length)? length: FALSE;
   FLASH_Lock();
   __enable_irq();
   return(rt);

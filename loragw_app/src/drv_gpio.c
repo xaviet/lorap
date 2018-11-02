@@ -16,10 +16,10 @@ void init_gpio()
 void gpio_init(u16 pin, GPIO_TypeDef* gpio, u32 speed, u32 mode)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
-   GPIO_InitStructure.GPIO_Pin = pin;
-   GPIO_InitStructure.GPIO_Speed = speed;
-   GPIO_InitStructure.GPIO_Mode = mode;
-   GPIO_Init(gpio, &GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin = pin;
+  GPIO_InitStructure.GPIO_Speed = speed;
+  GPIO_InitStructure.GPIO_Mode = mode;
+  GPIO_Init(gpio, &GPIO_InitStructure);
 }
 
 void gpio_set(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, u8 flag)

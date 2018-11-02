@@ -495,10 +495,10 @@ def main():
     if args.reset:
       stm32bl.exit_bootloader()
     #stm32bl.listen_serial()
+    print('write size: ', stm32bl.binsize)
     stm32bl.close()
   except Stm32BLException as err:
     print('ERROR: %s' % err)
-  print('write size: ', stm32bl.binsize)
   print('timer: ', time.time() - startTime)
   
 
