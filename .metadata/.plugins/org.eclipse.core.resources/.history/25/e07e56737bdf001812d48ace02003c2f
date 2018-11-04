@@ -1,0 +1,42 @@
+/*
+ * drv_itemp.c
+ *
+ *  Created on: Nov 3, 2018
+ *      Author: mose
+ */
+
+#include "drv_itemp.h"
+#include "drv_gpio.h"
+#include "drv_usart.h"
+
+void init_iTemp()
+{
+
+}
+
+vs16 iTemp_get(vu8 times)
+{
+  u16 min = 0xffff;
+  u16 max = 0x0000;
+  s32 vTemp = 0;
+  s16 v = 0;
+  for(int i = 0; i < times; i++)
+  {
+    ADC_SoftwareStartConvCmd(ADC1, ENABLE); //使能指定的ADC1的软件转换启动功能
+    while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC )); //等待转换结束
+    v = ADC_GetConversionValue(ADC1);
+    vTemp += v;
+    if(v > max)
+    {
+      max = v;
+    }
+    if(v < min)
+    {
+      min = v;
+    }
+  }
+  vTemp = (vTemp - min - max) / (times - 2);
+  vTemp = (vTemp * (3300000 / 32)) / 128; // uV
+  vTemp = (1430000 - vTemp) / 43 + 2500; // unit: 0.01
+  return((vs16)(vTemp & 0x0000ffff));    //返回最近一次ADC1规则组的转换结果
+}

@@ -1,0 +1,19 @@
+/*
+ * task_heartbeat.c
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#include "task_heartbeat.h"
+
+void heartbeat_init()
+{
+
+}
+
+void heartbeat_run()
+{
+
+}
+

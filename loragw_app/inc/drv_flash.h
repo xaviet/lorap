@@ -8,8 +8,7 @@
 #ifndef DRV_FLASH_H_
 #define DRV_FLASH_H_
 
-#include "global.h"
-#include "tools_lib.h"
+#include "stm32f10x.h"
 
 void init_flash();
 u8 flash_erase(u32 sector, u32 count);

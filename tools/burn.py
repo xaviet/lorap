@@ -8,14 +8,22 @@
 import os
 import sys
 
+def burnGw():
+  os.system('./hex2bin.py g')
+  os.system('./stm32flash.py -w gw.bin -f')
+  
+def burnMote():
+  os.system('./hex2bin.py g')
+  os.system('./stm32flash.py -w mote.bin -f') 
+
 def main(sys_arg):
   if(len(sys_arg) < 2):
-    return(False)
-  if(sys_arg[1].strip() == 'g'):
-    os.system('./hex2bin.py g')
-    os.system('./stm32flash.py -w gw.bin -f')
+    burnGw()
+  elif(sys_arg[1].strip() == 'g'):
+    burnGw()
   elif(sys_arg[1].strip() == 'm'):
-    os.system('./hex2bin.py g')
-    os.system('./stm32flash.py -w mote.bin -f')
+    burnMote()
+  os.system('./ser.py')
+    
 if(__name__ == '__main__'):
   main(sys.argv)

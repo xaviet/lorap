@@ -1,0 +1,17 @@
+/*
+ * task_upgrade.h
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#ifndef TASK_UPGRADE_H_
+#define TASK_UPGRADE_H_
+
+#include "global.h"
+
+void upgrade_init();
+void upgrade_run();
+
+
+#endif /* TASK_UPGRADE_H_ */

@@ -5,6 +5,8 @@
  *      Author: mose
  */
 
+#include "config.h"
+#include "hw_config.h"
 #include "drv_flash.h"
 #include "string.h"
 

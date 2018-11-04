@@ -1,0 +1,165 @@
+/*
+ * drv_w5500.c
+ *
+ *  Created on: Nov 3, 2018
+ *      Author: mose
+ */
+
+#include "drv_w5500.h"
+#include "drv_spi.h"
+#include "drv_gpio.h"
+#include "drv_usart.h"
+
+void init_w5500()
+{
+  // reset
+   gpio_init(W5500_RESET, W5500_RESET_GPIO, GPIO_Speed_2MHz, GPIO_Mode_Out_PP);
+   w5500_reset();
+
+
+  u8 chw[2] = {0x12, 0x34};
+  u8 chr[2] = {0};
+  w5500_write_nbytes(SIPR, COMMON_R | RWB_WRITE | VDM, chw, 2);
+  w5500_read_nbytes(SIPR, COMMON_R | RWB_READ | VDM, chr, 2);
+  if((chw[1] != chr[1]) || (chw[0] != chr[0]))
+  {
+    usart_send_string("\tw5500 Fault...\r\n");
+  }
+  else
+  {
+    usart_send_string("\tw5500 Ver: ");
+    u8 ver = 0;
+    w5500_read_nbytes(VERSION, COMMON_R | RWB_READ | VDM, &ver, 1);
+    usart_send_u8(ver);
+    usart_send_string("\r\n");
+//    w5500_load_parament(&globalV.flashEnvValue);
+  }
+}
+
+void w5500_reset()
+{
+  gpio_set(W5500_RESET_GPIO, W5500_RESET, LOW);
+  delay_1us(10000);
+  gpio_set(W5500_RESET_GPIO, W5500_RESET, HIGH);
+  delay_1us(10000);
+}
+
+vu8 w5500_inout_1Byte(vu8 data)
+{
+  return(spiInOut(W5500_SPI, data));
+}
+
+void w5500_write_reg_addr(vu16 addr)
+{
+  w5500_inout_1Byte((addr & 0xff00) >> 8);//写数据高位
+  w5500_inout_1Byte(addr & 0xff);  //写数据低位
+}
+
+vu8 w5500_rw_1byte(vu16 addr, vu8 controlByte, vu8 data)
+{
+  spi2SsSet(LOW);
+  w5500_write_reg_addr(addr);
+  w5500_inout_1Byte(controlByte);
+  vu8 rt = w5500_inout_1Byte(data);
+  spi2SsSet(HIGH);
+  return(rt);
+}
+
+
+vu16 w5500_rw_2bytes(vu16 addr, vu8 controlByte, vu16 data)
+{
+  spi2SsSet(LOW);
+  w5500_write_reg_addr(addr);
+  w5500_inout_1Byte(controlByte);
+  vu16 rt = w5500_inout_1Byte((data & 0xff00) / 0x100) & 0xff;
+  rt = ((rt & 0xff) * 0x100) + (w5500_inout_1Byte(data & 0xff) & 0xff);
+  spi2SsSet(HIGH);
+  return(rt);
+}
+
+vu32 w5500_rw_4bytes(vu16 addr, vu8 controlByte, vu32 data)
+{
+  spi2SsSet(LOW);
+  w5500_write_reg_addr(addr);
+  w5500_inout_1Byte(controlByte);
+  vu32 rt = w5500_inout_1Byte((data & 0xff000000) / 0x1000000) & 0xff;
+  rt = ((rt & 0xff) * 0x100) + (w5500_inout_1Byte((data & 0x00ff0000) / 0x10000) & 0xff);
+  rt = ((rt & 0xffff) * 0x100) + (w5500_inout_1Byte((data & 0x0000ff00) / 0x100) & 0xff);
+  rt = ((rt & 0xffffff) * 0x100) + (w5500_inout_1Byte(data & 0x000000ff) & 0xff);
+  spi2SsSet(HIGH);
+  return(rt);
+}
+
+void w5500_read_nbytes(vu16 addr, vu8 controlByte, vu8* data, vu8 length)
+{
+  spi2SsSet(LOW);
+  w5500_write_reg_addr(addr);
+  w5500_inout_1Byte(controlByte);
+  for(int i = 0; i < length; i++)
+  {
+    *(data + i) = w5500_inout_1Byte(*(data + i));
+  }
+  spi2SsSet(HIGH);
+}
+
+void w5500_write_nbytes(vu16 addr, vu8 controlByte, vu8* data, vu8 length)
+{
+  spi2SsSet(LOW);
+  w5500_write_reg_addr(addr);
+  w5500_inout_1Byte(controlByte);
+  for(int i = 0; i < length; i++)
+  {
+    w5500_inout_1Byte(*(data + i));
+  }
+  spi2SsSet(HIGH);
+}
+
+void w5500_write_socket_buffer(vu8 socket, vu8 *data, vu16 length)
+{
+  //led_set(globalV.ledStat = !globalV.ledStat);
+  if(length > 0 && length < MAXFRAMELENGTH)
+  {
+    u16 offset = w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x0);
+    if(offset + length <= 0xffff)
+    {
+      w5500_write_nbytes(offset, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, data, length);
+      w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, offset + length);
+    }
+    else
+    {
+      u16 reserver = 0xffff - offset + 1;
+      u16 overflow = offset + length - 0xffff - 1;
+      w5500_write_nbytes(offset, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, data, reserver);
+      w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, 0x0000);
+      w5500_write_nbytes(0x0000, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, data + reserver, overflow);
+      w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, overflow);
+    }
+    w5500_rw_1byte(Sn_CR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, SEND);
+  }
+}
+
+vu16 w5500_read_socket_buffer(vu8 socket, vu8 *data)
+{
+  led_set(globalV.ledStat = !globalV.ledStat);
+  u16 length = w5500_rw_2bytes(Sn_RX_RSR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x00);
+  if(length > 0 && length < MAXFRAMELENGTH)
+  {
+    u16 offset = w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x0) ;
+    if(offset + length <= 0xffff)
+    {
+      w5500_read_nbytes(offset, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, data, length);
+      w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, offset + length);
+    }
+    else
+    {
+      u16 reserver = 0xffff - offset + 1;
+      u16 overflow = offset + length - 0xffff - 1;
+      w5500_read_nbytes(offset, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, data, reserver);
+      w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, 0x0000);
+      w5500_read_nbytes(0x0000, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, data + reserver, overflow);
+      w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, overflow);
+    }
+    w5500_rw_1byte(Sn_CR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, RECV);
+  }
+  return(length);
+}

@@ -8,7 +8,7 @@
 #ifndef TOOLS_LIB_H_
 #define TOOLS_LIB_H_
 
-#include "global.h"
+#include "stm32f10x.h"
 
 vu8 crc8(vu8* chars, u8 length);
 void delay_1us(vu32 n);

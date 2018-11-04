@@ -1,0 +1,52 @@
+/*
+ * task_reboot.c
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#include "task_reboot.h"
+#include "drv_gpio.h"
+#include "hw_config.h"
+#include "config.h"
+
+void reboot_init()
+{
+  gpio_set(BUTTON_GPIO, BUTTON_PIN, ON);
+  globalV.rebootPressedTime = 0;
+}
+
+void reboot_run()
+{
+  if(!gpio_get(REBOOTGPIO, REBOOTPIN))
+   {
+     if(globalV.rebootPressedTime == 0)
+     {
+       globalV.rebootPressedTime = globalV.upSeconds;
+     }
+     else if(globalV.upSeconds - globalV.rebootPressedTime >= PRESSTIMEINIT)
+     {
+       globalV.ledBlinkDiv = LEDBLINKDIVINIT;
+     }
+     else if(globalV.upSeconds - globalV.rebootPressedTime >= PRESSTIMEREBOOT)
+     {
+       globalV.ledBlinkDiv = LEDBLINKDIVREBOOT;
+     }
+   }
+   else
+   {
+     if(globalV.ledBlinkDiv == LEDBLINKDIVREBOOT)
+     {
+       NVIC_SystemReset();
+     }
+     else if(globalV.ledBlinkDiv == LEDBLINKDIVINIT)
+     {
+       flash_erase(FLASH_ENV_VALUE_SECTOR, 1);
+       u8 data = 0;
+       flash_write(FLASH_ENV_VALUE_SECTOR, &data, 1);
+       NVIC_SystemReset();
+     }
+     globalV.rebootPressedTime = 0;
+     globalV.ledBlinkDiv = LEDBLINKDIV;
+   }
+}

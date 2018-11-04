@@ -8,7 +8,9 @@
 #ifndef GLOBAL_H_
 #define GLOBAL_H_
 
+#include "hw_config.h"
 #include "config.h"
+#include "stm32f10x.h"
 
 struct SflashEnvValue
 {
@@ -58,6 +60,13 @@ struct SmsgHead
   u8 moteId[4];
   u8 ver;
   u8 gwId[4];
+};
+
+struct SflashEnvValueMsg
+{
+  struct SmsgHead msgHead;
+  struct SflashEnvValue flashEnvValue;
+  u8 crc8; // the last byte is value of crc8(poly:  X8 + X2 + X1 + 1)
 };
 
 struct SupgradeMsg
@@ -156,7 +165,7 @@ struct SglobalValue
   struct ScommonBuffer usart2RxBuffer;
   struct ScommonBuffer loraRxBuffer;
   struct Sw5500SocketRxBuffer w5500RxBuffer;
-  struct StaskComponents taskComps[EtaskMax];
+  struct StaskComponents taskComps[16];
   struct SconfigMsg loraLoginChannelConfig;
   struct SconfigMsg loraWorkChannelConfig;
   struct SworkDataMsg loraWorkChannelData;

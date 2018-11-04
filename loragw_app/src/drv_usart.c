@@ -5,11 +5,16 @@
  *      Author: mose
  */
 
+#include "global.h"
 #include "drv_usart.h"
 #include "drv_gpio.h"
+#include "tools_lib.h"
+
+void (*USART1_IRQ_call)();
 
 void init_usart()
 {
+  USART1_IRQ_call = FALSE;
   usart_init(USART_DEBUG, USART_GPIO, USART_TX, USART_RX, USART_SPEED, USART_IRQ);
 }
 
@@ -46,6 +51,7 @@ void USART1_IRQHandler()
   if(USART_GetITStatus(USART1, USART_IT_RXNE))
   {
     USART_ClearFlag(USART1,USART_IT_RXNE);
+    call_fun(USART1_IRQ_call);
 //    USART_SendData(USART1, USART_ReceiveData(USART1));
   }
 }

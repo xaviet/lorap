@@ -1,0 +1,72 @@
+/*
+ * drv_sx1278.c
+ *
+ *  Created on: Nov 3, 2018
+ *      Author: mose
+ */
+
+#include "drv_sx1278.h"
+#include "drv_spi.c"
+#include "drv_gpio.h"
+#include "drv_usart.h"
+
+void init_sx1278()
+{
+  // reset
+  gpio_init(SPI1_RESET, SPI1_RESET_GPIO, GPIO_Speed_50MHz, GPIO_Mode_Out_PP);
+  sx1278_reset();
+
+  u8 data = 0x00;
+  sx1278_set_opmode(Sleep_mode);
+  delay_1us(16);
+  sx1278_write(sx1278_opMode,0x88);
+  delay_1us(16);
+  sx1278_write(sx1278_payloadLength, 0x80);
+  sx1278_set_opmode(Stdby_mode);
+  delay_1us(16);
+  sx1278_write(sx1278_irqFlagsMask,0xb7);
+  sx1278_read(sx1278_opMode, &data);
+  if(data != 0x89)
+  {
+    usart_send_string("\tsx1278 Fault...\r\n");
+  }
+  else
+  {
+    sx1278_read(sx1278_version, &data);
+    usart_send_string("\tSx1278 OK, Ver: 0x");
+    usart_send_u8(data);
+    usart_send_string("\r\n");
+  }
+}
+
+void sx1278_reset()
+{
+  gpio_set(SPI1_RESET_GPIO, SPI1_RESET, LOW);
+  delay_1us(10000);
+  gpio_set(SPI1_RESET_GPIO, SPI1_RESET, HIGH);
+  delay_1us(10000);
+}
+
+void sx1278_write_buffer(vu8 addr, vu8* buffer, vu8 size)
+{
+  vu8 i;
+  gpio_set(SPI1_NSS_GPIO, SPI1_NSS, LOW);
+  spiInOut(SPI1, addr | 0x80);
+  for(i = 0; i < size; i++)
+  {
+    spiInOut(SPI1, buffer[i]);
+  }
+  gpio_set(SPI1_NSS_GPIO, SPI1_NSS, HIGH);
+}
+
+void sx1278_read_buffer(vu8 addr, vu8* buffer, vu8 size)
+{
+  vu8 i;
+  gpio_set(SPI1_NSS_GPIO, SPI1_NSS, LOW);
+  spiInOut(SPI1, addr & 0x7F);
+  for(i = 0; i < size; i++)
+  {
+    buffer[i] = spiInOut(SPI1, 0);
+  }
+  gpio_set(SPI1_NSS_GPIO, SPI1_NSS, HIGH);
+}

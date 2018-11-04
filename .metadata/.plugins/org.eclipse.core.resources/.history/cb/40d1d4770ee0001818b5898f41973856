@@ -1,0 +1,16 @@
+/*
+ * task.h
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#ifndef TASK_H_
+#define TASK_H_
+
+#include "global.h"
+#include "tools_lib.h"
+
+void init_task();
+
+#endif /* TASK_H_ */

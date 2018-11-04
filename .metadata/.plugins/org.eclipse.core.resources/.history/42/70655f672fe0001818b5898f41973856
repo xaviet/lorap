@@ -1,0 +1,21 @@
+/*
+ * task_reboot.c
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#include "task_reboot.h"
+#include "drv_gpio.h"
+#include "hw_config.h"
+
+void reboot_init()
+{
+  gpio_set(REBOOTGPIO, REBOOTPIN, ON);
+  globalV.rebootPressedTime = 0;
+}
+
+void reboot_run()
+{
+
+}

@@ -6,6 +6,7 @@
  */
 
 #include "tools_lib.h"
+#include "config.h"
 
 vu8 crc8(vu8* chars, u8 length)
 {

@@ -1,0 +1,297 @@
+/*
+ * task_irqcall.c
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#include "task_irqcall.h"
+#include "string.h"
+#include "drv_usart.h"
+#include "drv_timer.h"
+#include "drv_exti.h"
+#include "drv_sx1278.h"
+#include "drv_w5500.h"
+#include "global.h"
+
+void irqcall_init()
+{
+  sx1278_dio0_IRQ_call = sx1278_dio0_irq;
+  w5500_int_IRQ_call = w5500_int_irq;
+  TIM1_IRQ_call = TIM1_irq;
+  TIM2_IRQ_call = TIM2_irq;
+  USART1_IRQ_call = USART1_rx;
+}
+
+void irqcall_run()
+{
+  switch(globalV.irqCallStatesMachine.msgId)
+  {
+    case Edefault:
+      irqCall_default();
+      break;
+    default:
+      break;
+  }
+}
+
+void irqCall_default()
+{
+  statesMachineJump();
+  globalV.irqCallStatesMachine.msgId = Edefault;
+}
+
+void sx1278_dio0_irq()
+{
+  //led_set(globalV.ledStat = !globalV.ledStat);
+  u8 intFlag = sx1278_read(sx1278_irqFlags);
+  if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))
+  {
+    if(globalV.extiStates.sx1278RxDone == OFF)
+    {
+      globalV.loraRxBuffer.length = sx1278_rx_fifo(globalV.loraRxBuffer.data);
+      globalV.extiStates.sx1278RxDone = ON;
+    }
+  }
+  if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0TxDone) && ((intFlag & 0x08) == 0x08))
+  {
+    globalV.extiStates.sx1278TxDone = ON;
+  }
+  sx1278_write(sx1278_irqFlags, intFlag);
+}
+
+void w5500_int_irq()
+{
+  //led_set(globalV.ledStat = !globalV.ledStat);
+  u8 intFlag = w5500_rw_1byte(IR, COMMON_R | RWB_READ | FDM1, 0x00);
+  if(intFlag)
+  {
+    w5500_rw_1byte(IR, COMMON_R | RWB_WRITE | FDM1, intFlag & 0xf0);
+  }
+  intFlag = w5500_rw_1byte(SIR, COMMON_R | RWB_READ | FDM1, 0x00);
+  for(u8 socket = 0; socket < 8; socket++)
+  {
+    if((intFlag >> socket) & 0x01)
+    {
+      u8 snInt = w5500_rw_1byte(Sn_IR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM1, 0x00);
+      if(snInt & IR_RECV)
+      {
+        if(globalV.extiStates.w5500Int == OFF)
+        {
+          globalV.w5500RxBuffer.socket = socket;
+          globalV.w5500RxBuffer.length = w5500_read_socket_buffer(socket, (u8*)&globalV.w5500RxBuffer.data);
+          globalV.extiStates.w5500Int = ON;
+        }
+      }
+      if(snInt & IR_SEND_OK)
+      {
+      }
+      w5500_rw_1byte(Sn_IR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, snInt & 0x1f);
+    }
+  }
+}
+
+void TIM1_irq()
+{
+  if(globalV.msTicket == 0xffffffff)
+  {
+    globalV.msTicket = 0;
+  }
+  else
+  {
+    globalV.msTicket++;
+  }
+  task_timer();
+  if((globalV.msTicket % globalV.ledBlinkDiv) == 0)
+  {
+    led_set(globalV.ledStat = !globalV.ledStat);
+  }
+  //led_set(gpio_get(GPIOB, REBOOTPIN));
+}
+
+void TIM2_irq()
+{
+  globalV.upSeconds++;
+}
+
+void USART1_rx()
+{
+  u8 rx = USART_ReceiveData(USART1);  // 串口1 接收
+  if(globalV.usart1RxBuffer.length < COMMONBUFFERLENGTH)
+  {
+    globalV.usart1RxBuffer.data[globalV.usart1RxBuffer.length++] = rx;
+  }
+}
+
+void statesMachineJump()
+{
+  struct SconfigMsg* msg = NULL;
+  struct SflashEnvValueMsg* flashEnvValueMsg = NULL;
+  if(globalV.extiStates.w5500Int == ON)
+  {
+    msg = (struct SconfigMsg*)&globalV.w5500RxBuffer.data.data;
+    usart_debug("w5500Int");
+    usart_send_u8_array((u8*)msg, msg->msgHead.length);
+    if(*(u8*)msg == 0xff)
+    {
+      // ns heartbeat
+      *(u8*)msg = 0xfe;
+      w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)msg, sizeof(struct SconfigMsg));
+      globalV.extiStates.w5500Int = OFF;
+    }
+    else if(config_msg_format(msg, *((u8*)msg + msg->msgHead.length - 1), ON))
+    {
+      switch(msg->msgHead.type)
+      {
+        case LOGINREP:
+          if(globalV.forwardStatesMachine.msgId == Erxing)
+          {
+            globalV.forwardStatesMachine.msgId = EloginReplyRx;
+          }
+          else
+          {
+            globalV.extiStates.w5500Int = OFF;
+          }
+          break;
+        case DOWNSTREAM:
+          usart_send_u8_array((u8*)((struct SworkDataMsg*)((u8*)msg + msg->msgHead.length)),
+                              ((struct SworkDataMsg*)((u8*)msg + msg->msgHead.length))->length);
+          if(globalV.forwardStatesMachine.msgId == Erxing &&
+             data_msg_format((struct SworkDataMsg*)((u8*)msg + msg->msgHead.length)))
+          {
+            globalV.forwardStatesMachine.msgId = EdownStreamRx;
+          }
+          else
+          {
+            globalV.extiStates.w5500Int = OFF;
+          }
+          break;
+        case HEARTBEATDOWN:
+          if(globalV.heartBeatStatesMachine.msgId == EheartBeatRxing)
+          {
+            globalV.heartBeatStatesMachine.msgId = EheartBeatRxDone;
+          }
+          else
+          {
+            globalV.extiStates.w5500Int = OFF;
+          }
+          break;
+        case GWCONFIGREQUERY:
+          usart_debug("GWCONFIGREQUERY");
+          flashEnvValueMsg = (struct SflashEnvValueMsg*)&globalV.w5500RxBuffer.data.data;
+          flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue));
+          flashEnvValueMsg->msgHead.length = sizeof(struct SflashEnvValueMsg);
+          flashEnvValueMsg->crc8 = crc8((u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length - 1);
+          flashEnvValueMsg->msgHead.type = GWCONFIGREPLY;
+          usart_send_u8_array((u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length - 1);
+          w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length);
+          globalV.extiStates.w5500Int = OFF;
+          break;
+        case GWCONFIGSETUP:
+          usart_debug("GWCONFIGSETUP");
+          flashEnvValueMsg = (struct SflashEnvValueMsg*)&globalV.w5500RxBuffer.data.data;
+          w5500_load_parament(&flashEnvValueMsg->flashEnvValue);
+          flashEnvValueMsg->flashEnvValue.envFlag = ON;
+          flashEnvValueMsg->flashEnvValue.crc8 = crc8((u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+          flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+          flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue));
+          flashEnvValueMsg->msgHead.type = GWSETUPREPLY;
+          w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length);
+          globalV.extiStates.w5500Int = OFF;
+          NVIC_SystemReset();
+          break;
+        case GWUPGRADEREQUEST:
+          usart_debug("GWUPGRADEREQUEST");
+          if(globalV.upgradeStatesMachine.msgId == EupgradeWaitting)
+          {
+            memcpy((u8*)&globalV.upgradeMsg, msg, msg->msgHead.length);
+            globalV.upgradeStatesMachine.msgId = EupgradeRequest;
+          }
+          else if(globalV.upgradeStatesMachine.msgId == EupgradeRunning)
+          {
+            memcpy((u8*)&globalV.upgradeMsg, msg, msg->msgHead.length);
+            globalV.upgradeStatesMachine.msgId = EupgradeGotData;
+          }
+          globalV.extiStates.w5500Int = OFF;
+          break;
+        case GWRESET:
+          NVIC_SystemReset();
+          break;
+        case FACTORYCNF:
+          usart_debug("FACTORYCNF");
+//          flashEnvValueMsg = (struct SflashEnvValueMsg*)&globalV.w5500RxBuffer.data.data;
+//          flash_read(FLASH_ENV_VALUE_SECTOR, , sizeof(struct SflashEnvValue))
+//          flashEnvValueMsg->flashEnvValue.crc8 = crc8((u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+//          flash_erase_disable_irq(FLASH_ENV_VALUE_SECTOR, 1);
+//          flash_write_disable_irq(FLASH_ENV_VALUE_SECTOR, (u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue));
+//          NVIC_SystemReset();
+          globalV.extiStates.w5500Int = OFF;
+          break;
+        default:
+          globalV.extiStates.w5500Int = OFF;
+          break;
+      }
+    }
+    else
+    {
+      globalV.extiStates.w5500Int = OFF;
+    }
+  }
+  if(globalV.extiStates.sx1278RxDone == ON)
+  {
+    msg = (struct SconfigMsg*)&globalV.loraRxBuffer.data;
+    usart_debug("sx1278RxDone");
+    usart_send_u8_array((u8*)msg, msg->msgHead.length);
+    if((msg->msgHead.type == LOGINREQ && config_msg_format(msg, msg->crc8, OFF)) ||
+       data_msg_format((struct SworkDataMsg*)msg) ||
+       config_msg_format(msg, msg->crc8, ON))
+    {
+      switch(msg->msgHead.type)
+      {
+        case LOGINREQ:
+          if(globalV.forwardStatesMachine.msgId == Erxing)
+          {
+            globalV.forwardStatesMachine.msgId = EloginRequestRx;
+          }
+          else
+          {
+            globalV.extiStates.sx1278RxDone = OFF;
+          }
+          break;
+        case UPSTREAM:
+          if(globalV.forwardStatesMachine.msgId == EupStreamRxing &&
+             data_msg_format((struct SworkDataMsg*)&globalV.loraRxBuffer.data))
+          {
+            globalV.forwardStatesMachine.msgId = EupStreamRxDone;
+          }
+          else
+          {
+            globalV.extiStates.sx1278RxDone = OFF;
+          }
+          break;
+        default:
+          globalV.extiStates.sx1278RxDone = OFF;
+          break;
+      }
+    }
+    else
+    {
+      globalV.extiStates.sx1278RxDone = OFF;
+    }
+  }
+  if(globalV.extiStates.sx1278TxDone == ON)
+  {
+    switch(globalV.forwardStatesMachine.msgId)
+    {
+      case EloginReplyTxing:
+        globalV.forwardStatesMachine.msgId = EloginReplyTxDone;
+        break;
+      case EdownStreamTxing:
+        globalV.forwardStatesMachine.msgId = EdownStreamTxDone;
+        break;
+      default:
+        globalV.extiStates.sx1278TxDone = OFF;
+        break;
+    }
+  }
+}

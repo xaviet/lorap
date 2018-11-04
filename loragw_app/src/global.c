@@ -5,6 +5,8 @@
  *      Author: mose
  */
 
+#include "default_config.h"
+#include "config.h"
 #include "global.h"
 #include "string.h"
 #include "tools_lib.h"
@@ -78,5 +80,4 @@ void init_global()
     usart_send_u8_array(globalV.flashEnvValue.ip, 4);
     usart_send_string("\tserver IP: ");
     usart_send_u8_array(globalV.flashEnvValue.s1Dip, 4);
-    usart_send_string("\r\n");
   }

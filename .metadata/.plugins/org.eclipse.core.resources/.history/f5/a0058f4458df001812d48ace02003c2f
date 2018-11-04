@@ -1,0 +1,16 @@
+/*
+ * drv_spi.h
+ *
+ *  Created on: Nov 3, 2018
+ *      Author: mose
+ */
+
+#ifndef DRV_SPI_H_
+#define DRV_SPI_H_
+
+#include "global.h"
+#include "tools_lib.h"
+
+void init_spi();
+
+#endif /* DRV_SPI_H_ */

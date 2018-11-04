@@ -31,7 +31,7 @@ void init()
 
   struct SflashEnvValue flashEnvValue;
   flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-  usart_send_string("\r\n\************************************************\r\n\tBoot app ver: ");
+  usart_send_string("\r\n************************************************\r\n\tBoot app ver: ");
   usart_send_u8(flashEnvValue.ver);
   usart_send_string(" upgrade: ");
   usart_send_u8(flashEnvValue.upgradeFlag);

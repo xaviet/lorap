@@ -1,0 +1,16 @@
+/*
+ * drv_iwdg.h
+ *
+ *  Created on: Nov 3, 2018
+ *      Author: mose
+ */
+
+#ifndef DRV_IWDG_H_
+#define DRV_IWDG_H_
+
+#include "stm32f10x.h"
+
+void init_iwdg();
+void iwdg_feed();
+
+#endif /* DRV_IWDG_H_ */

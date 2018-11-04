@@ -1,0 +1,15 @@
+/*
+ * drv_exti.c
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#include "drv_exti.h"
+#include "drv_usart.h"
+
+void init_exit()
+{
+  sx1278_dio0_IRQ_call = NULL;
+  w5500_int_IRQ_call = NULL;
+}

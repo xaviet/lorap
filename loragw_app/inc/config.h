@@ -10,7 +10,6 @@
 
 #include "stm32f10x.h"
 #include "hw_config.h"
-#include "default_config.h"
 
 #define FALSE 0
 #define TRUE 1
@@ -24,6 +23,7 @@
 #define TASKINTERVALTIME 0
 #define ALIGNMARK 0xf0
 #define CRC8POLY 0x07 // X8 + X2 + X1 + 1
+
 #define LEDBLINKDIV 1024
 
 #define INVALID 0
@@ -42,28 +42,8 @@
 #define GWCONFIGREQUERY 252
 #define GWSETUPREPLY 253
 #define GWCONFIGSETUP 254
+#define MAXFRAMELENGTH 1460
 #define ETHERNETBUFFLENGTH 2048
-
-// typedef enum taskList
-// {run_mark, timer(startup delay), time_interval, task_point}
-#define TASKCOMPSREG \
-struct StaskComponents taskComps[EtaskMax] = \
-{ \
-  {FALSE, HEARTBEAT_RX_TIMEOUT, TASKINTERVALTIME, heartBeat_init, heartBeat_run}, \
-  {FALSE, TASKSTARTUPDELAY, TASKINTERVALTIME, irqCall_init, irqCall_run}, \
-  {FALSE, TASKSTARTUPDELAY, TASKINTERVALTIME, forward_init, forward_run}, \
-  {FALSE, TASKSTARTUPDELAY, TASKINTERVALTIME, reboot_init, reboot_run}, \
-  {FALSE, TASKSTARTUPDELAY, TASKINTERVALTIME, upgrade_init, upgrade_run}, \
-};
-typedef enum EtaskList
-{
-  EheartBeat = 0,
-  EirqCall,
-  Eforward,
-  Ereboot,
-  Eupgrade,
-  EtaskMax,
-}taskList;
 
 typedef enum EstatesMachine
 {

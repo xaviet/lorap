@@ -1,0 +1,13 @@
+/*
+ * task.c
+ *
+ *  Created on: Nov 4, 2018
+ *      Author: mose
+ */
+
+#include "task.h"
+
+void init_task()
+{
+
+}

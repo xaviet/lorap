@@ -1,0 +1,18 @@
+/*
+ * drv_iwdg.c
+ *
+ *  Created on: Nov 3, 2018
+ *      Author: mose
+ */
+
+#include "drv_iwdg.h"
+
+void init_iwdg()
+{
+
+}
+
+void iwdg_feed()
+{
+
+}

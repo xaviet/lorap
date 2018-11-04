@@ -8,6 +8,8 @@
 #ifndef DEFAULT_CONFIG_H_
 #define DEFAULT_CONFIG_H_
 
+#include "stm32f10x.h"
+
 #define GWID0 0xff
 #define GWID1 0xff
 #define GWID2 0xff

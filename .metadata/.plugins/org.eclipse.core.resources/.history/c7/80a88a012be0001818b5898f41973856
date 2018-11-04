@@ -1,0 +1,19 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
+
+#ifndef GLOBAL_H_
+#define GLOBAL_H_
+
+#include "hw_config.h"
+#include "config.h"
+#include "stm32f10x.h"
+
+extern struct SglobalValue globalV;
+
+void init_global();
+
+#endif /* GLOBAL_H_ */

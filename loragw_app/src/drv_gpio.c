@@ -5,6 +5,7 @@
  *      Author: mose
  */
 
+#include "hw_config.h"
 #include "drv_gpio.h"
 
 void init_gpio()
@@ -22,7 +23,7 @@ void gpio_init(u16 pin, GPIO_TypeDef* gpio, u32 speed, u32 mode)
   GPIO_Init(gpio, &GPIO_InitStructure);
 }
 
-void gpio_set(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, u8 flag)
+void gpio_set(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, vu8 flag)
 {
   if(flag)
    {
