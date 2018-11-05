@@ -79,12 +79,18 @@ void upgradeGotDataSave()
     {
       dataZoneSize = FLASH_SECTOR_SIZE;
     }
-    u32 sectorWriting = (globalV.upgradeBuffer.upgradeDataGotSize + ((u32)FLASH_UPGRADE_PROG_ADDRESS ^ FLASH_START_ADDR)) / FLASH_SECTOR_SIZE - 1;
-    flash_erase(sectorWriting, 1);
-    flash_write(sectorWriting, (u8*)&globalV.upgradeBuffer.upgradeDataZone, dataZoneSize);
-    usart_debug("sectorWriting");
+    u32 offset = ((globalV.upgradeBuffer.upgradeDataGotSize % FLASH_SECTOR_SIZE) > 0)?0: 1;
+    u32 sectorWriting = (globalV.upgradeBuffer.upgradeDataGotSize + ((u32)FLASH_UPGRADE_PROG_ADDRESS ^ FLASH_START_ADDR))
+		        / FLASH_SECTOR_SIZE - offset;
+//    usart_send_u32(offset);
 //    usart_send_u32(sectorWriting);
 //    usart_send_string("\r\n");
+    flash_erase(sectorWriting, 1);
+//    usart_send_u8_array((u8*)&globalV.upgradeBuffer.upgradeDataZone, dataZoneSize);
+    flash_write(sectorWriting, (u8*)&globalV.upgradeBuffer.upgradeDataZone, dataZoneSize);
+//    u8 d[FLASH_SECTOR_SIZE];
+//    flash_read(sectorWriting, (u8*)&d, dataZoneSize);
+//    usart_send_u8_array((u8*)&d, dataZoneSize);
   }
   if(globalV.upgradeBuffer.upgradeDataGotSize < globalV.upgradeBuffer.upgradeDataTotleSize)
   {
@@ -94,7 +100,7 @@ void upgradeGotDataSave()
   {
     flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
     globalV.flashEnvValue.upgradeFlag = 0x01;
-//    globalV.flashEnvValue.ver = VER;
+    globalV.flashEnvValue.upgradeDataSize = globalV.upgradeBuffer.upgradeDataTotleSize;
     globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
     flash_erase(FLASH_ENV_DATA_SECTOR, 1);
     flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
@@ -103,7 +109,7 @@ void upgradeGotDataSave()
     globalV.upgradeMsg.flag = FLAG_COMPLETE;
     *((u8*)&globalV.upgradeMsg + globalV.upgradeMsg.msgHead.length - 1) = crc8((u8*)&globalV.upgradeMsg, globalV.upgradeMsg.msgHead.length - 1);
     w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)&globalV.upgradeMsg, globalV.upgradeMsg.msgHead.length);
-    usart_debug("upgradeRunning completed, Reboot!");
+    usart_debug("upgrade completed, Reboot!");
     globalV.upgradeStatesMachine.msgId = EupgradeWaitting;
 //    NVIC_SystemReset();
   }

@@ -47,7 +47,7 @@ void irqCall_default()
 
 void sx1278_dio0_irq()
 {
-  //led_set(globalV.ledStat = !globalV.ledStat);
+//  usart_debug("sx1278_dio0_irq");
   u8 intFlag = sx1278_read(sx1278_irqFlags);
   if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))
   {
@@ -66,7 +66,7 @@ void sx1278_dio0_irq()
 
 void w5500_int_irq()
 {
-  //led_set(globalV.ledStat = !globalV.ledStat);
+//  usart_debug("w5500_int_irq");
   u8 intFlag = w5500_rw_1byte(IR, COMMON_R | RWB_READ | FDM1, 0x00);
   if(intFlag)
   {
@@ -130,7 +130,8 @@ void USART1_rx()
 void statesMachineJump()
 {
   struct SconfigMsg* msg = FALSE;
-  struct SflashEnvValueMsg* flashEnvValueMsg = FALSE;
+  struct SgwConfigMsg *gwConfig = FALSE;
+  struct SflashEnvValue flashEnvValue;
   if(globalV.extiStates.w5500Int == ON)
   {
     msg = (struct SconfigMsg*)&globalV.w5500RxBuffer.data.data;
@@ -182,25 +183,43 @@ void statesMachineJump()
           break;
         case GWCONFIGREQUERY:
           usart_debug("GWCONFIGREQUERY");
-          flashEnvValueMsg = (struct SflashEnvValueMsg*)&globalV.w5500RxBuffer.data.data;
-          flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&(flashEnvValueMsg->flashEnvValue), sizeof(struct SflashEnvValue));
-          flashEnvValueMsg->msgHead.length = sizeof(struct SflashEnvValueMsg);
-          flashEnvValueMsg->crc8 = crc8((u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length - 1);
-          flashEnvValueMsg->msgHead.type = GWCONFIGREPLY;
-          usart_send_u8_array((u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length - 1);
-          w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length);
+          gwConfig = (struct SgwConfigMsg*)&globalV.w5500RxBuffer.data.data;
+          flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+          gwConfig->msgHead.length = sizeof(struct SgwConfigMsg);
+          gwConfig->msgHead.type = GWCONFIGREPLY;
+          gwConfig->envFlag = flashEnvValue.envFlag;
+          memcpy(gwConfig->ip, flashEnvValue.ip, 4);
+          memcpy(gwConfig->mask, flashEnvValue.mask, 4);
+          memcpy(gwConfig->mac, flashEnvValue.mac, 6);
+          memcpy(gwConfig->gwIp, flashEnvValue.gwIp, 4);
+          memcpy(gwConfig->s1Dip, flashEnvValue.s1Dip, 4);
+          memcpy(gwConfig->s1Dport, flashEnvValue.s1Dport, 42);
+          memcpy(gwConfig->s1Sport, flashEnvValue.s1Sport, 2);
+          gwConfig->crc8 = crc8((u8*)gwConfig, gwConfig->msgHead.length - 1);
+          usart_send_u8_array((u8*)gwConfig, gwConfig->msgHead.length);
+          w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)gwConfig, gwConfig->msgHead.length);
           globalV.extiStates.w5500Int = OFF;
           break;
         case GWCONFIGSETUP:
           usart_debug("GWCONFIGSETUP");
-          flashEnvValueMsg = (struct SflashEnvValueMsg*)&globalV.w5500RxBuffer.data.data;
-          w5500_load_parament(&flashEnvValueMsg->flashEnvValue);
-          flashEnvValueMsg->flashEnvValue.envFlag = ON;
-          flashEnvValueMsg->flashEnvValue.crc8 = crc8((u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+          gwConfig = (struct SgwConfigMsg*)&globalV.w5500RxBuffer.data.data;
+          flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+          flashEnvValue.envFlag = ON;
+          memcpy(flashEnvValue.ip, gwConfig->ip, 4);
+          memcpy(flashEnvValue.mask, gwConfig->mask, 4);
+          memcpy(flashEnvValue.mac, gwConfig->mac, 6);
+          memcpy(flashEnvValue.gwIp, gwConfig->gwIp, 4);
+          memcpy(flashEnvValue.s1Dip, gwConfig->s1Dip, 4);
+          memcpy(flashEnvValue.s1Dport, gwConfig->s1Dport, 42);
+          memcpy(flashEnvValue.s1Sport, gwConfig->s1Sport, 2);
+          flashEnvValue.crc8 = crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+          w5500_load_parament(&flashEnvValue);
           flash_erase(FLASH_ENV_DATA_SECTOR, 1);
-          flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue));
-          flashEnvValueMsg->msgHead.type = GWSETUPREPLY;
-          w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)flashEnvValueMsg, flashEnvValueMsg->msgHead.length);
+          flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+          gwConfig->msgHead.type = GWSETUPREPLY;
+          gwConfig->msgHead.length = sizeof(struct SgwConfigMsg);
+          gwConfig->crc8 = crc8((u8*)gwConfig, sizeof(struct SgwConfigMsg) - 1);
+          w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)gwConfig, sizeof(struct SgwConfigMsg));
           globalV.extiStates.w5500Int = OFF;
           NVIC_SystemReset();
           break;
@@ -223,12 +242,13 @@ void statesMachineJump()
           break;
         case FACTORYCNF:
           usart_debug("FACTORYCNF");
-//          flashEnvValueMsg = (struct SflashEnvValueMsg*)&globalV.w5500RxBuffer.data.data;
-//          flash_read(FLASH_ENV_VALUE_SECTOR, , sizeof(struct SflashEnvValue))
-//          flashEnvValueMsg->flashEnvValue.crc8 = crc8((u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue) - 1);
-//          flash_erase_disable_irq(FLASH_ENV_VALUE_SECTOR, 1);
-//          flash_write_disable_irq(FLASH_ENV_VALUE_SECTOR, (u8*)&flashEnvValueMsg->flashEnvValue, sizeof(struct SflashEnvValue));
-//          NVIC_SystemReset();
+          struct SfactoryConfigMsg* factoryConfigMsg = (struct SfactoryConfigMsg*)&globalV.w5500RxBuffer.data.data;
+          flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+          memcpy(&flashEnvValue.id, factoryConfigMsg->id, 4);
+          flashEnvValue.crc8 = crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+          flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+          flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+          NVIC_SystemReset();
           globalV.extiStates.w5500Int = OFF;
           break;
         default:

@@ -102,3 +102,128 @@ void u32ToBytes(vu8* s, vu32 i)
   *(s + 2) = (i & 0x0000ff00) / 0x00000100;
   *(s + 3) = (i & 0xff0000ff) / 0x00000001;
 }
+
+/* BASE 64 encode table */
+static const u8 base64en[] = {
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+  'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+  'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+  'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+  'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+  'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+  'w', 'x', 'y', 'z', '0', '1', '2', '3',
+  '4', '5', '6', '7', '8', '9', '+', '/',
+};
+
+/* ASCII order for BASE 64 decode, -1 in unused character */
+static const u8 base64de[] = {
+  /* '+', ',', '-', '.', '/', '0', '1', '2', */
+      62,  -1,  -1,  -1,  63,  52,  53,  54,
+  /* '3', '4', '5', '6', '7', '8', '9', ':', */
+      55,  56,  57,  58,  59,  60,  61,  -1,
+  /* ';', '<', '=', '>', '?', '@', 'A', 'B', */
+      -1,  -1,  -1,  -1,  -1,  -1,   0,   1,
+  /* 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', */
+       2,   3,   4,   5,   6,   7,   8,   9,
+  /* 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', */
+      10,  11,  12,  13,  14,  15,  16,  17,
+  /* 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', */
+      18,  19,  20,  21,  22,  23,  24,  25,
+  /* '[', '\', ']', '^', '_', '`', 'a', 'b', */
+      -1,  -1,  -1,  -1,  -1,  -1,  26,  27,
+  /* 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', */
+      28,  29,  30,  31,  32,  33,  34,  35,
+  /* 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', */
+      36,  37,  38,  39,  40,  41,  42,  43,
+  /* 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', */
+      44,  45,  46,  47,  48,  49,  50,  51,
+};
+
+u32 base64Encode(const u8* in, u32 inlen, u8* out)
+{
+  u32 i, j;
+  j = 0;
+  for(i = 0; i < inlen; i++)
+  {
+    int s = i % 3;      // from 8 / gcd(6, 8)
+    switch(s)
+    {
+      case 0:
+        out[j++] = base64en[(u8)((in[i] >> 2) & 0x3F)];
+        break;
+      case 1:
+        out[j++] = base64en[(u8)(((in[i-1] & 0x3) << 4) + ((in[i] >> 4) & 0xF))];
+        break;
+      case 2:
+        out[j++] = base64en[(u8)(((in[i-1] & 0xF) << 2) + ((in[i] >> 6) & 0x3))];
+        out[j++] = base64en[(u8)(in[i] & 0x3F)];
+        break;
+      default:
+        break;
+    }
+  }
+  /* move back */
+  i -= 1;
+  /* check the last and add padding */
+  if((i % 3) == 0)
+  {
+    out[j++] = base64en[(in[i] & 0x3) << 4];
+    out[j++] = BASE64_PAD;
+    out[j++] = BASE64_PAD;
+  }
+  else if((i % 3) == 1)
+  {
+    out[j++] = base64en[(in[i] & 0xF) << 2];
+    out[j++] = BASE64_PAD;
+  }
+  out[j] = 0x00;
+  return(j);
+}
+
+u32 base64Decode(const u8* in, u32 inlen, u8* out)
+{
+  u32 i, j;
+  u8 c;
+  j = 0;
+  for(i = 0; i < inlen; i++)
+  {
+    c = base64de[in[i] - BASE64DE_FIRST];
+    int s = i % 4;      // from 8 / gcd(6, 8)
+    if(in[i] == '=')
+    {
+    }
+    else if(in[i] < BASE64DE_FIRST || in[i] > BASE64DE_LAST ||
+            c == -1)
+    {
+      j = 0;
+    }
+    else
+    {
+      switch(s)
+      {
+        case 0:
+          out[j] = (u8)(((u32)c << 2) & 0xFF);
+          break;
+        case 1:
+          out[j++] += (u8)(((u32)c >> 4) & 0x3);
+          /* if not last char with padding */
+          if (i < (inlen - 3) || in[inlen - 2] != '=')
+            out[j] = (u8)(((u32)c & 0xF) << 4);
+          break;
+        case 2:
+          out[j++] += (u8)(((u32)c >> 2) & 0xF);
+          /* if not last char with padding */
+          if (i < (inlen - 2) || in[inlen - 1] != '=')
+            out[j] =  (u8)(((u32)c & 0x3) << 6);
+          break;
+        case 3:
+          out[j++] += (u32)c;
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  out[j] = 0x00;
+  return(j);
+}

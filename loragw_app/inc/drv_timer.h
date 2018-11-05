@@ -10,8 +10,8 @@
 
 #include "stm32f10x.h"
 
-void (*TIM1_IRQ_call)();
-void (*TIM2_IRQ_call)();
+extern void (*TIM1_IRQ_call)();
+extern void (*TIM2_IRQ_call)();
 
 void init_timer();
 void timer_init(TIM_TypeDef* timN, u16 period, u16 prescaler, u16 clockDivision, u16 countMode, u8 repetition, u8 irqChannel);

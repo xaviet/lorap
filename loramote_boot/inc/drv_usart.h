@@ -1,31 +1,24 @@
 /*
  * drv_usart.h
  *
- *  Created on: Aug 22, 2018
- *      Author: pv
+ *  Created on: Nov 1, 2018
+ *      Author: mose
  */
 
 #ifndef DRV_USART_H_
 #define DRV_USART_H_
 
-#include "stm32f10x.h"
+#include "global.h"
+#include "tools_lib.h"
 
-#define USARTX USART1
-
-void (*USART1_IRQ_call)();
-void (*USART2_IRQ_call)();
-
-void usart_init();
-void usart1_init(u32 baudRate);
+void init_usart();
+void usart_init(USART_TypeDef* usartN, GPIO_TypeDef* gpio, u16 txPin, u16 rxPin, u32 baudRate, u32 irqN);
 void USART1_IRQHandler();
-void usart2_init(u32 baudRate);
-void USART2_IRQHandler();
-void usart_send_byte(USART_TypeDef* USARTx, char ch);
+void usart_send_byte(USART_TypeDef* USARTx, __IO char ch);
 void usart_send_u8(u8 value);
 void usart_send_u16(u16 value);
 void usart_send_u32(u32 value);
-void usart_send_string(char* pString);
-void usart_send_u8_array(u8* data, u32 length);
-u8 get_char_from_hex(u8 value);
+void usart_send_string(__IO char* pString);
+void usart_send_u8_array(__IO u8* data, u32 length);
 
 #endif /* DRV_USART_H_ */

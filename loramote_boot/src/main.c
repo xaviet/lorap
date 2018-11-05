@@ -1,95 +1,96 @@
-/**
-  ******************************************************************************
-  * @file    main.c
-  * @author  Mose
-  * @version V1.0
-  * @date    01-December-2018
-  * @brief   Default main function.
-  ******************************************************************************
-*/
+/*
+ * main.c
+ *
+ *  Created on: Nov 1, 2018
+ *      Author: mose
+ */
 
 #include "main.h"
+#include "drv_usart.h"
+#include "drv_flash.h"
+#include "drv_gpio.h"
 
 int main(void)
 {
-  usart_init();
-  usart_send_string("\r\nbootloader init Done\r\n");
-  flash_init();
+  init();
+  loop();
+}
+
+void init()
+{
+  // 外设使能时钟
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |
+			 RCC_APB2Periph_GPIOB |
+//			 RCC_APB2Periph_GPIOC |
+			 RCC_APB2Periph_USART1
+			 , ENABLE);
+
+  init_usart();
+  init_gpio();
+  init_flash();
+  init_global();
 
   struct SflashEnvValue flashEnvValue;
-  flash_read(FLASH_ENV_VALUE_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-  if((flashEnvValue.upgrade_flag == 0x01) &&
-    (flashEnvValue.crc8 == crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1)))
+  flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+  usart_send_string("\r\n****************************************************************\r\n\tBoot app ver: ");
+  u32 upgradeSectors = (flashEnvValue.upgradeDataSize / FLASH_SECTOR_SIZE) +
+		      ((flashEnvValue.upgradeDataSize % FLASH_SECTOR_SIZE > 0)?1: 0);
+  usart_send_u8(flashEnvValue.ver);
+  usart_send_string(" upgrade: ");
+  usart_send_u8(flashEnvValue.upgradeFlag);
+  usart_send_string(" size: ");
+  usart_send_u32(flashEnvValue.upgradeDataSize);
+//  usart_send_string(" sectors: ");
+//  usart_send_u32(upgradeSectors);
+  usart_send_string("\r\n");
+//  flashEnvValue.upgradeFlag = FALSE;
+  if((flashEnvValue.upgradeFlag == TRUE) &&
+      (flashEnvValue.crc8 == crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1)))
   {
-    u32 appSector = ((u32)APP_PROG_ADDRESS ^ NVIC_VectTab_FLASH) / FLASH_SECTOR_SIZE;
-    u32 dataSector = ((u32)UPGRADE_DATA_ADDRESS ^ NVIC_VectTab_FLASH) / FLASH_SECTOR_SIZE;
-    usart_send_string("\r\nupgrade: 00/26");
-    for(int i = 0; i < DATA_SIZE / FLASH_SECTOR_SIZE; i++)
+    for(int i = 0; i < upgradeSectors; i++)
     {
-      flash_erase_disable_irq(appSector + i, 1);
-//      delay_1us(10000);
-      flash_write_disable_irq(appSector + i, (u8*)FLASH_SECTOR_ADDR(dataSector + i), FLASH_SECTOR_SIZE);
-//      delay_1us(10000);
-      usart_send_string("\b\b\b\b\b");
-      u8 disp = i / 16;
-      usart_send_byte(USARTX, disp + 0x30);
-      disp = i % 16;
-      usart_send_byte(USARTX, disp + 0x30);
-      usart_send_string("/26");
+//      usart_send_u32(i);
+//      usart_send_u32(FLASH_APP_PROG_SECTOR + i);
+//      usart_send_u32(FLASH_UPGRADE_PROG_SECTOR + i);
+//      usart_send_string("\r\n");
+      flash_erase(FLASH_APP_PROG_SECTOR + i, 1);
+      flash_write(FLASH_APP_PROG_SECTOR + i, (u8*)FLASH_SECTOR_TO_ADDR(FLASH_UPGRADE_PROG_SECTOR + i), FLASH_SECTOR_SIZE);
+//      u8 d[FLASH_SECTOR_SIZE];
+//      flash_read(FLASH_UPGRADE_PROG_SECTOR + i, (u8*)&d, FLASH_SECTOR_SIZE);
+//      usart_send_u8_array((u8*)&d, FLASH_SECTOR_SIZE);
+//      flash_read(FLASH_APP_PROG_SECTOR + i, (u8*)&d, FLASH_SECTOR_SIZE);
+//      usart_send_u8_array((u8*)&d, FLASH_SECTOR_SIZE);
     }
-    flashEnvValue.upgrade_flag = 0x00;
+    flashEnvValue.upgradeFlag = FALSE;
     flashEnvValue.crc8 = crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1);
-    flash_erase_disable_irq(FLASH_ENV_VALUE_SECTOR, 1);
-    flash_write_disable_irq(FLASH_ENV_VALUE_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-    usart_send_string("\r\nupgrade OK!\r\n");
+    flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+    flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+    usart_send_string("\tupgrade OK\r\n");
   }
+}
 
-  // jump iap
+void loop()
+{
+  while(TRUE)
+  {
+    led_set(ON);
+    delay_1us(0x8000);
+    led_set(OFF);
+    delay_1us(0x8000);
+  }
+  // jump app
   jumper();
 }
 
-void jumper(void)
+void jumper()
 {
-  if(((*(vu32*)APP_PROG_ADDRESS) & 0x2FFE0000) == 0x20000000)
+  if(((*(vu32*)FLASH_APP_PROG_ADDRESS) & 0x2FFE0000) == 0x20000000)
   {
-    usart_send_string("\r\njump to app\r\n");
-    pFun jump = (pFun)*(volatile u32*)(APP_PROG_ADDRESS + 4);
-    NVIC_SetVectorTable(NVIC_VectTab_FLASH, (u32)APP_PROG_ADDRESS);
-    __set_MSP(*(volatile u32*)APP_PROG_ADDRESS);
-  //  SCB->VTOR = (u32)IAP_ADDRESS;
-  //  asm volatile("msr msp, %0"::"g"(*(volatile u32*) IAP_ADDRESS));
+    pFun jump = (pFun)*(vu32*)(FLASH_APP_PROG_ADDRESS + 4);
+    NVIC_SetVectorTable(NVIC_VectTab_FLASH, FLASH_APP_PROG_ADDRESS);
+    __set_MSP(*(vu32*)FLASH_APP_PROG_ADDRESS);
+//    SCB->VTOR = (u32)FLASH_APP_PROG_ADDRESS;
+//    asm volatile("msr msp, %0"::"g"(*(volatile u32*) FLASH_APP_PROG_ADDRESS));
     jump();
   }
-  else
-  {
-    usart_send_string("\r\njump fault\r\n");
-  }
-}
-
-u8 crc8(u8* chars, u8 length)
-{
-  u8 rt = 0x00;
-  u8 i;
-  while(length--)
-  {
-    rt = (u8)(((u32)rt ^ (*chars++)) & 0xff);
-    for(i = 8; i > 0; --i)
-    {
-      if(rt & 0x80)
-      {
-        rt = (u8)((((u32)rt << 1) ^ CRC8POLY) & 0xff);
-      }
-      else
-      {
-        rt = (u8)(((u32)rt << 1) & 0xff);
-      }
-    }
-  }
-  return(rt);
-}
-
-void delay_1us(u32 n)
-{
-  u32 i = 8 * n;
-  while(i--);
 }

@@ -30,7 +30,13 @@ void init_global()
     if((globalV.flashEnvValue.envFlag == ON) &&
       (globalV.flashEnvValue.crc8 == crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1)))
     {
-      globalV.flashEnvValue.ver = VER;
+      if(globalV.flashEnvValue.ver != VER)
+      {
+	globalV.flashEnvValue.ver = VER;
+	globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+	flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+	flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
+      }
       globalV.loraLoginChannelConfig.msgHead.ver = globalV.flashEnvValue.ver;
       usart_send_string("\tLoad env data OK\r\n");
     }

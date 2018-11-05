@@ -31,39 +31,54 @@ void init()
 
   struct SflashEnvValue flashEnvValue;
   flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-  usart_send_string("\r\n************************************************\r\n\tBoot app ver: ");
+  usart_send_string("\r\n****************************************************************\r\n\tBoot app ver: ");
+  u32 upgradeSectors = (flashEnvValue.upgradeDataSize / FLASH_SECTOR_SIZE) +
+		      ((flashEnvValue.upgradeDataSize % FLASH_SECTOR_SIZE > 0)?1: 0);
   usart_send_u8(flashEnvValue.ver);
   usart_send_string(" upgrade: ");
   usart_send_u8(flashEnvValue.upgradeFlag);
+  usart_send_string(" size: ");
+  usart_send_u32(flashEnvValue.upgradeDataSize);
+//  usart_send_string(" sectors: ");
+//  usart_send_u32(upgradeSectors);
   usart_send_string("\r\n");
+//  flashEnvValue.upgradeFlag = FALSE;
   if((flashEnvValue.upgradeFlag == TRUE) &&
       (flashEnvValue.crc8 == crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1)))
   {
-    for(int i = 0; i < FLASH_SIZE_TO_SECTOR(flashEnvValue.upgradeDataSize); i++)
+    for(int i = 0; i < upgradeSectors; i++)
     {
-      flash_erase(FLASH_APP_PROG_SECTOR + 1, 1);
+//      usart_send_u32(i);
+//      usart_send_u32(FLASH_APP_PROG_SECTOR + i);
+//      usart_send_u32(FLASH_UPGRADE_PROG_SECTOR + i);
+//      usart_send_string("\r\n");
+      flash_erase(FLASH_APP_PROG_SECTOR + i, 1);
       flash_write(FLASH_APP_PROG_SECTOR + i, (u8*)FLASH_SECTOR_TO_ADDR(FLASH_UPGRADE_PROG_SECTOR + i), FLASH_SECTOR_SIZE);
+//      u8 d[FLASH_SECTOR_SIZE];
+//      flash_read(FLASH_UPGRADE_PROG_SECTOR + i, (u8*)&d, FLASH_SECTOR_SIZE);
+//      usart_send_u8_array((u8*)&d, FLASH_SECTOR_SIZE);
+//      flash_read(FLASH_APP_PROG_SECTOR + i, (u8*)&d, FLASH_SECTOR_SIZE);
+//      usart_send_u8_array((u8*)&d, FLASH_SECTOR_SIZE);
     }
     flashEnvValue.upgradeFlag = FALSE;
     flashEnvValue.crc8 = crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1);
     flash_erase(FLASH_ENV_DATA_SECTOR, 1);
     flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-    usart_send_string("\tupgrading OK\r\n");
+    usart_send_string("\tupgrade OK\r\n");
   }
-
-  // jump app
-  jumper();
 }
 
 void loop()
 {
-  while(TRUE)
-  {
-    led_set(ON);
-    delay_1us(0x8000);
-    led_set(OFF);
-    delay_1us(0x8000);
-  }
+//  while(TRUE)
+//  {
+//    led_set(ON);
+//    delay_1us(0x8000);
+//    led_set(OFF);
+//    delay_1us(0x8000);
+//  }
+  // jump app
+  jumper();
 }
 
 void jumper()

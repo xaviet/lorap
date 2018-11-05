@@ -10,6 +10,9 @@
 #include "drv_usart.h"
 #include "tools_lib.h"
 
+void (*TIM1_IRQ_call)();
+void (*TIM2_IRQ_call)();
+
 void init_timer()
 {
   TIM1_IRQ_call = FALSE;

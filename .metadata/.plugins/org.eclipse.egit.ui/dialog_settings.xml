@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.egit.ui.internal.dialogs.ResetTargetSelectionDialog.dialogBounds">
+		<item value="613" key="DIALOG_WIDTH"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="749" key="DIALOG_HEIGHT"/>
+		<item value="623" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="656" key="DIALOG_WIDTH"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="460" key="DIALOG_HEIGHT"/>
+		<item value="-20" key="DIALOG_X_ORIGIN"/>
+		<item value="-183" key="DIALOG_Y_ORIGIN"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
 	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
 		<item value="752" key="DIALOG_X_ORIGIN"/>
 		<item value="354" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="GitCommitMessageComponent">
+		<list key="/home/mose/code/lorap/.git">
+			<item value="false"/>
+			<item value="mose &lt;mose@pool-100-1-1-224.nwrknj.fios.verizon.net&gt;"/>
+			<item value="20181105"/>
+			<item value="mose &lt;mose@pool-100-1-1-224.nwrknj.fios.verizon.net&gt;"/>
+			<item value="8a666cb003dae7978882394070a690cb066cb057"/>
+		</list>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
-		<item value="200,200" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="500,500" key="STAGING_SASH_FORM_WEIGHT"/>
 		<item value="false" key="sortItemState"/>
-		<item value="200,200" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+		<item value="500,500" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
 	</section>
 </section>

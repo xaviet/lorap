@@ -2,6 +2,13 @@
 <section name="Workbench">
 	<item value="Default C source template" key="LastUsedSourceTemplate"/>
 	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
+	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
+		<item value="450" key="DIALOG_WIDTH"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="494" key="DIALOG_HEIGHT"/>
+		<item value="704" key="DIALOG_X_ORIGIN"/>
+		<item value="158" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
 		<item value="150" key="size.height"/>
 		<item value="515" key="size.width"/>

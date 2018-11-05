@@ -213,6 +213,7 @@ void w5500_write_nbytes(vu16 addr, vu8 controlByte, vu8* data, vu8 length)
 
 void w5500_write_socket_buffer(vu8 socket, vu8 *data, vu16 length)
 {
+  led_set(globalV.ledStat = !globalV.ledStat);
   if(length > 0 && length < MAXFRAMELENGTH)
   {
     u16 offset = w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x0);

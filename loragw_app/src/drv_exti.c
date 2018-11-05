@@ -12,6 +12,9 @@
 #include "drv_gpio.h"
 #include "tools_lib.h"
 
+void (*sx1278_dio0_IRQ_call)();
+void (*w5500_int_IRQ_call)();
+
 void init_exit()
 {
   sx1278_dio0_IRQ_call = FALSE;
@@ -21,7 +24,7 @@ void init_exit()
   // sx1278_dio0
   exti_init(SX1278_DOI0, SX1278_DIO0_GPIO, EXTI_Line4, GPIO_PortSourceGPIOC, GPIO_PinSource4, EXTI4_IRQn, EXTI_Trigger_Rising);
   // w5500_int
-  exti_init(W5500_INT, W5500_INT_GPIO, EXTI_Line7, GPIO_PortSourceGPIOC, GPIO_PinSource7, EXTI9_5_IRQn, EXTI_Trigger_Rising);
+  exti_init(W5500_INT, W5500_INT_GPIO, EXTI_Line7, GPIO_PortSourceGPIOC, GPIO_PinSource7, EXTI9_5_IRQn, EXTI_Trigger_Falling);
 
 }
 
@@ -38,7 +41,7 @@ void exti_init(u16 spiN, GPIO_TypeDef* gpio, u32 extiLine, u8 portSource, u8 pin
   EXTI_Init(&EXTI_InitStructure);
   NVIC_InitTypeDef NVIC_InitStructure;
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);   //NVIC
-  NVIC_InitStructure.NVIC_IRQChannel = channel; //PB0
+  NVIC_InitStructure.NVIC_IRQChannel = channel;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority= 2;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority= 2;
   NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;

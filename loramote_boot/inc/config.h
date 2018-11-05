@@ -1,15 +1,15 @@
 /*
  * config.h
  *
- *  Created on: Aug 22, 2018
- *      Author: pv
+ *  Created on: Nov 1, 2018
+ *      Author: mose
  */
 
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
 #include "stm32f10x.h"
-#include "string.h"
+#include "hw_config.h"
 
 #define FALSE 0
 #define TRUE 1
@@ -22,10 +22,6 @@
 #define TASKSTARTUPDELAY 2
 #define TASKINTERVALTIME 0
 #define ALIGNMARK 0xf0
-
-#define STM32F103C8T6 //64 + 20
-#ifndef STM32F103C8T6
-#define STM32F103RCT6 //256 + 48
-#endif
+#define CRC8POLY 0x07 // X8 + X2 + X1 + 1
 
 #endif /* CONFIG_H_ */

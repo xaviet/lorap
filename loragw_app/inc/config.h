@@ -24,7 +24,7 @@
 #define ALIGNMARK 0xf0
 #define CRC8POLY 0x07 // X8 + X2 + X1 + 1
 
-#define LEDBLINKDIV 1024
+#define LEDBLINKDIV 2048
 
 #define INVALID 0
 #define LOGINREQ 1
