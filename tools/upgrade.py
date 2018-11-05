@@ -52,15 +52,15 @@ def int_to_bytes(i, len = 4):
 def main():
   ver = 0x5a
   upgrade_req = 0xfa
-  file_name = 'loraGW.bin'
+  file_name = 'loragw_app.bin'
   host = ('0.0.0.0', 1700)
-  gw = ('172.28.72.141', 38564)
+  gw = ('100.1.1.200', 38564)
   msg_upgrade_req = [0xf0, 
                      upgrade_req, 
                      0x21, 
                      0x00, 0x00, 0x00, 0x00, 
                      0x00, 
-                     0x00, 0x00, 0x00, 0x01,
+                     0xff, 0xff, 0xff, 0xff,
                      ver,
                      0x00, 0x00, 0x00, 0x00, 
                      0x00, 0x00, 0x00, 0x00, 
