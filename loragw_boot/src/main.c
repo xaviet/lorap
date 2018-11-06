@@ -31,7 +31,7 @@ void init()
 
   struct SflashEnvValue flashEnvValue;
   flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-  usart_send_string("\r\n****************************************************************\r\n\tBoot app ver: ");
+  usart_send_string("\r\n********************************************************************************\r\n\tLoRaGW boot app ver: ");
   u32 upgradeSectors = (flashEnvValue.upgradeDataSize / FLASH_SECTOR_SIZE) +
 		      ((flashEnvValue.upgradeDataSize % FLASH_SECTOR_SIZE > 0)?1: 0);
   usart_send_u8(flashEnvValue.ver);

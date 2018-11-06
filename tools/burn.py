@@ -7,24 +7,22 @@
 
 import os
 import sys
-
-def burnGw():
-  os.system('./hex2bin.py g')
-  os.system('./stm32flash.py -w gw.bin -f')
   
-def burnMote():
-  os.system('./hex2bin.py m')
-  os.system('./stm32flash.py -w mote.bin -f -v') 
+def burn_Run(p):
+  os.system('./hex2bin.py {0}'.format(p[0]))
+  os.system('./stm32flash.py -p {0} -w {1} -f -v'.format(p[1], p[2])) 
 
 def main(sys_arg):
+  gwp = ('g', '/dev/ttyUSB1', 'gw.bin')
+  mp = ('m', '/dev/ttyUSB0', 'mote.bin')
+  p = mp
   if(len(sys_arg) < 2):
-    burnMote()
+    p = mp
   elif(sys_arg[1].strip() == 'g'):
-    burnGw()
-  elif(sys_arg[1].strip() == 'm'):
-    burnMote()
+    p = gwp
+  burn_Run(p)
   print('burn ok, open ser')
-  os.system('./ser.py')
+  os.system('./ser.py {0}'.format(p[1]))
     
 if(__name__ == '__main__'):
   main(sys.argv)

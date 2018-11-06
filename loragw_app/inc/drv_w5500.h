@@ -159,7 +159,7 @@ vu16 w5500_rw_2bytes(vu16 addr, vu8 controlByte, vu16 data);
 vu32 w5500_rw_4bytes(vu16 addr, vu8 controlByte, vu32 data);
 void w5500_read_nbytes(vu16 addr, vu8 controlByte, vu8* data, vu8 length);
 void w5500_write_nbytes(vu16 addr, vu8 controlByte, vu8* data, vu8 length);
-vu16 w5500_read_socket_buffer(vu8 socket, vu8 *data);
-void w5500_write_socket_buffer(vu8 socket, vu8 *data, vu16 length);
+vu16 w5500_read_socket_buffer(vu8 socket, u8 *data);
+void w5500_write_socket_buffer(vu8 socket, u8 *data, vu16 length);
 
 #endif /* DRV_W5500_H_ */

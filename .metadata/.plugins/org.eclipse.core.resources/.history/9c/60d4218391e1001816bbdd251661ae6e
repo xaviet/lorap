@@ -1,0 +1,18 @@
+/*
+ * task_forward.c
+ *
+ *  Created on: Nov 6, 2018
+ *      Author: mose
+ */
+
+#include "task_forward.h"
+
+void forward_init()
+{
+
+}
+
+void forward_run()
+{
+
+}

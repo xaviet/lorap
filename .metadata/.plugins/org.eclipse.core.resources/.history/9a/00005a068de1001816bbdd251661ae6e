@@ -1,0 +1,17 @@
+/*
+ * task_irqcall.h
+ *
+ *  Created on: Nov 6, 2018
+ *      Author: mose
+ */
+
+#ifndef TASK_IRQCALL_H_
+#define TASK_IRQCALL_H_
+
+#define TASKSTARTUPDELAY 2
+#define TASKINTERVALTIME 0
+
+void irqcall_init();
+void irqcall_run();
+
+#endif /* TASK_IRQCALL_H_ */

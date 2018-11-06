@@ -211,52 +211,60 @@ void w5500_write_nbytes(vu16 addr, vu8 controlByte, vu8* data, vu8 length)
   gpio_set(W5500_GPIO, W5500_NSS, HIGH);
 }
 
-void w5500_write_socket_buffer(vu8 socket, vu8 *data, vu16 length)
+void w5500_write_socket_buffer(vu8 socket, u8 *data, vu16 length)
 {
   led_set(globalV.ledStat = !globalV.ledStat);
+  u8 txData[COMMONBUFFERLENGTH] = {0};
+  memset(&txData, 0, COMMONBUFFERLENGTH);
+  length = data_encode(data, length, (u8*)&txData);
+  usart_send_string((char*)&txData);usart_send_string("\r\n");
   if(length > 0 && length < MAXFRAMELENGTH)
   {
     u16 offset = w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x0);
     if(offset + length <= 0xffff)
     {
-      w5500_write_nbytes(offset, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, data, length);
+      w5500_write_nbytes(offset, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, (u8*)&txData, length);
       w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, offset + length);
     }
     else
     {
       u16 reserver = 0xffff - offset + 1;
       u16 overflow = offset + length - 0xffff - 1;
-      w5500_write_nbytes(offset, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, data, reserver);
+      w5500_write_nbytes(offset, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, (u8*)&txData, reserver);
       w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, 0x0000);
-      w5500_write_nbytes(0x0000, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, data + reserver, overflow);
+      w5500_write_nbytes(0x0000, (socket * 0x20 + SOCKETn_TX_BUF) | RWB_WRITE | VDM, (u8*)&txData + reserver, overflow);
       w5500_rw_2bytes(Sn_TX_WR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, overflow);
     }
     w5500_rw_1byte(Sn_CR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, SEND);
   }
 }
 
-vu16 w5500_read_socket_buffer(vu8 socket, vu8 *data)
+vu16 w5500_read_socket_buffer(vu8 socket, u8 *data)
 {
   led_set(globalV.ledStat = !globalV.ledStat);
+  u8 rxData[MAXFRAMELENGTH] = {0};
+  memset(&rxData, 0, MAXFRAMELENGTH);
   u16 length = w5500_rw_2bytes(Sn_RX_RSR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x00);
   if(length > 0 && length < MAXFRAMELENGTH)
   {
     u16 offset = w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x0) ;
     if(offset + length <= 0xffff)
     {
-      w5500_read_nbytes(offset, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, data, length);
+      w5500_read_nbytes(offset, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, (u8*)&rxData, length);
       w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, offset + length);
     }
     else
     {
       u16 reserver = 0xffff - offset + 1;
       u16 overflow = offset + length - 0xffff - 1;
-      w5500_read_nbytes(offset, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, data, reserver);
+      w5500_read_nbytes(offset, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, (u8*)&rxData, reserver);
       w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, 0x0000);
-      w5500_read_nbytes(0x0000, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, data + reserver, overflow);
+      w5500_read_nbytes(0x0000, (socket * 0x20 + SOCKETn_RX_BUF) | RWB_READ | VDM, (u8*)&rxData + reserver, overflow);
       w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, overflow);
     }
     w5500_rw_1byte(Sn_CR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, RECV);
+    usart_send_string((char*)&rxData);usart_send_string("\r\n");
+    length = data_decode(rxData, length, data);
   }
   return(length);
 }

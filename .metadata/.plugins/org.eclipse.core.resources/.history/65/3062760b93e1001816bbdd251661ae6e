@@ -1,0 +1,227 @@
+/*
+ * task_forward.c
+ *
+ *  Created on: Nov 6, 2018
+ *      Author: mose
+ */
+
+#include "task_forward.h"
+#include "global.h"
+#include "drv_sx1278.h"
+#include "drv_sensor.h"
+#include "string.h"
+
+void (*sensor_process)();
+
+void forward_init()
+{
+  sensor_process = sensor_run;
+}
+
+void forward_run()
+{
+  switch(globalV.forwardStatesMachine.msgId)
+   {
+     case Edefault:
+       forward_default();
+       break;
+     case EloginMsgTx:
+       forward_loginMsgTx();
+       break;
+     case EloginMsgTxing:
+       forward_loginMsgTxing();
+       break;
+     case  EloginMsgTxDone:
+       forward_loginMsgTxDone();
+       break;
+     case EloginMsgTxDelay:
+       forward_EloginMsgTxDelay();
+       break;
+     case EloginMsgRx:
+       forward_loginMsgRx();
+       break;
+     case EloginMsgRxing:
+       forward_loginMsgRxing();
+       break;
+     case EloginMsgRxDone:
+       forward_loginMsgRxDone();
+       break;
+     case EdownStreamMsgRx:
+       forward_downStreamMsgRx();
+       break;
+     case EdownStreamMsgRxing:
+       forward_downStreamMsgRxing();
+       break;
+     case EdownStreamMsgRxDone:
+       forward_downStreamMsgRxDone();
+       break;
+     case EsensorProcess:
+       forward_sensorProcess();
+       break;
+     case EupStreamMsgTx:
+       forward_upStreamMsgTx();
+       break;
+     case EupStreamMsgTxing:
+       forward_upStreamMsgTxing();
+       break;
+     case EupStreamMsgTxDone:
+       forward_upStreamMsgTxDone();
+       break;
+     default:
+       break;
+   }
+}
+
+void forward_upStreamMsgTxDone()
+{
+  usart_debug("forward_upStreamMsgTxDone");
+  globalV.extiStates.sx1278TxDone = OFF;
+  globalV.forwardStatesMachine.msgId = EdownStreamMsgRx;
+}
+
+void forward_upStreamMsgTxing()
+{
+  if(delta_ticket(globalV.forwardStatesMachine.startTicket, globalV.msTicket) >= LOGINTX_TIMEOUT)
+   {
+     usart_debug("forward_upStreamMsgTxing timeout");
+     sx1278_set_opmode(Stdby_mode);
+     globalV.extiStates.sx1278TxDone = OFF;
+     globalV.forwardStatesMachine.msgId = EdownStreamMsgRx;
+   }
+   else
+   {
+     globalV.forwardStatesMachine.msgId = EupStreamMsgTxing;
+   }
+}
+
+void forward_upStreamMsgTx()
+{
+  usart_debug("forward_upStreamMsgTx");
+  sx1278_set_opmode(Stdby_mode);
+  sx1278_tx(&globalV.loraWorkChannelConfig,
+            (u8*)&globalV.loraWorkChannelData,
+            globalV.loraWorkChannelConfig.msgHead.length,
+            &globalV.extiStates.sx1278DioMapping1);
+  globalV.forwardStatesMachine.startTicket = globalV.msTicket;
+  globalV.forwardStatesMachine.msgId = EupStreamMsgTxing;
+}
+
+void forward_sensorProcess()
+{
+  usart_debug("forward_sensorProcess");
+  call_fun(sensor_process);
+  sensor_process(&globalV.loraWorkChannelData);
+  globalV.forwardStatesMachine.msgId = EupStreamMsgTx;
+}
+
+void forward_downStreamMsgRxDone()
+{
+  usart_debug("forward_downStreamMsgRxDone");
+  sx1278_set_opmode(Stdby_mode); // sensor data getting
+  memcpy((u8*)&globalV.loraWorkChannelData,
+         (u8*)&globalV.loraRxBuffer,
+         ((struct SworkDataMsg*)&globalV.loraRxBuffer)->msgHead.length);
+  globalV.extiStates.sx1278RxDone = OFF;
+  globalV.forwardStatesMachine.msgId = EsensorProcess;
+}
+
+void forward_downStreamMsgRxing()
+{
+  globalV.forwardStatesMachine.msgId = EdownStreamMsgRxing;
+}
+
+void forward_downStreamMsgRx()
+{
+  usart_debug("forward_downStreamMsgRx");
+  sx1278_set_opmode(Stdby_mode);
+  sx1278_rx_continue(&globalV.loraWorkChannelConfig, &globalV.extiStates.sx1278DioMapping1);
+  globalV.forwardStatesMachine.msgId = EdownStreamMsgRxing;
+}
+
+void forward_loginMsgRxDone()
+{
+  usart_debug("forward_loginMsgRxDone");
+  struct SconfigMsg* msg = (struct SconfigMsg*)&globalV.loraRxBuffer.data;
+  memcpy((u8*)&globalV.loraWorkChannelConfig, &globalV.loraRxBuffer.data, msg->msgHead.length);
+  globalV.extiStates.sx1278RxDone = OFF;
+  globalV.forwardStatesMachine.msgId = EdownStreamMsgRx;
+}
+
+void forward_loginMsgRxing()
+{
+  if(delta_ticket(globalV.forwardStatesMachine.startTicket, globalV.msTicket) >= LOGINRX_TIMEOUT)
+   {
+     usart_debug("forward_loginMsgRxing timeout");
+     sx1278_set_opmode(Stdby_mode);
+     globalV.extiStates.sx1278TxDone = OFF;
+     globalV.forwardStatesMachine.startTicket = globalV.msTicket;
+     globalV.forwardStatesMachine.msgId = EloginMsgTxDelay;
+   }
+   else
+   {
+     globalV.forwardStatesMachine.msgId = EloginMsgRxing;
+   }
+}
+
+void forward_loginMsgRx()
+{
+  usart_debug("forward_loginMsgRx");
+  sx1278_set_opmode(Stdby_mode);
+  sx1278_rx_continue(&globalV.loraLoginChannelConfig, &globalV.extiStates.sx1278DioMapping1);
+  globalV.forwardStatesMachine.startTicket = globalV.msTicket;
+  globalV.forwardStatesMachine.msgId = EloginMsgRxing;
+}
+
+void forward_EloginMsgTxDelay()
+{
+  if(delta_ticket(globalV.forwardStatesMachine.startTicket, globalV.msTicket) >= LOGINTX_DELAY)
+  {
+    usart_debug("forward_EloginMsgTxDelay");
+    globalV.forwardStatesMachine.msgId = EloginMsgTx;
+  }
+  else
+  {
+    globalV.forwardStatesMachine.msgId = EloginMsgTxDelay;
+  }
+}
+
+void forward_loginMsgTxDone()
+{
+  usart_debug("forward_loginMsgTxDone");
+  globalV.extiStates.sx1278TxDone = OFF;
+  globalV.forwardStatesMachine.msgId = EloginMsgRx;
+}
+
+void forward_loginMsgTxing()
+{
+  if(delta_ticket(globalV.forwardStatesMachine.startTicket, globalV.msTicket) >= LOGINTX_TIMEOUT)
+  {
+    usart_debug("forward_loginMsgTxing timeout");
+    sx1278_set_opmode(Stdby_mode);
+    globalV.extiStates.sx1278TxDone = OFF;
+    globalV.forwardStatesMachine.startTicket = globalV.msTicket;
+    globalV.forwardStatesMachine.msgId = EloginMsgTxDelay;
+  }
+  else
+  {
+    globalV.forwardStatesMachine.msgId = EloginMsgTxing;
+  }
+}
+
+void forward_loginMsgTx()
+{
+  usart_debug("forward_loginMsgTx");
+  sx1278_set_opmode(Stdby_mode);
+  sx1278_tx(&globalV.loraLoginChannelConfig,
+            (u8*)&globalV.loraLoginChannelConfig,
+            sizeof(struct SconfigMsg),
+            &globalV.extiStates.sx1278DioMapping1);
+  globalV.forwardStatesMachine.startTicket = globalV.msTicket;
+  globalV.forwardStatesMachine.msgId = EloginMsgTxing;
+}
+
+void forward_default()
+{
+  globalV.forwardStatesMachine.msgId = EloginMsgTx;
+}
+

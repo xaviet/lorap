@@ -51,7 +51,7 @@ void init()
   init_iwdg();
   init_exit();
   init_task();
-  usart_send_string("\tRunning\r\n");
+  usart_send_string("\tLoRaGW running\r\n");
 }
 
 void loop()

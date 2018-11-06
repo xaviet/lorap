@@ -47,7 +47,7 @@ void irqCall_default()
 
 void sx1278_dio0_irq()
 {
-//  usart_debug("sx1278_dio0_irq");
+  usart_debug("sx1278_dio0_irq");
   u8 intFlag = sx1278_read(sx1278_irqFlags);
   if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))
   {
@@ -66,7 +66,7 @@ void sx1278_dio0_irq()
 
 void w5500_int_irq()
 {
-//  usart_debug("w5500_int_irq");
+  usart_debug("w5500_int_irq");
   u8 intFlag = w5500_rw_1byte(IR, COMMON_R | RWB_READ | FDM1, 0x00);
   if(intFlag)
   {

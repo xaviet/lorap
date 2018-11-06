@@ -1,0 +1,14 @@
+/*
+ * task_forward.h
+ *
+ *  Created on: Nov 6, 2018
+ *      Author: mose
+ */
+
+#ifndef TASK_FORWARD_H_
+#define TASK_FORWARD_H_
+
+void forward_init();
+void forward_run();
+
+#endif /* TASK_FORWARD_H_ */
