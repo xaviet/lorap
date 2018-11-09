@@ -49,7 +49,7 @@ void init()
   init_w5500();
   init_iTemp();
   init_iwdg();
-  init_exit();
+  init_exti();
   init_task();
   usart_send_string("\tLoRaGW running\r\n");
 }

@@ -47,7 +47,8 @@ void irqCall_default()
 
 void sx1278_dio0_irq()
 {
-  usart_debug("sx1278_dio0_irq");
+//  usart_debug("sx1278_dio0_irq");
+  led_set(globalV.ledStat = !globalV.ledStat);
   u8 intFlag = sx1278_read(sx1278_irqFlags);
   if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))
   {
@@ -66,7 +67,8 @@ void sx1278_dio0_irq()
 
 void w5500_int_irq()
 {
-  usart_debug("w5500_int_irq");
+//  usart_debug("w5500_int_irq");
+  led_set(globalV.ledStat = !globalV.ledStat);
   u8 intFlag = w5500_rw_1byte(IR, COMMON_R | RWB_READ | FDM1, 0x00);
   if(intFlag)
   {
@@ -80,15 +82,23 @@ void w5500_int_irq()
       u8 snInt = w5500_rw_1byte(Sn_IR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM1, 0x00);
       if(snInt & IR_RECV)
       {
-        if(globalV.extiStates.w5500Int == OFF)
+//	usart_debug("w5500_int_irq IR_RECV");
+	if(globalV.extiStates.w5500Int == OFF)
         {
-          globalV.w5500RxBuffer.socket = socket;
-          globalV.w5500RxBuffer.length = w5500_read_socket_buffer(socket, (u8*)&globalV.w5500RxBuffer.data);
+//	  usart_send_u8(socket);usart_debug("w5500_read_socket_buffer");
+	  globalV.w5500RxBuffer.socket = socket;
+          globalV.w5500RxBuffer.length = w5500_read_socket_buffer(socket, &globalV.w5500RxBuffer.data);
           globalV.extiStates.w5500Int = ON;
         }
       }
       if(snInt & IR_SEND_OK)
       {
+//	usart_debug("w5500_int_irq IR_SEND_OK");
+      }
+      if(snInt & IR_TIMEOUT)
+      {
+	usart_debug("w5500_int_irq IR_TIMEOUT");
+	socket_open(socket);
       }
       w5500_rw_1byte(Sn_IR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, snInt & 0x1f);
     }
@@ -110,7 +120,6 @@ void TIM1_irq()
   {
     led_set(globalV.ledStat = !globalV.ledStat);
   }
-  //led_set(gpio_get(GPIOB, REBOOTPIN));
 }
 
 void TIM2_irq()

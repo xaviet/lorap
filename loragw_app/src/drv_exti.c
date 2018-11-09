@@ -15,7 +15,7 @@
 void (*sx1278_dio0_IRQ_call)();
 void (*w5500_int_IRQ_call)();
 
-void init_exit()
+void init_exti()
 {
   sx1278_dio0_IRQ_call = FALSE;
   w5500_int_IRQ_call = FALSE;

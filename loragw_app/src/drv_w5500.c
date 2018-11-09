@@ -76,10 +76,10 @@ void w5500_socket_load_parament(u8 socket, __IO struct Sw5500SocketCfg* sock)
     w5500_write_nbytes(Sn_PORT, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | VDM, sock->sourcePort, 2);
     w5500_write_nbytes(Sn_DIPR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | VDM, sock->destinationIp, 4);
     w5500_write_nbytes(Sn_DPORTR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | VDM, sock->destinationPort, 2);
-    w5500_rw_1byte(Sn_IMR,  (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, IMR_RECV | IMR_SENDOK);
+    w5500_rw_1byte(Sn_IMR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, IMR_RECV | IMR_TIMEOUT);
     socket_open(socket);
   }
-  w5500_rw_1byte(Sn_IMR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, 0xe4);
+//  w5500_rw_1byte(Sn_IMR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, 0xe0 | IMR_RECV | IMR_SENDOK | IMR_TIMEOUT);
   w5500_rw_1byte(Sn_IR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, 0x1f);
 }
 
@@ -213,7 +213,7 @@ void w5500_write_nbytes(vu16 addr, vu8 controlByte, vu8* data, vu8 length)
 
 void w5500_write_socket_buffer(vu8 socket, u8 *data, vu16 length)
 {
-  led_set(globalV.ledStat = !globalV.ledStat);
+//  led_set(globalV.ledStat = !globalV.ledStat);
   u8 txData[COMMONBUFFERLENGTH] = {0};
   memset(&txData, 0, COMMONBUFFERLENGTH);
   length = data_encode(data, length, (u8*)&txData);
@@ -239,11 +239,11 @@ void w5500_write_socket_buffer(vu8 socket, u8 *data, vu16 length)
   }
 }
 
-vu16 w5500_read_socket_buffer(vu8 socket, u8 *data)
+u16 w5500_read_socket_buffer(vu8 socket, struct Sw5500SocketRxData* data)
 {
-  led_set(globalV.ledStat = !globalV.ledStat);
-  u8 rxData[MAXFRAMELENGTH] = {0};
-  memset(&rxData, 0, MAXFRAMELENGTH);
+//  led_set(globalV.ledStat = !globalV.ledStat);
+  struct Sw5500SocketRxData rxData = {0};
+  memset((u8*)&rxData, 0, sizeof(struct Sw5500SocketRxData));
   u16 length = w5500_rw_2bytes(Sn_RX_RSR, (socket * 0x20 + SOCKETn_REG) | RWB_READ | FDM2, 0x00);
   if(length > 0 && length < MAXFRAMELENGTH)
   {
@@ -263,8 +263,15 @@ vu16 w5500_read_socket_buffer(vu8 socket, u8 *data)
       w5500_rw_2bytes(Sn_RX_RD, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM2, overflow);
     }
     w5500_rw_1byte(Sn_CR, (socket * 0x20 + SOCKETn_REG) | RWB_WRITE | FDM1, RECV);
-    usart_send_string((char*)&rxData);usart_send_string("\r\n");
-    length = data_decode(rxData, length, data);
+    usart_send_string((char*)&rxData.data);usart_send_string("\r\n");
+    memcpy(data->sourceIp, (u8*)&rxData.sourceIp, 4);
+    memcpy(data->sourcePort, (u8*)&rxData.sourcePort, 2);
+    data->length[0] = 0;
+    data->length[1] = data_decode((u8*)&rxData.data, rxData.length[1], (u8*)&data->data);
+  }
+  else
+  {
+    length = 0;
   }
   return(length);
 }

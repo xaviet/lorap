@@ -87,7 +87,7 @@ void usart_send_u32(u32 value)
   usart_send_u8((u8)((value & 0xff) / 0x1));
 }
 
-void usart_send_string(__IO char* pString)
+void usart_send_string(char* pString)
 {
   while(*pString)
   {
@@ -95,7 +95,7 @@ void usart_send_string(__IO char* pString)
   }
 }
 
-void usart_send_u8_array(__IO u8* data, u32 length)
+void usart_send_u8_array(u8* data, u32 length)
 {
   while(length--)
   {
@@ -104,7 +104,7 @@ void usart_send_u8_array(__IO u8* data, u32 length)
   usart_send_string("\r\n");
 }
 
-void usart_debug(__IO char* s)
+void usart_debug(char* s)
 {
   usart_send_string("\t");
   usart_send_u32(globalV.upSeconds);

@@ -48,7 +48,7 @@ void init()
   init_sx1278();
   init_iTemp();
   init_iwdg();
-  init_exit();
+  init_exti();
   init_task();
   usart_send_string("\tLoRaMote running\r\n");
 }

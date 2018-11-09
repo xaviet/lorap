@@ -7,6 +7,7 @@ import os
 
 def main():
   fileType = ['c', 'h', 'cpp', 'py', 'ld', 's']
+  commont = []
   cDir = '../'
   totalLn = 0
   maxfile = [0, '']
@@ -24,7 +25,8 @@ def main():
           fd = open(parent + os.sep + el0, 'rt')
           ln = 0
           for el1 in fd:
-            if(len(el1.strip()) > 0):
+            if(len(el1.strip()) > 0
+              and el1.strip()[0] not in commont):
               ln += 1
             #ln += 1
           print('{0}\t{1}'.format(str(ln), '[' + parent + os.sep + el0 + ']'))

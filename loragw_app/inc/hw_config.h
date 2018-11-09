@@ -69,6 +69,7 @@
 #define SX1278_CLK GPIO_Pin_5
 #define SX1278_RESET_GPIO GPIOA
 #define SX1278_RESET GPIO_Pin_3
+// irq in drv_exti.c
 #define SX1278_DIO0_GPIO GPIOC
 #define SX1278_DOI0 GPIO_Pin_4
 
@@ -80,6 +81,7 @@
 #define W5500_CLK GPIO_Pin_13
 #define W5500_RESET_GPIO GPIOC
 #define W5500_RESET GPIO_Pin_6
+// irq in drv_exti.c
 #define W5500_INT_GPIO GPIOC
 #define W5500_INT GPIO_Pin_7
 #define W5500SOCKETNUMBER 8

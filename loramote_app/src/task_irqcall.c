@@ -43,6 +43,7 @@ void irqCall_default()
 
 void sx1278_dio0_irq()
 {
+  //  usart_debug("sx1278_dio0_irq");
   led_set(globalV.ledStat = !globalV.ledStat);
   u8 intFlag = sx1278_read(sx1278_irqFlags);
   if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))

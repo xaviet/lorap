@@ -73,7 +73,12 @@ def encoder(chars):
   return(string_replace(base64Encode(chars)))
 
 def decoder(chars):
-  return(base64Decode(string_replace(chars)))
+  rt = []
+  try:
+    rt = base64Decode(string_replace(chars))
+  except:
+    print('decoder fault')
+  return(rt)
 
 # tools end
 

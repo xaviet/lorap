@@ -13,8 +13,40 @@ import socket
 import os
 import platform
 import datetime
+import base64
 
 # tools begin
+
+def base64Encode(vChars):
+  return(list(base64.b64encode(bytes(vChars))))
+
+def base64Decode(vChars):
+  return(list(base64.b64decode(bytes(vChars))))
+  
+def string_replace(vChars):
+  s = []
+  for el0 in vChars:
+    if(el0 in range(ord('a'), ord('z') + 1)):
+      s += [ord('z') - (el0 - ord('a'))]
+    elif(el0 in range(ord('A'), ord('Z') + 1)):
+      s += [ord('Z') - (el0 - ord('A'))]
+    elif(el0 in range(ord('0'), ord('9') + 1)):
+      s += [ord('9') - (el0 - ord('0'))]
+    else:
+      s += [el0]
+  return(s)
+      
+def encoder(chars):
+  return(string_replace(base64Encode(chars)))
+
+def decoder(chars):
+  rt = []
+  try:
+    rt = base64Decode(string_replace(chars))
+  except:
+    print('decoder fault')
+  return(rt)
+  
 def crc8(chars, length):
   rt = 0x00
   for el0 in range(length):
@@ -79,17 +111,21 @@ def main():
   msg[13:17] = int_to_bytes(data_size)
   msg += msg_upgrade_data
   msg += [crc8(msg, len(msg))]
-  debug('tx', ' '.join(['%02x' % (int(el0), ) for el0 in msg]))
-  s.sendto(bytes(msg), gw)
+  debug('tx', str(len(msg)), ' '.join(['%02x' % (int(el0), ) for el0 in msg]))
+  txData = encoder(msg)
+  print(bytes(txData))
+  s.sendto(bytes(txData), gw)
   tx_start = 0
   tx_len = 0
   while(1):
     r, w, e = select.select([s], [], [], 0)
     if(s in r):
       d, a = s.recvfrom(2048)
-      msg = list(d)
+      print(d)
+      rxData = list(d)
+      msg = decoder(rxData)
+      debug('rx', str(len(msg)), ' '.join(['%02x' % (int(el0), ) for el0 in msg]))
       if(msg[1] == 0xf9):
-        debug('rx', ' '.join(['%02x' % (int(el0), ) for el0 in msg]))
         tx_start = bytes_to_int(msg[13:17])
         tx_len = bytes_to_int(msg[22:26])
         debug('request', 'start', tx_start, 'size', tx_len)
@@ -101,9 +137,11 @@ def main():
           # msg[21] = 2
         msg += [crc8(msg, len(msg))]
         debug('send start: ', str(tx_start), ' length: ', str(tx_len))
-        debug('tx', ' '.join(['%02x' % (int(el0), ) for el0 in msg]))
+        debug('send data', str(len(msg)), ' '.join(['%02x' % (int(el0), ) for el0 in msg]))
         #time.sleep(0.125)
-        s.sendto(bytes(msg), gw)
+        txData = encoder(msg)
+        print(bytes(txData))
+        s.sendto(bytes(txData), gw)
         if(tx_start + tx_len >= data_size):
           debug('send complete totle length: ', str(tx_start + tx_len), 'data length: ', data_size)
           break;

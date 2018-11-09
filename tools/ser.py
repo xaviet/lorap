@@ -25,7 +25,7 @@ def main(a):
       time.sleep(0.125)
       rd = ''
       while s.inWaiting() > 0:
-        rd += s.read(1).decode()
+        rd += chr(s.read(1)[0])
       if(len(rd) > 0):
         print(rd, end = '')
         rd = ''

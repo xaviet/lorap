@@ -55,8 +55,13 @@
 #define USART_SPEED 115200
 #define USART_IRQ USART1_IRQn
 
-#define LED_PIN GPIO_Pin_12
-#define LED_GPIO GPIOB
+// small
+//#define LED_PIN GPIO_Pin_12
+//#define LED_GPIO GPIOB
+
+// big
+#define LED_PIN GPIO_Pin_13
+#define LED_GPIO GPIOC
 
 //#define BUTTON_PIN GPIO_Pin_0
 //#define BUTTON_GPIO GPIOA
@@ -68,9 +73,10 @@
 #define SX1278_MOSI GPIO_Pin_7
 #define SX1278_CLK GPIO_Pin_5
 #define SX1278_RESET_GPIO GPIOB
-#define SX1278_RESET GPIO_Pin_0
+#define SX1278_RESET GPIO_Pin_1
+// irq in drv_exti.c
 #define SX1278_DIO0_GPIO GPIOB
-#define SX1278_DOI0 GPIO_Pin_1
+#define SX1278_DOI0 GPIO_Pin_0
 
 //#define W5500_SPI SPI2
 //#define W5500_GPIO GPIOB
@@ -80,6 +86,7 @@
 //#define W5500_CLK GPIO_Pin_13
 //#define W5500_RESET_GPIO GPIOC
 //#define W5500_RESET GPIO_Pin_6
+// irq in drv_exti.c
 //#define W5500_INT_GPIO GPIOC
 //#define W5500_INT GPIO_Pin_7
 //#define W5500SOCKETNUMBER 8

@@ -19,8 +19,8 @@ void usart_send_byte(USART_TypeDef* USARTx, __IO char ch);
 void usart_send_u8(u8 value);
 void usart_send_u16(u16 value);
 void usart_send_u32(u32 value);
-void usart_send_string(__IO char* pString);
-void usart_send_u8_array(__IO u8* data, u32 length);
-void usart_debug(__IO char* s);
+void usart_send_string(char* pString);
+void usart_send_u8_array(u8* data, u32 length);
+void usart_debug(char* s);
 
 #endif /* DRV_USART_H_ */

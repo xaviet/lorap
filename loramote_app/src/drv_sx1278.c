@@ -49,7 +49,7 @@ void sx1278_reset()
 
 void sx1278_write_buffer(vu8 addr, vu8* buffer, vu8 size)
 {
-  led_set(globalV.ledStat = !globalV.ledStat);
+//  led_set(globalV.ledStat = !globalV.ledStat);
   vu8 i;
   gpio_set(SX1278_GPIO, SX1278_NSS, LOW);
   spiInOut(SX1278_SPI, addr | 0x80);
@@ -62,7 +62,7 @@ void sx1278_write_buffer(vu8 addr, vu8* buffer, vu8 size)
 
 void sx1278_read_buffer(vu8 addr, vu8* buffer, vu8 size)
 {
-  led_set(globalV.ledStat = !globalV.ledStat);
+//  led_set(globalV.ledStat = !globalV.ledStat);
   vu8 i;
   gpio_set(SX1278_GPIO, SX1278_NSS, LOW);
   spiInOut(SX1278_SPI, addr & 0x7F);

@@ -15,14 +15,14 @@
 void (*sx1278_dio0_IRQ_call)();
 //void (*w5500_int_IRQ_call)();
 
-void init_exit()
+void init_exti()
 {
   sx1278_dio0_IRQ_call = FALSE;
 //  w5500_int_IRQ_call = FALSE;
   // reboot_button
 //  exti_init(BUTTON_PIN, BUTTON_GPIO, EXTI_Line0, GPIO_PortSourceGPIOA, GPIO_PinSource0, EXTI0_IRQn, EXTI_Trigger_Rising_Falling);
   // sx1278_dio0
-  exti_init(SX1278_DOI0, SX1278_DIO0_GPIO, EXTI_Line1, GPIO_PortSourceGPIOB, GPIO_PinSource1, EXTI1_IRQn, EXTI_Trigger_Rising);
+  exti_init(SX1278_DOI0, SX1278_DIO0_GPIO, EXTI_Line0, GPIO_PortSourceGPIOB, GPIO_PinSource0, EXTI0_IRQn, EXTI_Trigger_Rising);
   // w5500_int
 //  exti_init(W5500_INT, W5500_INT_GPIO, EXTI_Line7, GPIO_PortSourceGPIOC, GPIO_PinSource7, EXTI9_5_IRQn, EXTI_Trigger_Falling);
 
@@ -63,9 +63,9 @@ void exti_init(u16 spiN, GPIO_TypeDef* gpio, u32 extiLine, u8 portSource, u8 pin
 //}
 
 // sx1278 irq
-void EXTI1_IRQHandler()
+void EXTI0_IRQHandler()
 {
-  EXTI_ClearITPendingBit(EXTI_Line1);
+  EXTI_ClearITPendingBit(EXTI_Line0);
   call_fun(sx1278_dio0_IRQ_call);
 }
 
