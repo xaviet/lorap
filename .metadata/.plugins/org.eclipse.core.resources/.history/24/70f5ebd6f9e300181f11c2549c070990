@@ -10,7 +10,7 @@
 
 #include "stm32f10x.h"
 
-void init_sensor();
+void init_sensor()
 void sensor_rw();
 
 #endif /* DRV_SENSOR_H_ */

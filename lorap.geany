@@ -28,8 +28,9 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=224;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fburn.py;0;2
+current_page=1
+FILE_NAME_0=3377;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fupgrade.py;0;2
+FILE_NAME_1=1359;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Ftestlora.py;0;2
 
 [VTE]
 last_dir=/home/mose/code/lorap/tools

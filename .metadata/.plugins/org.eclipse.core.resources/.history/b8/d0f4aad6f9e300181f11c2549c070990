@@ -12,7 +12,7 @@
 
 void init_sensor()
 {
-  init_roadled();
+
 }
 
 void sensor_rw()

@@ -8,11 +8,10 @@
 #include "drv_sensor.h"
 #include "global.h"
 #include "tools_lib.h"
-#include "drv_roadled.h"
 
 void init_sensor()
 {
-  init_roadled();
+
 }
 
 void sensor_rw()

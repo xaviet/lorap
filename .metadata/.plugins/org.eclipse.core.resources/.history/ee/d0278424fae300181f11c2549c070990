@@ -18,7 +18,6 @@
 #include "drv_itemp.h"
 #include "drv_iwdg.h"
 #include "drv_exti.h"
-#include "drv_sensor.h"
 #include "task.h"
 			
 int main(void)
@@ -50,7 +49,6 @@ void init()
   init_iTemp();
   init_iwdg();
   init_exti();
-  init_sensor();
   init_task();
   usart_send_string("\tLoRaMote running\r\n");
 }
