@@ -10,7 +10,6 @@
 #include "tools_lib.h"
 #include "drv_roadled.h"
 #include "drv_itemp.h"
-#include "drv_usart.h"
 
 #define ROADLED
 
@@ -31,15 +30,10 @@ void sensor_rw()
   msg->msgHead.type = UPSTREAM;
 
 #ifdef ROADLED
-  struct sRoadledData* roadLedData = (struct sRoadledData*)&msg->data;
-  if(roadLedData->ledSet == ON || roadLedData->ledSet == OFF)
-  {
-    roadled_set(roadLedData->ledSet);
-  }
-  u16 i = iTemp_get(4);
-  roadLedData->iTemp[0] = i / 0x100;
-  roadLedData->iTemp[1] = i % 0x100;
-  delay_1us(8192);
+  struct sRoadledData* roadLedData = (struct sRoadledData*)&msg->msgHead;
+  roadled_set(roadLedData->ledSet);
+  roadLedData->iTemp = iTemp_get(4);
+  delay_1us(0);
   roadLedData->sensor = roadled_sensor_get();
   msg->msgHead.length = (sizeof(struct SworkDataMsg) + sizeof(struct sRoadledData) + 1) & 0xff;
 #elif
@@ -47,6 +41,4 @@ void sensor_rw()
 #endif
 
   *((u8*)msg + msg->msgHead.length -1) = crc8((u8*)msg, msg->msgHead.length -1);
-  usart_debug("sensor_rw");
-  usart_send_u8_array((u8*)msg, msg->msgHead.length);
 }

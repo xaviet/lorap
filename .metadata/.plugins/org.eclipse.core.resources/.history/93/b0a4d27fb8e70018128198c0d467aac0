@@ -1,0 +1,38 @@
+/*
+ * drv_sensor.c
+ *
+ *  Created on: Nov 6, 2018
+ *      Author: mose
+ */
+
+#include "drv_sensor.h"
+#include "global.h"
+#include "tools_lib.h"
+#include "drv_roadled.h"
+
+#define ROADLED
+
+void init_sensor()
+{
+
+#ifdef ROADLED
+  init_roadled();
+#elif
+
+#endif
+
+}
+
+void sensor_rw()
+{
+  struct SworkDataMsg* msg = &globalV.loraWorkChannelData;
+  msg->msgHead.type = UPSTREAM;
+
+#ifdef ROADLED
+  struct sRoadledData* roadLedData = (struct sRoadledData*)&msg->msgHead;
+#elif
+
+#endif
+
+  *((u8*)msg + msg->msgHead.length -1) = crc8((u8*)msg, msg->msgHead.length -1);
+}

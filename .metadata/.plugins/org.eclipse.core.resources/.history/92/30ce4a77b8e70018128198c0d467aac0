@@ -27,7 +27,7 @@ void roadled_set(u8 s)
   }
 }
 
-u8 roadled_sensor_get()
+u8 ledsensor_get()
 {
   return(gpio_get(LEDSENSOR_GPIO, LEDSENSOR_PIN));
 }

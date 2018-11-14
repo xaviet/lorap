@@ -20,7 +20,7 @@ struct sRoadledData
 {
   u8 ledSet;
   u8 sensor;
-  u8 iTemp[2];
+  vs16 iTemp;
 };
 
 void init_roadled();

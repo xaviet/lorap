@@ -142,7 +142,7 @@ void sx1278_tx(struct SconfigMsg* cfgMsg, u8* buffer, u8 size, vu8* dioMapping1_
 {
   u8 txData[COMMONBUFFERLENGTH] = {0};
   memset(&txData, 0, COMMONBUFFERLENGTH);
-  usart_send_u8_array(buffer, size);
+  usart_send_u8_array(buffer, size)
   size = data_encode(buffer, size, (u8*)&txData);
   usart_send_string((char*)&txData);usart_send_string("\r\n");
   sx1278_ch_cfg(cfgMsg);
