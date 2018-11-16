@@ -117,6 +117,7 @@ def main(a):
   gwIp = '100.1.1.200' if(len(a) < 2) else a[1]
   gwId = '16.0.0.1' if(len(a) < 3) else a[2]
   setIp = '100.1.1.200' if(len(a) < 4) else a[3]
+  setNsIp = '100.1.1.224' if(len(a) < 5) else a[4]
   host = ('0.0.0.0', 1700)
   gw = (gwIp, 38564)
   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -156,6 +157,7 @@ def main(a):
         txMsg.head.type = 0xfe
         txMsg.ip[0], txMsg.ip[1], txMsg.ip[2], txMsg.ip[3] = [int(el0) for el0 in setIp.strip().split('.')]
         txMsg.mac[3], txMsg.mac[4], txMsg.mac[5] = txMsg.ip[1], txMsg.ip[2], txMsg.ip[3]
+        txMsg.nsIp[0], txMsg.nsIp[1], txMsg.nsIp[2], txMsg.nsIp[3] = [int(el0) for el0 in setNsIp.strip().split('.')]
         txData = list(ctypes.string_at(ctypes.addressof(txMsg), ctypes.sizeof(txMsg)))
         txData[-1] = crc8(txData, len(txData) - 1)
         s.sendto(bytes(encoder(txData)), gw)

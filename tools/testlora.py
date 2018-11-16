@@ -196,7 +196,7 @@ def main():
             txMsg = list(ctypes.string_at(ctypes.addressof(msgLogin), msgLogin.head.length))
             txMsg[-1] = crc8(txMsg, txMsg[2] - 1)
             loginTime = time.time()
-    if(len(loginMotes) > 0 and delta_time(loginTime, 32) and txMsg == None and down_up == 0):
+    if(len(loginMotes) > 0 and delta_time(loginTime, 16) and txMsg == None and down_up == 0):
       if(currentMote == moteNum):
         currentMote = 0
       ml = msg_login()
