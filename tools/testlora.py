@@ -35,7 +35,11 @@ def time_stamp():
   return(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
 
 def debug(*args):
-  print('[%s]' % (time_stamp(),), args)
+  s = '[%s]' % (time_stamp(),), args
+  f = open('log.txt', 'a')
+  f.write(str(s) + '\n')
+  f.close()
+  print(s)
 
 def bytes_to_int(b, len = 4):
   rt = 0
