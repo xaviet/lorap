@@ -144,6 +144,7 @@ void forward_loginMsgRxDone()
   usart_debug("forward_loginMsgRxDone");
   struct SconfigMsg* msg = (struct SconfigMsg*)&globalV.loraRxBuffer.data;
   memcpy((u8*)&globalV.loraWorkChannelConfig, &globalV.loraRxBuffer.data, msg->msgHead.length);
+  globalV.ledBlinkDiv = LEDBLINKDIV / 4;
   globalV.extiStates.sx1278RxDone = OFF;
   globalV.forwardStatesMachine.msgId = EdownStreamMsgRx;
 }

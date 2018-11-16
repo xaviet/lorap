@@ -5,6 +5,7 @@
  *      Author: mose
  */
 
+#include "string.h"
 #include "task_irqcall.h"
 #include "tools_lib.h"
 #include "drv_gpio.h"
@@ -89,6 +90,7 @@ void USART1_rx()
   if(globalV.usart1RxBuffer.length < COMMONBUFFERLENGTH)
   {
     globalV.usart1RxBuffer.data[globalV.usart1RxBuffer.length++] = rx;
+    USART_SendData(USART1, rx);
   }
 }
 
@@ -145,6 +147,25 @@ void statesMachineJump()
         globalV.extiStates.sx1278TxDone = OFF;
         break;
     }
+  }
+  if(globalV.usart1RxBuffer.data[(globalV.usart1RxBuffer.length - 1)] == '\n' || globalV.usart1RxBuffer.length == COMMONBUFFERLENGTH)
+  {
+    for(int i = 0; i < globalV.usart1RxBuffer.length; i += 2)
+    {
+      globalV.usart1RxBuffer.data[i/2] = get_hex_from_char(globalV.usart1RxBuffer.data[i]) * 0x10 +
+							   get_hex_from_char(globalV.usart1RxBuffer.data[i + 1]);
+    }
+    if(globalV.usart1RxBuffer.data[0] == 0xf0)
+    {
+      memcpy(globalV.loraLoginChannelConfig.msgHead.moteId, globalV.usart1RxBuffer.data + 3, 4);
+      memcpy(globalV.flashEnvValue.id, globalV.usart1RxBuffer.data + 3, 4);
+      globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+      flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+      flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
+      usart_debug("MoteID updta");
+      usart_send_u8_array(globalV.flashEnvValue.id, 4);
+    }
+    globalV.usart1RxBuffer.length = 0;
   }
 }
 

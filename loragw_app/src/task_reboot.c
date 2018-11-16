@@ -12,6 +12,7 @@
 #include "global.h"
 #include "drv_flash.h"
 #include "tools_lib.h"
+
 void reboot_init()
 {
   gpio_set(BUTTON_GPIO, BUTTON_PIN, ON);
@@ -51,6 +52,6 @@ void reboot_run()
        NVIC_SystemReset();
      }
      globalV.rebootPressedTime = 0;
-     globalV.ledBlinkDiv = LEDBLINKDIV;
+//     globalV.ledBlinkDiv = LEDBLINKDIV;
    }
 }

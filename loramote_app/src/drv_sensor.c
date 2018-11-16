@@ -32,16 +32,20 @@ void sensor_rw()
 
 #ifdef ROADLED
   struct sRoadledData* roadLedData = (struct sRoadledData*)&msg->data;
-  if(roadLedData->ledSet == ON || roadLedData->ledSet == OFF)
+  if(roadLedData->type == DOWN_MSG)
   {
-    roadled_set(roadLedData->ledSet);
+    if(roadLedData->ledSet == ON || roadLedData->ledSet == OFF)
+    {
+      roadled_set(roadLedData->ledSet);
+    }
+    roadLedData->type = UP_MSG;
+    s16 i = iTemp_get(4);
+    roadLedData->iTemp[0] = i / 0x100;
+    roadLedData->iTemp[1] = i % 0x100;
+    delay_1us(65536);
+    roadLedData->sensor = roadled_sensor_get();
+    msg->msgHead.length = (sizeof(struct SworkDataMsg) + sizeof(struct sRoadledData) + 1) & 0xff;
   }
-  u16 i = iTemp_get(4);
-  roadLedData->iTemp[0] = i / 0x100;
-  roadLedData->iTemp[1] = i % 0x100;
-  delay_1us(8192);
-  roadLedData->sensor = roadled_sensor_get();
-  msg->msgHead.length = (sizeof(struct SworkDataMsg) + sizeof(struct sRoadledData) + 1) & 0xff;
 #elif
 
 #endif

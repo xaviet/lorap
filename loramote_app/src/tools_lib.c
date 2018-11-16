@@ -51,6 +51,24 @@ vu8 get_char_from_hex(vu8 value)
   return(rt);
 }
 
+vu8 get_hex_from_char(vu8 value)
+{
+  vu8 rt = 0;
+  if(value >= 'a' && value <= 'f' )
+  {
+    rt = value - 'a' + 10;
+  }
+  else if(value >= 'A' && value <= 'F' )
+  {
+    rt = value - 'A' + 10;
+  }
+  else if(value >= '0' && value <= '9' )
+  {
+    rt = value - '0';
+  }
+  return(rt);
+}
+
 vu32 delta_ticket(vu32 startTicket, vu32 currentTicket)
 {
   vu32 rt = 0;

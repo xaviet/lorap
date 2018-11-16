@@ -38,6 +38,8 @@ void init_global()
 	flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
       }
       globalV.loraLoginChannelConfig.msgHead.ver = globalV.flashEnvValue.ver;
+      memcpy(globalV.loraLoginChannelConfig.msgHead.gwId, globalV.flashEnvValue.id, 4);
+      globalV.loraLoginChannelConfig.crc8 = crc8((u8*)&globalV.loraLoginChannelConfig, sizeof(struct SconfigMsg) - 1);
       usart_send_string("\tLoad env data OK\r\n");
     }
     else

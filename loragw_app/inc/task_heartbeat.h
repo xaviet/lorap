@@ -13,6 +13,9 @@
 #define HEARTBEAT_RX_TIMEOUT 8192
 #define HEARTBEAT_INTERVAL 65536
 
+#define LEDBLINKDIVDONE 512
+#define LEDBLINKDIVTIMEOUT 1024
+
 void heartbeat_init();
 void heartbeat_run();
 void heartbeatStates_delay();

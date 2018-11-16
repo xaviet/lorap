@@ -121,6 +121,7 @@ class msg_roadled_stream(ctypes.Structure):
   _pack_=1
   _fields_ = [('login', msg_login),
               ('streamHead', msg_head),
+              ('type', ctypes.c_byte),
               ('set', ctypes.c_byte),
               ('get', ctypes.c_byte),
               ('iTemp', ctypes.c_byte * 2),
@@ -130,7 +131,7 @@ class msg_roadled_stream(ctypes.Structure):
 
 def main():
   moteListFile = 'motelist'
-  readledStat = True
+  readledStat = False
   msgBuffer = msg_buffer()
   msgHead = msg_head()
   msgLogin = msg_login()
@@ -139,16 +140,23 @@ def main():
   txData = None
   rxMsg = None
   txMsg = None
-  loginMote = None
+  loginMotes = []
+  moteNum = 0
+  currentMote = 0
+  down_up = 0
   try:
     f = open(moteListFile, 'rt')
-    d = f.read()
-    f.close()
-    loginMote = [int(el0, 16) for el0 in d.strip().split(' ')]
-    debug('read moteListFile', loginMote)
+    d = f.readlines()
+    for el0 in d:
+      mote = [int(el1, 16) for el1 in el0.strip().split(' ')]
+      loginMotes.append(mote)
+    print(loginMotes)
+    moteNum = len(loginMotes)
   except:
-    pass
-  loginTime = 0
+    f.close()
+  finally:
+    f.close()
+  loginTime = time.time()
   host = ('0.0.0.0', 1700)
   gw = ('100.1.1.200', 38564)
   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -165,41 +173,47 @@ def main():
       if(rxMsg[-1] != crc8(rxMsg, rxMsg[2] - 1)):
         continue
       ctypes.memmove(ctypes.addressof(msgHead), bytes(rxMsg), ctypes.sizeof(msgHead))
-      if(msgHead.type == 5):
+      if(msgHead.type & 0xff == 5):
         ctypes.memmove(ctypes.addressof(msgBuffer), bytes(rxMsg), len(rxMsg))
         msgBuffer.head.type = 6
         txMsg = list(ctypes.string_at(ctypes.addressof(msgBuffer), msgBuffer.head.length))
         txMsg[-1] = crc8(txMsg, txMsg[2] - 1)
-      elif(msgHead.type == 3):
+      elif(msgHead.type & 0xff == 3):
+        down_up = 0
         debug('rx upstream')
         pass
-      elif(msgHead.type == 1):
+      elif(msgHead.type & 0xff == 1):
         ctypes.memmove(ctypes.addressof(msgLogin), bytes(rxMsg), ctypes.sizeof(msgLogin))
         msgLogin.head.type = 2
         msgLogin.fm += 0x80
         msgLogin.timeout = 0x08
-        loginMote = list(ctypes.string_at(ctypes.addressof(msgLogin), msgLogin.head.length))
-        f = open(moteListFile, 'wt')
-        f.write(' '.join(['%02x' % (el0, ) for el0 in loginMote]))
-        f.close()
-        debug('write moteListFile')
-        txMsg = list(ctypes.string_at(ctypes.addressof(msgLogin), msgLogin.head.length))
-        txMsg[-1] = crc8(txMsg, txMsg[2] - 1)
-        loginTime = time.time()
-    if(loginMote != None and delta_time(loginTime, 16) and txMsg == None):
+        for el0 in loginMotes:
+          if(rxMsg[3:7] == el0[3:7]):
+            txMsg = list(ctypes.string_at(ctypes.addressof(msgLogin), msgLogin.head.length))
+            txMsg[-1] = crc8(txMsg, txMsg[2] - 1)
+            loginTime = time.time()
+    if(len(loginMotes) > 0 and delta_time(loginTime, 32) and txMsg == None and down_up == 0):
+      if(currentMote == moteNum):
+        currentMote = 0
       ml = msg_login()
-      ctypes.memmove(ctypes.addressof(ml), bytes(loginMote), ctypes.sizeof(ml))
+      ctypes.memmove(ctypes.addressof(ml), bytes(loginMotes[currentMote]), ctypes.sizeof(ml))
       msgRoadledStream = msg_roadled_stream(ml, ml.head)
       msgRoadledStream.login.head.type = msgRoadledStream.streamHead.type = 4
-      readledStat = not readledStat
+      msgRoadledStream.type = 2
+      if(currentMote == 0):
+        readledStat = not readledStat
       msgRoadledStream.set = 0x01 if(readledStat) else 0x00
       msgRoadledStream.login.head.length = ctypes.sizeof(msg_login)
       msgRoadledStream.streamHead.length = ctypes.sizeof(msg_roadled_stream) - ctypes.sizeof(msg_login)
       txMsg = list(ctypes.string_at(ctypes.addressof(msgRoadledStream), ctypes.sizeof(msg_roadled_stream)))
       txMsg[ctypes.sizeof(msg_login) - 1] = crc8(txMsg, ctypes.sizeof(msg_login) - 1)
       txMsg[ctypes.sizeof(msg_roadled_stream) - 1] = crc8(txMsg[ctypes.sizeof(msg_login):], msgRoadledStream.streamHead.length - 1)
-      debug('loginMote', txMsg)
+      debug('loginMote', currentMote, txMsg)
       loginTime = time.time()
+      down_up = 1;
+      currentMote += 1
+    if(down_up == 1 and delta_time(loginTime, 8)):
+      down_up = 0
     if(txMsg != None):
       debug(' '.join('%02x' % el0 for el0 in txMsg))
       txData = encoder(txMsg)
