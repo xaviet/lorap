@@ -96,12 +96,14 @@ void USART1_rx()
 
 void statesMachineJump()
 {
-  struct SconfigMsg* msg = (struct SconfigMsg*)&globalV.loraRxBuffer.data;
+  struct SmsgHead* msg = (struct SmsgHead*)&globalV.loraRxBuffer.data;
   if(globalV.extiStates.sx1278RxDone == ON)
   {
-    if(config_msg_format(msg, *((u8*)msg + msg->msgHead.length - 1), ON))
+    usart_debug("sx1278RxDone");
+    usart_send_u8_array((u8*)msg, msg->length);
+    if(config_msg_format(msg, *((u8*)msg + msg->length - 1), ON))
     {
-      switch(msg->msgHead.type)
+      switch(msg->type)
       {
         case LOGINREP:
           if(globalV.forwardStatesMachine.msgId == EloginMsgRxing)
@@ -148,44 +150,55 @@ void statesMachineJump()
         break;
     }
   }
-  if(globalV.usart1RxBuffer.data[(globalV.usart1RxBuffer.length - 1)] == '\n' || globalV.usart1RxBuffer.length == COMMONBUFFERLENGTH)
+  u8 idSetupLen = 0x0c;
+  if(globalV.usart1RxBuffer.length >= idSetupLen)
   {
-    for(int i = 0; i < globalV.usart1RxBuffer.length; i += 2)
+//    for(int i = 0; i < globalV.usart1RxBuffer.length; i += 2)
+//    {
+//      globalV.usart1RxBuffer.data[i/2] = get_hex_from_char(globalV.usart1RxBuffer.data[i]) * 0x10 +
+//							   get_hex_from_char(globalV.usart1RxBuffer.data[i + 1]);
+//    }
+    usart_send_u8_array(globalV.usart1RxBuffer.data, globalV.usart1RxBuffer.length);
+    for(int i = 0; i <= globalV.usart1RxBuffer.length - idSetupLen; i = i + 0x80)
     {
-      globalV.usart1RxBuffer.data[i/2] = get_hex_from_char(globalV.usart1RxBuffer.data[i]) * 0x10 +
-							   get_hex_from_char(globalV.usart1RxBuffer.data[i + 1]);
-    }
-    if(globalV.usart1RxBuffer.data[0] == 0xf0)
-    {
-      memcpy(globalV.loraLoginChannelConfig.msgHead.moteId, globalV.usart1RxBuffer.data + 3, 4);
-      memcpy(globalV.flashEnvValue.id, globalV.usart1RxBuffer.data + 3, 4);
-      globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
-      flash_erase(FLASH_ENV_DATA_SECTOR, 1);
-      flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
-      usart_debug("MoteID updta");
-      usart_send_u8_array(globalV.flashEnvValue.id, 4);
+      struct SmsgHead* msgSetup = (struct SmsgHead*)(&globalV.usart1RxBuffer.data + i);
+      if(config_msg_format(msgSetup, *(((u8*)msgSetup) + idSetupLen - 1), OFF))
+      {
+	memcpy(globalV.loraLoginChannelConfig.msgHead.gwId, globalV.usart1RxBuffer.data + 3, 4);
+	memcpy(globalV.flashEnvValue.id, globalV.usart1RxBuffer.data + 3, 4);
+	globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+	flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+	flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
+	usart_debug("MoteID updta");
+	usart_send_u8_array(globalV.flashEnvValue.id, 4);
+	globalV.usart1RxBuffer.length = 0;
+	NVIC_SystemReset();
+      }
     }
     globalV.usart1RxBuffer.length = 0;
   }
 }
 
-u8 config_msg_format(struct SconfigMsg* msg, u8 vCrc8, u8 idCheck)
+u8 config_msg_format(struct SmsgHead* msg, u8 vCrc8, u8 idCheck)
 {
-  if(msg->msgHead.alignMark != ALIGNMARK)
+  if(msg->alignMark != ALIGNMARK)
   {
     usart_debug("config_msg_format alignMark error");
     return(FALSE);
   }
-  if(vCrc8 != crc8((u8*)msg, msg->msgHead.length - 1))
+  u8 tCrc8 = crc8((u8*)msg, msg->length - 1);
+  if(vCrc8 != tCrc8)
   {
+    usart_send_u8_array(&tCrc8, 1);
+    usart_send_u8_array(&vCrc8, 1);
     usart_debug("msg_format crc8 error");
     return(FALSE);
   }
-  if(idCheck && !stringCmp(globalV.loraLoginChannelConfig.msgHead.moteId, msg->msgHead.moteId, 4))
+  if(idCheck && !stringCmp(globalV.loraLoginChannelConfig.msgHead.moteId, msg->moteId, 4))
   {
     usart_send_u8_array(globalV.loraLoginChannelConfig.msgHead.moteId, 4);
-    usart_send_u8_array(msg->msgHead.moteId, 4);
-    usart_debug("msg_format gwId error");
+    usart_send_u8_array(msg->moteId, 4);
+    usart_debug("msg_format ID error");
     return(FALSE);
   }
   return(TRUE);

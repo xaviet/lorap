@@ -22,6 +22,6 @@ void TIM1_irq();
 void TIM2_irq();
 void USART1_rx();
 void statesMachineJump();
-u8 config_msg_format(struct SconfigMsg* msg, u8 vCrc8, u8 idCheck);
+u8 config_msg_format(struct SmsgHead* msg, u8 vCrc8, u8 idCheck);
 
 #endif /* TASK_IRQCALL_H_ */

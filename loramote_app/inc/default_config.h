@@ -17,12 +17,13 @@
 #define VER 0x01
 
 // 0x6c8000:433mhz 0x6c4000:432mhz bw:62.5khz sf:8 crc:on SymbTimeout:0x03ff
-#define FRMSB 0x6c
-#define FRMIB 0x40
+// 0x75c000:470mhz 0x760000:471mhz bw:62.5khz sf:10 crc:on SymbTimeout:0x03ff
+#define FRMSB 0x75
+#define FRMIB 0xc0
 #define FRLSB 0x00
 #define POWER 0xff
 #define MODEMCONFIG1 0x68
-#define MODEMCONFIG2 0x87
+#define MODEMCONFIG2 0xa7
 #define SYMBTIMEOUTLSB 0xff
 #define HOPPERIOD 0x00
 

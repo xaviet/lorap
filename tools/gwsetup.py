@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 '''
-gwsetup.py  
+gwsetup.py
+  ref: ./gwsetup.py 100.1.1.200 16.0.0.1 100.1.1.201 100.1.1.253
 
 '''
 

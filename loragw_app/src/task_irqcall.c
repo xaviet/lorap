@@ -133,7 +133,7 @@ void USART1_rx()
   if(globalV.usart1RxBuffer.length < COMMONBUFFERLENGTH)
   {
     globalV.usart1RxBuffer.data[globalV.usart1RxBuffer.length++] = rx;
-    USART_SendData(USART1, rx);
+//    USART_SendData(USART1, rx);
   }
 }
 
@@ -328,23 +328,29 @@ void statesMachineJump()
         break;
     }
   }
-  if(globalV.usart1RxBuffer.data[(globalV.usart1RxBuffer.length - 1)] == '\n' || globalV.usart1RxBuffer.length == COMMONBUFFERLENGTH)
+  u8 idSetupLen = 0x0c;
+  if(globalV.usart1RxBuffer.length >= idSetupLen)
   {
-    for(int i = 0; i < globalV.usart1RxBuffer.length; i += 2)
-    {
-      globalV.usart1RxBuffer.data[i/2] = get_hex_from_char(globalV.usart1RxBuffer.data[i]) * 0x10 +
-							   get_hex_from_char(globalV.usart1RxBuffer.data[i + 1]);
-    }
+//    for(int i = 0; i < globalV.usart1RxBuffer.length; i += 2)
+//    {
+//      globalV.usart1RxBuffer.data[i/2] = get_hex_from_char(globalV.usart1RxBuffer.data[i]) * 0x10 +
+//							   get_hex_from_char(globalV.usart1RxBuffer.data[i + 1]);
+//    }
     usart_send_u8_array(globalV.usart1RxBuffer.data, globalV.usart1RxBuffer.length);
-    if(globalV.usart1RxBuffer.data[0] == 0xf0)
+    for(int i = 0; i <= globalV.usart1RxBuffer.length - idSetupLen; i = i + 0x80)
     {
-      memcpy(globalV.loraLoginChannelConfig.msgHead.gwId, globalV.usart1RxBuffer.data + 3, 4);
-      memcpy(globalV.flashEnvValue.id, globalV.usart1RxBuffer.data + 3, 4);
-      globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
-      flash_erase(FLASH_ENV_DATA_SECTOR, 1);
-      flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
-      usart_debug("GWID updta");
-      usart_send_u8_array(globalV.flashEnvValue.id, 4);
+      struct SworkDataMsg* msgSetup = (struct SworkDataMsg*)(&globalV.usart1RxBuffer.data + i);
+      if(data_msg_format(msgSetup))
+      {
+	memcpy(globalV.loraLoginChannelConfig.msgHead.gwId, globalV.usart1RxBuffer.data + 3, 4);
+	memcpy(globalV.flashEnvValue.id, globalV.usart1RxBuffer.data + 3, 4);
+	globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
+	flash_erase(FLASH_ENV_DATA_SECTOR, 1);
+	flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
+	usart_debug("GWID updta");
+	usart_send_u8_array(globalV.flashEnvValue.id, 4);
+	NVIC_SystemReset();
+      }
     }
     globalV.usart1RxBuffer.length = 0;
   }
@@ -362,8 +368,11 @@ u8 config_msg_format(struct SconfigMsg* msg, u8 vCrc8, u8 idCheck)
 //    debug_print("config_msg_format length error");
 //    return(FALSE);
 //  }
-  if(vCrc8 != crc8((u8*)msg, msg->msgHead.length - 1))
+  u8 tCrc8 = crc8((u8*)msg, msg->msgHead.length - 1);
+  if(vCrc8 != tCrc8)
   {
+    usart_send_u8_array(&tCrc8, 1);
+    usart_send_u8_array(&vCrc8, 1);
     usart_debug("msg_format crc8 error");
     return(FALSE);
   }
@@ -371,7 +380,7 @@ u8 config_msg_format(struct SconfigMsg* msg, u8 vCrc8, u8 idCheck)
   {
     usart_send_u8_array(globalV.loraLoginChannelConfig.msgHead.gwId, 4);
     usart_send_u8_array(msg->msgHead.gwId, 4);
-    usart_debug("msg_format gwId error");
+    usart_debug("msg_format ID error");
     return(FALSE);
   }
   return(TRUE);

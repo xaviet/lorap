@@ -8,6 +8,7 @@
 #include "task_forward.h"
 #include "global.h"
 #include "drv_sx1278.h"
+#include "drv_itemp.h"
 #include "drv_sensor.h"
 #include "drv_usart.h"
 #include "string.h"
@@ -176,7 +177,8 @@ void forward_loginMsgRx()
 
 void forward_EloginMsgTxDelay()
 {
-  if(delta_ticket(globalV.forwardStatesMachine.startTicket, globalV.msTicket) >= LOGINTX_DELAY)
+  u32 ri = (iTemp_get(4) & 0xff) * 0x10;
+  if(delta_ticket(globalV.forwardStatesMachine.startTicket, globalV.msTicket) >= LOGINTX_DELAY - ri)
   {
     usart_debug("forward_EloginMsgTxDelay");
     globalV.forwardStatesMachine.msgId = EloginMsgTx;
