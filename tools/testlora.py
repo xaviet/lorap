@@ -93,7 +93,7 @@ def delta_time(beginTime, timeOut):
 # class
 
 class msg_head(ctypes.Structure):
-  _pack_=1
+  _pack_= 1
   _fields_ = [('alignMark', ctypes.c_byte),
               ('type', ctypes.c_byte),
               ('length', ctypes.c_byte),
@@ -107,7 +107,7 @@ class msg_buffer(ctypes.Structure):
               ('buffer', ctypes.c_int64 * 32),]
 
 class msg_login(ctypes.Structure):
-  _pack_=1
+  _pack_= 1
   _fields_ = [('head', msg_head),
               ('fh', ctypes.c_byte),
               ('fm', ctypes.c_byte),
@@ -122,7 +122,7 @@ class msg_login(ctypes.Structure):
               ('crc8', ctypes.c_byte),]
 
 class msg_roadled_stream(ctypes.Structure):
-  _pack_=1
+  _pack_= 1
   _fields_ = [('login', msg_login),
               ('streamHead', msg_head),
               ('type', ctypes.c_byte),
@@ -191,7 +191,9 @@ def main():
       elif(msgHead.type & 0xff == 1):
         ctypes.memmove(ctypes.addressof(msgLogin), bytes(rxMsg), ctypes.sizeof(msgLogin))
         msgLogin.head.type = 2
-        msgLogin.fm += 0x80
+        msgLogin.fm += 0x40
+        if(msgLogin.fm == 0x00):
+          msgLogin.fh += 0x01
         msgLogin.timeout = 0x08
         for el0 in loginMotes:
           if(rxMsg[3:7] == el0[3:7]):

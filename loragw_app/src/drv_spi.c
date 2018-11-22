@@ -41,6 +41,7 @@ void spi_init(SPI_TypeDef* spiN, GPIO_TypeDef* gpio, u16 miso, u16 mosi, u16 clk
 u8 spiInOut(SPI_TypeDef* SPIx, vu8 outData)
 {
   // Send SPI data
+  while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE) == RESET);
   SPI_I2S_SendData(SPIx, outData);
   while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_RXNE) == RESET);
   return(SPI_I2S_ReceiveData(SPIx));

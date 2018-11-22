@@ -1,0 +1,17 @@
+/*
+ * drv_adxl345.h
+ *
+ *  Created on: Nov 21, 2018
+ *      Author: mose
+ */
+
+#ifndef DRV_ADXL345_H_
+#define DRV_ADXL345_H_
+
+#include "global.h"
+
+void init_adxl345();
+void adxl345_write(vu8 addr, u8 data);
+void adxl345_read(vu8 addr, u8* buffer, vu8 size);
+
+#endif /* DRV_ADXL345_H_ */

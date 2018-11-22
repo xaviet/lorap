@@ -1,0 +1,13 @@
+/*
+ * dev_adxl345.h
+ *
+ *  Created on: Nov 21, 2018
+ *      Author: mose
+ */
+
+#ifndef DEV_ADXL345_H_
+#define DEV_ADXL345_H_
+
+#include "global.h"
+
+#endif /* DEV_ADXL345_H_ */

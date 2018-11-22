@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;loramote_app/inc/dev_adxl345.h&apos; to &apos;drv_adxl345.h&apos;" description="Rename resource &apos;dev_adxl345.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="inc/dev_adxl345.h" name="drv_adxl345.h" stamp="1542793597520" updateReferences="true"/>
+</session>

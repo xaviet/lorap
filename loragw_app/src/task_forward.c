@@ -90,6 +90,19 @@ void forward_upStreamRxing()
   if(delta_ticket(globalV.forwardStatesMachine.startTicket, globalV.msTicket) >= (globalV.loraWorkChannelConfig.timeout * 1024))
   {
     usart_debug("forward_upStreamRxing timeout");
+    usart_send_u8(globalV.extiStates.sx1278Busy);
+    usart_send_u8(globalV.extiStates.sx1278RxDone);
+    usart_send_u8(globalV.extiStates.sx1278TxDone);
+    usart_send_u8(sx1278_read(sx1278_irqFlags));
+    usart_send_u8(sx1278_read(sx1278_opMode));
+    usart_send_u8(globalV.extiStates.sx1278DioMapping1);
+    usart_send_u8(globalV.extiStates.sx1278DioMapping1);
+    usart_send_u8(globalV.loraWorkChannelConfig.frMsb);
+    usart_send_u8(globalV.loraWorkChannelConfig.frMib);
+    usart_send_u8(globalV.loraWorkChannelConfig.frLsb);
+    usart_send_u8(globalV.loraWorkChannelConfig.modemConfig1);
+    usart_send_u8(globalV.loraWorkChannelConfig.modemConfig2);
+
     globalV.forwardStatesMachine.startTicket = globalV.msTicket;
     globalV.forwardStatesMachine.msgId = EloginChannelListen;
     globalV.extiStates.sx1278Busy = OFF;

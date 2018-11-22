@@ -32,6 +32,10 @@ void init()
 
   struct SflashEnvValue flashEnvValue;
   flash_read(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
+  usart_send_string("\r\n\tComplie: ");
+  usart_send_string(__DATE__);
+  usart_send_string(" ");
+  usart_send_string(__TIME__);
   usart_send_string("\r\n********************************************************************************\r\n\tLoRaMote boot app ver: ");
   u32 upgradeSectors = (flashEnvValue.upgradeDataSize / FLASH_SECTOR_SIZE) +
 		      ((flashEnvValue.upgradeDataSize % FLASH_SECTOR_SIZE > 0)?1: 0);

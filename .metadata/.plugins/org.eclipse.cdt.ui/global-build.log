@@ -2624,3 +2624,1192 @@ Generate build reports done
 /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
    text	   data	    bss	    dec	    hex	filename
   16092	     28	   6332	  22452	   57b4	loramote_app.elf
+17:46:04 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c:9:25: fatal error: drv_adxl345.h: No such file or directory
+ #include "drv_adxl345.h"
+                         ^
+compilation terminated.
+17:46:40 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16092	     28	   6332	  22452	   57b4	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16092	     28	   6332	  22452	   57b4	loramote_app.elf
+17:54:43 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_usart.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_usart.o 
+arm-atollic-eabi-gcc -c ../src/tools_lib.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/tools_lib.o 
+arm-atollic-eabi-gcc -c ../src/drv_gpio.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_gpio.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/drv_ds18b20.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_ds18b20.o 
+arm-atollic-eabi-gcc -c ../src/drv_flash.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_flash.o 
+arm-atollic-eabi-gcc -c ../src/drv_sensor.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_sensor.o 
+arm-atollic-eabi-gcc -c ../src/drv_roadled.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_roadled.o 
+arm-atollic-eabi-gcc -c ../src/task_irqcall.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task_irqcall.o 
+arm-atollic-eabi-gcc -c ../src/task_sensor.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task_sensor.o 
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -c ../src/drv_sx1278.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_sx1278.o 
+arm-atollic-eabi-gcc -c ../src/global.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/global.o 
+arm-atollic-eabi-gcc -c ../src/drv_exti.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_exti.o 
+arm-atollic-eabi-gcc -c ../src/drv_timer.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_timer.o 
+arm-atollic-eabi-gcc -c ../src/task.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task.o 
+arm-atollic-eabi-gcc -c ../src/task_forward.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task_forward.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16132	     28	   6332	  22492	   57dc	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16132	     28	   6332	  22492	   57dc	loramote_app.elf
+17:59:03 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16132	     28	   6332	  22492	   57dc	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16132	     28	   6332	  22492	   57dc	loramote_app.elf
+18:03:48 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16132	     28	   6332	  22492	   57dc	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16132	     28	   6332	  22492	   57dc	loramote_app.elf
+18:04:29 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16148	     28	   6332	  22508	   57ec	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16148	     28	   6332	  22508	   57ec	loramote_app.elf
+18:12:49 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16316	     28	   6332	  22676	   5894	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16316	     28	   6332	  22676	   5894	loramote_app.elf
+18:14:45 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c: In function 'init_adxl345':
+../src/drv_adxl345.c:20:42: error: expected ')' before ';' token
+   usart_send_u8(adxl345_read(0x00, &v, 1);
+                                          ^
+../src/drv_adxl345.c:22:1: error: invalid use of void expression
+ }
+ ^
+../src/drv_adxl345.c:22:1: error: expected ';' before '}' token
+18:14:49 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c: In function 'init_adxl345':
+../src/drv_adxl345.c:20:3: error: invalid use of void expression
+   usart_send_u8(adxl345_read(0x00, &v, 1));
+   ^~~~~~~~~~~~~
+18:15:43 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16364	     28	   6332	  22724	   58c4	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16364	     28	   6332	  22724	   58c4	loramote_app.elf
+18:15:58 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16372	     28	   6332	  22732	   58cc	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16372	     28	   6332	  22732	   58cc	loramote_app.elf
+Info: Nothing to build for loramote_app
+18:24:48 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16372	     28	   6332	  22732	   58cc	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16372	     28	   6332	  22732	   58cc	loramote_app.elf
+18:25:14 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16368	     28	   6332	  22728	   58c8	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16368	     28	   6332	  22728	   58c8	loramote_app.elf
+Info: Nothing to build for loramote_app
+18:26:31 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16396	     28	   6332	  22756	   58e4	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16396	     28	   6332	  22756	   58e4	loramote_app.elf
+18:27:46 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16396	     28	   6332	  22756	   58e4	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16396	     28	   6332	  22756	   58e4	loramote_app.elf
+18:32:39 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+../src/drv_spi.c: In function 'init_spi':
+../src/drv_spi.c:14:3: error: too many arguments to function 'spi_init'
+   spi_init(SX1278_SPI, SX1278_GPIO, SX1278_MISO, SX1278_MOSI, SX1278_CLK, SX1278_NSS, SPI_BaudRatePrescaler_8, SPI_CPOL_Low, SPI_CPHA_1Edge); // SPI_BaudRatePrescaler_8: 10 MHs
+   ^~~~~~~~
+In file included from ../src/drv_spi.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_spi.h:14:6: note: declared here
+ void spi_init(SPI_TypeDef* spiN, GPIO_TypeDef* gpio, u16 miso, u16 mosi, u16 clk, u16 nss, u16 speed);
+      ^~~~~~~~
+../src/drv_spi.c:16:3: error: too many arguments to function 'spi_init'
+   spi_init(ADXL345_SPI, ADXL345_GPIO, ADXL345_MISO, ADXL345_MOSI, ADXL345_CLK, ADXL345_NSS, SPI_BaudRatePrescaler_32, SPI_CPOL_High, SPI_CPHA_2Edge);
+   ^~~~~~~~
+In file included from ../src/drv_spi.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_spi.h:14:6: note: declared here
+ void spi_init(SPI_TypeDef* spiN, GPIO_TypeDef* gpio, u16 miso, u16 mosi, u16 clk, u16 nss, u16 speed);
+      ^~~~~~~~
+../src/drv_spi.c: At top level:
+../src/drv_spi.c:19:6: error: conflicting types for 'spi_init'
+ void spi_init(SPI_TypeDef* spiN, GPIO_TypeDef* gpio, u16 miso, u16 mosi, u16 clk, u16 nss, u16 speed, u16 cPol, u16 cPha)
+      ^~~~~~~~
+In file included from ../src/drv_spi.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_spi.h:14:6: note: previous declaration of 'spi_init' was here
+ void spi_init(SPI_TypeDef* spiN, GPIO_TypeDef* gpio, u16 miso, u16 mosi, u16 clk, u16 nss, u16 speed);
+      ^~~~~~~~
+18:32:50 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -c ../src/drv_sx1278.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_sx1278.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16416	     28	   6332	  22776	   58f8	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16416	     28	   6332	  22776	   58f8	loramote_app.elf
+18:45:25 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16432	     28	   6332	  22792	   5908	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16432	     28	   6332	  22792	   5908	loramote_app.elf
+18:52:28 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16432	     28	   6332	  22792	   5908	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16432	     28	   6332	  22792	   5908	loramote_app.elf
+18:54:49 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/drv_sx1278.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_sx1278.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16444	     28	   6332	  22804	   5914	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16444	     28	   6332	  22804	   5914	loramote_app.elf
+19:02:44 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c:25:6: error: conflicting types for 'adxl345_write'
+ void adxl345_write(vu8 addr, u8 data)
+      ^~~~~~~~~~~~~
+In file included from ../src/drv_adxl345.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_adxl345.h:14:6: note: previous declaration of 'adxl345_write' was here
+ void adxl345_write(vu8 addr, u8* buffer, vu8 size);
+      ^~~~~~~~~~~~~
+../src/drv_adxl345.c: In function 'adxl345_write':
+../src/drv_adxl345.c:28:7: warning: unused variable 'i' [-Wunused-variable]
+   vu8 i;
+       ^
+../src/drv_adxl345.c: At top level:
+../src/drv_adxl345.c:35:4: error: conflicting types for 'adxl345_read'
+ u8 adxl345_read(vu8 addr)
+    ^~~~~~~~~~~~
+In file included from ../src/drv_adxl345.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_adxl345.h:15:6: note: previous declaration of 'adxl345_read' was here
+ void adxl345_read(vu8 addr, u8* buffer, vu8 size);
+      ^~~~~~~~~~~~
+../src/drv_adxl345.c: In function 'adxl345_read':
+../src/drv_adxl345.c:40:6: error: 'size' undeclared (first use in this function)
+   if(size == 1)
+      ^~~~
+../src/drv_adxl345.c:40:6: note: each undeclared identifier is reported only once for each function it appears in
+../src/drv_adxl345.c:53:5: error: 'buffer' undeclared (first use in this function)
+     buffer[i] = spiInOut(ADXL345_SPI, 0);
+     ^~~~~~
+../src/drv_adxl345.c:56:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+19:03:01 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c:34:4: error: conflicting types for 'adxl345_read'
+ u8 adxl345_read(vu8 addr)
+    ^~~~~~~~~~~~
+In file included from ../src/drv_adxl345.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_adxl345.h:15:6: note: previous declaration of 'adxl345_read' was here
+ void adxl345_read(vu8 addr, u8* buffer, vu8 size);
+      ^~~~~~~~~~~~
+../src/drv_adxl345.c: In function 'adxl345_read':
+../src/drv_adxl345.c:39:6: error: 'size' undeclared (first use in this function)
+   if(size == 1)
+      ^~~~
+../src/drv_adxl345.c:39:6: note: each undeclared identifier is reported only once for each function it appears in
+../src/drv_adxl345.c:52:5: error: 'buffer' undeclared (first use in this function)
+     buffer[i] = spiInOut(ADXL345_SPI, 0);
+     ^~~~~~
+../src/drv_adxl345.c:55:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+19:05:03 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c: In function 'init_adxl345':
+../src/drv_adxl345.c:20:3: error: too many arguments to function 'adxl345_read'
+   adxl345_read(0x00, &v, 1);
+   ^~~~~~~~~~~~
+In file included from ../src/drv_adxl345.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_adxl345.h:15:4: note: declared here
+ u8 adxl345_read(vu8 addr);
+    ^~~~~~~~~~~~
+../src/drv_adxl345.c: In function 'adxl345_read':
+../src/drv_adxl345.c:37:6: warning: variable 'v' set but not used [-Wunused-but-set-variable]
+   u8 v = 0;
+      ^
+../src/drv_adxl345.c:45:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+19:05:19 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c: In function 'init_adxl345':
+../src/drv_adxl345.c:20:3: error: too many arguments to function 'adxl345_read'
+   adxl345_read(0x00, &v, 1);
+   ^~~~~~~~~~~~
+In file included from ../src/drv_adxl345.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_adxl345.h:15:4: note: declared here
+ u8 adxl345_read(vu8 addr);
+    ^~~~~~~~~~~~
+19:05:34 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16364	     28	   6332	  22724	   58c4	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16364	     28	   6332	  22724	   58c4	loramote_app.elf
+19:06:04 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16380	     28	   6332	  22740	   58d4	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16380	     28	   6332	  22740	   58d4	loramote_app.elf
+19:06:47 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16384	     28	   6332	  22744	   58d8	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16384	     28	   6332	  22744	   58d8	loramote_app.elf
+07:36:03 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16476	     28	   6332	  22836	   5934	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16476	     28	   6332	  22836	   5934	loramote_app.elf
+07:36:26 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23072	     28	   7100	  30200	   75f8	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23072	     28	   7100	  30200	   75f8	loragw_app.elf
+Info: Nothing to build for loramote_app
+08:50:10 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23076	     28	   7100	  30204	   75fc	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23076	     28	   7100	  30204	   75fc	loragw_app.elf
+08:50:11 **** Rebuild of configuration Debug for project loragw_boot ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_fsmc.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_fsmc.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_adc.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_adc.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_bkp.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_bkp.o 
+arm-atollic-eabi-gcc -c ../src/drv_usart.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_usart.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_cec.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_cec.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_spi.o 
+arm-atollic-eabi-gcc -c ../src/tools_lib.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/tools_lib.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_sdio.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_sdio.o 
+arm-atollic-eabi-gcc -c ../CMSIS/core/core_cm3.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o CMSIS/core/core_cm3.o 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -g -Wa,--warn -x assembler-with-cpp -specs=nano.specs -o startup/startup_stm32.o ../startup/startup_stm32.s 
+arm-atollic-eabi-gcc -c ../src/drv_flash.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_flash.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_crc.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_crc.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_pwr.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_pwr.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_dma.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_dma.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_can.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_can.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_rtc.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_rtc.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_rcc.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_rcc.o 
+arm-atollic-eabi-gcc -c ../src/syscalls.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/syscalls.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_dbgmcu.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_dbgmcu.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_flash.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_flash.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_i2c.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_i2c.o 
+arm-atollic-eabi-gcc -c ../src/global.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/global.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_gpio.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_gpio.o 
+arm-atollic-eabi-gcc -c ../src/drv_gpio.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_gpio.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/misc.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/misc.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_iwdg.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_iwdg.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_wwdg.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_wwdg.o 
+arm-atollic-eabi-gcc -c ../src/system_stm32f10x.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/system_stm32f10x.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_tim.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_tim.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_usart.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_usart.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_dac.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_dac.o 
+arm-atollic-eabi-gcc -c ../StdPeriph_Driver/src/stm32f10x_exti.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o StdPeriph_Driver/src/stm32f10x_exti.o 
+arm-atollic-eabi-gcc -o loragw_boot.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_flash.o src/drv_gpio.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_boot/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_boot.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_boot.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   5300	     28	   1052	   6380	   18ec	loragw_boot.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_boot.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_boot.elf loragw_boot.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_boot.elf loragw_boot.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_boot.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5300	     28	   1052	   6380	   18ec	loragw_boot.elf
+08:50:16 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16480	     28	   6332	  22840	   5938	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16480	     28	   6332	  22840	   5938	loramote_app.elf
+08:50:17 **** Incremental Build of configuration Debug for project loramote_boot ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_boot/inc -I/home/mose/code/lorap/loramote_boot/CMSIS/device -I/home/mose/code/lorap/loramote_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_boot.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_flash.o src/drv_gpio.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_boot/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_boot.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_boot.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   5304	     28	   1052	   6384	   18f0	loramote_boot.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_boot.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_boot.elf loramote_boot.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_boot.elf loramote_boot.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_boot.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5304	     28	   1052	   6384	   18f0	loramote_boot.elf
+Info: Nothing to build for loragw_app
+08:54:07 **** Incremental Build of configuration Debug for project loragw_boot ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loragw_boot.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_flash.o src/drv_gpio.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_boot/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_boot.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_boot.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   5300	     28	   1052	   6380	   18ec	loragw_boot.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_boot.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_boot.elf loragw_boot.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_boot.elf loragw_boot.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_boot.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5300	     28	   1052	   6380	   18ec	loragw_boot.elf
+Info: Nothing to build for loramote_app
+08:54:08 **** Incremental Build of configuration Debug for project loramote_boot ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_boot/inc -I/home/mose/code/lorap/loramote_boot/CMSIS/device -I/home/mose/code/lorap/loramote_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_boot.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_flash.o src/drv_gpio.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_boot/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_boot.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_boot.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   5304	     28	   1052	   6384	   18f0	loramote_boot.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_boot.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_boot.elf loramote_boot.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_boot.elf loramote_boot.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_boot.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5304	     28	   1052	   6384	   18f0	loramote_boot.elf
+09:04:03 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16536	     28	   6332	  22896	   5970	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16536	     28	   6332	  22896	   5970	loramote_app.elf
+09:13:37 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'init':
+../src/main.c:34:5: error: 'RCC_APB2Periph_SPI2' undeclared (first use in this function)
+     RCC_APB2Periph_SPI2
+     ^~~~~~~~~~~~~~~~~~~
+../src/main.c:34:5: note: each undeclared identifier is reported only once for each function it appears in
+09:13:43 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16552	     28	   6332	  22912	   5980	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16552	     28	   6332	  22912	   5980	loramote_app.elf
+09:18:57 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16468	     28	   6332	  22828	   592c	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16468	     28	   6332	  22828	   592c	loramote_app.elf
+09:24:19 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16456	     28	   6332	  22816	   5920	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16456	     28	   6332	  22816	   5920	loramote_app.elf
+10:26:07 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+../src/drv_adxl345.c: In function 'init_adxl345':
+../src/drv_adxl345.c:24:3: error: too many arguments to function 'adxl345_read'
+   adxl345_read(0x31, 0x0b);
+   ^~~~~~~~~~~~
+In file included from ../src/drv_adxl345.c:9:0:
+/home/mose/code/lorap/loramote_app/inc/drv_adxl345.h:15:4: note: declared here
+ u8 adxl345_read(vu8 addr);
+    ^~~~~~~~~~~~
+10:26:25 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16580	     28	   6332	  22940	   599c	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16580	     28	   6332	  22940	   599c	loramote_app.elf
+10:35:45 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16696	     28	   6332	  23056	   5a10	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16696	     28	   6332	  23056	   5a10	loramote_app.elf
+11:10:15 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16828	     28	   6332	  23188	   5a94	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16828	     28	   6332	  23188	   5a94	loramote_app.elf
+11:10:29 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+11:17:40 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_spi.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_spi.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23092	     28	   7100	  30220	   760c	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23092	     28	   7100	  30220	   760c	loragw_app.elf
+Info: Nothing to build for loramote_app
+11:35:16 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/task_forward.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task_forward.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+Info: Nothing to build for loramote_app
+Info: Nothing to build for loragw_app
+Info: Nothing to build for loramote_app
+11:43:06 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+Info: Nothing to build for loramote_app
+13:10:54 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/task_forward.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task_forward.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23048	     28	   7100	  30176	   75e0	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23048	     28	   7100	  30176	   75e0	loragw_app.elf
+Info: Nothing to build for loramote_app
+13:13:09 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23048	     28	   7100	  30176	   75e0	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23048	     28	   7100	  30176	   75e0	loragw_app.elf
+Info: Nothing to build for loramote_app
+13:38:55 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/task_forward.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task_forward.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+Info: Nothing to build for loramote_app
+Info: Nothing to build for loragw_app
+13:46:55 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/global.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/global.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Info: Nothing to build for loragw_app
+13:56:03 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/global.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/global.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+14:07:01 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/global.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/global.o 
+arm-atollic-eabi-gcc -c ../src/drv_w5500.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_w5500.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23176	     28	   7100	  30304	   7660	loragw_app.elf
+14:07:03 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/global.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/global.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+14:44:19 **** Incremental Build of configuration Debug for project loragw_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/task_forward.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_app/inc -I/home/mose/code/lorap/loragw_app/CMSIS/device -I/home/mose/code/lorap/loragw_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/task_forward.o 
+arm-atollic-eabi-gcc -o loragw_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/drv_w5500.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_heartbeat.o src/task_irqcall.o src/task_reboot.o src/task_upgrade.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23268	     28	   7100	  30396	   76bc	loragw_app.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_app.elf loragw_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_app.elf loragw_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23268	     28	   7100	  30396	   76bc	loragw_app.elf
+Info: Nothing to build for loramote_app
+Info: Nothing to build for loragw_app
+15:19:45 **** Incremental Build of configuration Debug for project loragw_boot ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103RCTx -DDEBUG -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loragw_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loragw_boot/inc -I/home/mose/code/lorap/loragw_boot/CMSIS/device -I/home/mose/code/lorap/loragw_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loragw_boot.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_flash.o src/drv_gpio.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loragw_boot/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loragw_boot.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loragw_boot.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   5296	     28	   1052	   6376	   18e8	loragw_boot.elf
+Print size information done
+Generate listing file
+Output sent to: loragw_boot.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loragw_boot.elf loragw_boot.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loragw_boot.elf loragw_boot.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loragw_boot.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5296	     28	   1052	   6376	   18e8	loragw_boot.elf
+15:19:46 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+15:19:47 **** Incremental Build of configuration Debug for project loramote_boot ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_boot/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_boot/inc -I/home/mose/code/lorap/loramote_boot/CMSIS/device -I/home/mose/code/lorap/loramote_boot/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o loramote_boot.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_flash.o src/drv_gpio.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_boot/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_boot.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_boot.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   5304	     28	   1052	   6384	   18f0	loramote_boot.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_boot.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_boot.elf loramote_boot.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_boot.elf loramote_boot.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_boot.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5304	     28	   1052	   6384	   18f0	loramote_boot.elf
+Info: Nothing to build for loragw_app
+Info: Nothing to build for loragw_boot
+16:00:33 **** Incremental Build of configuration Debug for project loramote_app ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/drv_adxl345.c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -DDEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I/home/mose/code/lorap/loramote_app/StdPeriph_Driver/inc -I/home/mose/code/lorap/loramote_app/inc -I/home/mose/code/lorap/loramote_app/CMSIS/device -I/home/mose/code/lorap/loramote_app/CMSIS/core -O0 -ffunction-sections -g3 -fstack-usage -Wall -specs=nano.specs -o src/drv_adxl345.o 
+arm-atollic-eabi-gcc -o loramote_app.elf CMSIS/core/core_cm3.o StdPeriph_Driver/src/misc.o StdPeriph_Driver/src/stm32f10x_adc.o StdPeriph_Driver/src/stm32f10x_bkp.o StdPeriph_Driver/src/stm32f10x_can.o StdPeriph_Driver/src/stm32f10x_cec.o StdPeriph_Driver/src/stm32f10x_crc.o StdPeriph_Driver/src/stm32f10x_dac.o StdPeriph_Driver/src/stm32f10x_dbgmcu.o StdPeriph_Driver/src/stm32f10x_dma.o StdPeriph_Driver/src/stm32f10x_exti.o StdPeriph_Driver/src/stm32f10x_flash.o StdPeriph_Driver/src/stm32f10x_fsmc.o StdPeriph_Driver/src/stm32f10x_gpio.o StdPeriph_Driver/src/stm32f10x_i2c.o StdPeriph_Driver/src/stm32f10x_iwdg.o StdPeriph_Driver/src/stm32f10x_pwr.o StdPeriph_Driver/src/stm32f10x_rcc.o StdPeriph_Driver/src/stm32f10x_rtc.o StdPeriph_Driver/src/stm32f10x_sdio.o StdPeriph_Driver/src/stm32f10x_spi.o StdPeriph_Driver/src/stm32f10x_tim.o StdPeriph_Driver/src/stm32f10x_usart.o StdPeriph_Driver/src/stm32f10x_wwdg.o src/drv_adxl345.o src/drv_ds18b20.o src/drv_exti.o src/drv_flash.o src/drv_gpio.o src/drv_itemp.o src/drv_iwdg.o src/drv_roadled.o src/drv_sensor.o src/drv_spi.o src/drv_sx1278.o src/drv_timer.o src/drv_usart.o src/global.o src/main.o src/syscalls.o src/system_stm32f10x.o src/task.o src/task_forward.o src/task_irqcall.o src/task_sensor.o src/tools_lib.o startup/startup_stm32.o -mthumb -mcpu=cortex-m3 -T/home/mose/code/lorap/loramote_app/LinkerScript.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=loramote_app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/Tools/arm-atollic-reports.jar sizeinfo list loramote_app.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Print size information done
+Generate listing file
+Output sent to: loramote_app.list
+Generate listing file done
+Generate build reports done
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O ihex loramote_app.elf loramote_app.hex 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-objcopy -O binary loramote_app.elf loramote_app.bin 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ARMTools/bin/arm-atollic-eabi-size loramote_app.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16832	     28	   6332	  23192	   5a98	loramote_app.elf
+Info: Nothing to build for loramote_boot

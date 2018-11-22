@@ -92,4 +92,11 @@
 //#define W5500SOCKETNUMBER 8
 //#define LORA_NS_SOCKET 1
 
+#define ADXL345_SPI SPI2
+#define ADXL345_GPIO GPIOB
+#define ADXL345_NSS GPIO_Pin_8
+#define ADXL345_MISO GPIO_Pin_14
+#define ADXL345_MOSI GPIO_Pin_15
+#define ADXL345_CLK GPIO_Pin_13
+
 #endif /* HW_CONFIG_H_ */
