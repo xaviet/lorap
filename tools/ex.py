@@ -9,21 +9,8 @@ ex.py
 import sys
 import ctypes
 
-class xyz(ctypes.Structure):
-  _pack_= 1
-  _fields_ = [('x', ctypes.c_int16),
-              ('y', ctypes.c_int16),
-              ('z', ctypes.c_int16),]
-              
-def main(a):
-  h = 16 / 4096
-  s = xyz()
-  v = bytes([int(el0, 16) for el0 in '26 00 FA FF D6 FE'.split(' ')])
-  ctypes.memmove(ctypes.addressof(s), v, ctypes.sizeof(xyz))
-  print(s.x * h, s.y * h, s.z * h)
-
-if(__name__ == '__main__'):
-  main(sys.argv)
+def plt_ex():
+  
   import matplotlib as mpl
   from mpl_toolkits.mplot3d import Axes3D
   import numpy as np
@@ -79,3 +66,21 @@ if(__name__ == '__main__'):
   timer.add_callback(sin_output, ax)
   timer.start()
   plt.show()
+
+
+class xyz(ctypes.Structure):
+  _pack_= 1
+  _fields_ = [('x', ctypes.c_int16),
+              ('y', ctypes.c_int16),
+              ('z', ctypes.c_int16),]
+              
+def main(a):
+  h = 16 / 4096
+  s = xyz()
+  v = bytes([int(el0, 16) for el0 in '26 00 FA FF D6 FE'.split(' ')])
+  ctypes.memmove(ctypes.addressof(s), v, ctypes.sizeof(xyz))
+  print(s.x * h, s.y * h, s.z * h)
+
+if(__name__ == '__main__'):
+  main(sys.argv)
+  

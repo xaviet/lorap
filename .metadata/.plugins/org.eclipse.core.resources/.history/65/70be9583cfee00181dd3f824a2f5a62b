@@ -52,12 +52,9 @@ void sx1278_dio0_irq()
   u8 intFlag = sx1278_read(sx1278_irqFlags);
   if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))
   {
-    u8 buffer[COMMONBUFFERLENGTH] = {0};
-    u8 len = sx1278_rx_fifo(buffer);
     if(globalV.extiStates.sx1278RxDone == OFF)
     {
-      globalV.loraRxBuffer.length = len;
-      memcpy(globalV.loraRxBuffer.data, buffer, len);
+      globalV.loraRxBuffer.length = sx1278_rx_fifo(globalV.loraRxBuffer.data);
       globalV.extiStates.sx1278RxDone = ON;
     }
   }

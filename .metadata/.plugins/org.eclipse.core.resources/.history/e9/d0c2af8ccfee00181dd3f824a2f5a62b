@@ -53,7 +53,7 @@ void sx1278_dio0_irq()
   if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))
   {
     u8 buffer[COMMONBUFFERLENGTH] = {0};
-    u8 len = sx1278_rx_fifo(buffer);
+    u16 len = sx1278_rx_fifo(&buffer);
     if(globalV.extiStates.sx1278RxDone == OFF)
     {
       globalV.loraRxBuffer.length = len;

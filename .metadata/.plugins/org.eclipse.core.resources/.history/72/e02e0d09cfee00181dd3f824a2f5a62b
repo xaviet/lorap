@@ -52,12 +52,9 @@ void sx1278_dio0_irq()
   u8 intFlag = sx1278_read(sx1278_irqFlags);
   if(((globalV.extiStates.sx1278DioMapping1 & dio0Mask) == dio0RxDone) && ((intFlag & 0x40) == 0x40))
   {
-    u8 buffer[COMMONBUFFERLENGTH] = {0};
-    u8 len = sx1278_rx_fifo(buffer);
     if(globalV.extiStates.sx1278RxDone == OFF)
     {
-      globalV.loraRxBuffer.length = len;
-      memcpy(globalV.loraRxBuffer.data, buffer, len);
+      globalV.loraRxBuffer.length = sx1278_rx_fifo(globalV.loraRxBuffer.data);
       globalV.extiStates.sx1278RxDone = ON;
     }
   }
@@ -86,14 +83,14 @@ void w5500_int_irq()
       if(snInt & IR_RECV)
       {
 //	usart_debug("w5500_int_irq IR_RECV");
-	struct Sw5500SocketRxData buffer = {0};
+	  struct Sw5500SocketRxData buffer = {0};
 	u16 len = w5500_read_socket_buffer(socket, &buffer);
 	if(globalV.extiStates.w5500Int == OFF)
         {
 //	  usart_send_u8(socket);usart_debug("w5500_read_socket_buffer");
 	  globalV.w5500RxBuffer.socket = socket;
           globalV.w5500RxBuffer.length = len;
-          memcpy(&globalV.w5500RxBuffer.data, (u8*)&buffer, len);
+          memcpy(&globalV.w5500RxBuffer.data, (u8*)buffer, len);
           globalV.extiStates.w5500Int = ON;
         }
       }
