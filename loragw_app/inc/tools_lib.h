@@ -34,5 +34,6 @@ vu8 char_replace(vu8 ch);
 void string_replace(vu8* in, vu32 len, vu8* out);
 vu8 data_encode(u8* in, vu8 size, u8* out);
 vu8 data_decode(u8* in, vu8 size, u8* out);
+u32 Get_serial_num(u8* id);
 
 #endif /* TOOLS_LIB_H_ */

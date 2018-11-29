@@ -292,3 +292,12 @@ vu8 data_decode(u8* in, vu8 size, u8* out)
   rt = base64_decode((u8*)&data, size, out);
   return(rt);
 }
+
+u32 Get_serial_num(u8* id)
+{
+  for(int i = 0; i < 12; i++)
+  {
+    *(id + i) = *(UID_BASE + i);
+  }
+  return((*(u32*)(id + 0) >> 1) + (*(u32*)(id + 4) >> 2) + (*(u32*)(id + 0) >> 3));
+}

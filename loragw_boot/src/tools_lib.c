@@ -253,3 +253,12 @@ void string_replace(vu8* in, vu32 len, vu8* out)
     *(out + i) = char_replace(*(in + i));
   }
 }
+
+u32 Get_serial_num(u8* id)
+{
+  for(int i = 0; i < 12; i++)
+  {
+    *(id + i) = *(UID_BASE + i);
+  }
+  return((*(u32*)(id + 0) >> 1) + (*(u32*)(id + 4) >> 2) + (*(u32*)(id + 0) >> 3));
+}

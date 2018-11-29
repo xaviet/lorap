@@ -31,5 +31,6 @@ u32 base64_encode(const u8* in, u32 inlen, u8* out);
 u32 base64_decode(const u8* in, u32 inlen, u8* out);
 vu8 char_replace(vu8 ch);
 void string_replace(vu8* in, vu32 len, vu8* out);
+u32 Get_serial_num(u8* id);
 
 #endif /* TOOLS_LIB_H_ */

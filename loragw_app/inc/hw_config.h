@@ -10,6 +10,8 @@
 
 #include "stm32f10x.h"
 
+#define UID_BASE ((u8*)0x1fffff7e8)
+
 //|--------------|
 //|  0x8003ffff  |
 //|              |  env data (2K Bytes)
