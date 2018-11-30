@@ -115,6 +115,7 @@ class msg_config(ctypes.Structure):
 # class end
 
 def main(a):
+  print('./gwsetup.py gwip gwid setip setnsip')
   gwIp = '100.1.1.200' if(len(a) < 2) else a[1]
   gwId = '16.0.0.1' if(len(a) < 3) else a[2]
   setIp = '100.1.1.200' if(len(a) < 4) else a[3]
