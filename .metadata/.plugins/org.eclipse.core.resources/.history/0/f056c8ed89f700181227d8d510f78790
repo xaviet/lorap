@@ -112,16 +112,6 @@ void forward_upStreamMsgTx()
 void forward_sensorProcess()
 {
   usart_debug("forward_sensorProcess");
-  if(globalV.loraWorkChannelData.data[0] == MOTE_RESET_MSG)
-  {
-    usart_debug("LoRaMote reset");
-    sx1278_set_opmode(Stdby_mode);
-    sx1278_tx(&globalV.loraWorkChannelConfig,
-	      (u8*)&globalV.loraWorkChannelData,
-	      globalV.loraWorkChannelConfig.msgHead.length,
-	      &globalV.extiStates.sx1278DioMapping1);
-    NVIC_SystemReset();
-  }
   call_fun(sensor_process);
   globalV.forwardStatesMachine.msgId = EupStreamMsgTx;
 }
