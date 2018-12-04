@@ -25,20 +25,20 @@ void init_sensor()
 
 }
 
-void sensor_rw()
+u8 sensor_rw()
 {
   struct SworkDataMsg* msg = &globalV.loraWorkChannelData;
   msg->msgHead.type = UPSTREAM;
 
 #ifdef ROADLED
   struct sRoadledData* roadLedData = (struct sRoadledData*)&msg->data;
-  if(roadLedData->type == DOWN_MSG)
+  if(roadLedData->type == MOTE_ROADLED_DOWN_MSG)
   {
     if(roadLedData->ledSet == ON || roadLedData->ledSet == OFF)
     {
       roadled_set(roadLedData->ledSet);
     }
-    roadLedData->type = UP_MSG;
+    roadLedData->type = MOTE_ROADLED_UP_MSG;
     s16 i = iTemp_get(4);
     roadLedData->iTemp[0] = i / 0x100;
     roadLedData->iTemp[1] = i % 0x100;
@@ -53,4 +53,5 @@ void sensor_rw()
   *((u8*)msg + msg->msgHead.length -1) = crc8((u8*)msg, msg->msgHead.length -1);
   usart_debug("sensor_rw");
   usart_send_u8_array((u8*)msg, msg->msgHead.length);
+  return(msg->data[0]);
 }

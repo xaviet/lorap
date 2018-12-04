@@ -10,7 +10,11 @@
 
 #include "stm32f10x.h"
 
+#define MOTE_ROADLED_UP_MSG 0x01
+#define MOTE_ROADLED_DOWN_MSG 0x02
+#define MOTE_RESET_MSG 0xff
+
 void init_sensor();
-void sensor_rw();
+u8 sensor_rw();
 
 #endif /* DRV_SENSOR_H_ */

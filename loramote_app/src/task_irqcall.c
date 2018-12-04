@@ -128,6 +128,15 @@ void statesMachineJump()
             globalV.extiStates.sx1278RxDone = OFF;
           }
           break;
+        case GWRESET:
+          usart_debug("LoRaMote reset");
+	  sx1278_set_opmode(Stdby_mode);
+	  sx1278_tx(&globalV.loraWorkChannelConfig,
+		    (u8*)&globalV.loraWorkChannelData,
+		    globalV.loraWorkChannelConfig.msgHead.length,
+		    &globalV.extiStates.sx1278DioMapping1);
+	  NVIC_SystemReset();
+          break;
         default:
           globalV.extiStates.sx1278RxDone = OFF;
           break;

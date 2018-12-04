@@ -16,10 +16,6 @@
 #define LEDSENSOR_PIN GPIO_Pin_7
 #define LEDSENSOR_GPIO GPIOB
 
-#define UP_MSG 1
-#define DOWN_MSG 2
-
-
 struct sRoadledData
 {
   u8 type;
