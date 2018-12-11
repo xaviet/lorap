@@ -237,6 +237,7 @@ void statesMachineJump()
           gwConfig->crc8 = crc8((u8*)gwConfig, sizeof(struct SgwConfigMsg) - 1);
           w5500_write_socket_buffer(LORA_NS_SOCKET, (u8*)gwConfig, sizeof(struct SgwConfigMsg));
           globalV.extiStates.w5500Int = OFF;
+          delay_1us(100000);
           NVIC_SystemReset();
           break;
         case GWUPGRADEREQUEST:
@@ -254,6 +255,7 @@ void statesMachineJump()
           globalV.extiStates.w5500Int = OFF;
           break;
         case GWRESET:
+          usart_debug("GWRESET");
           NVIC_SystemReset();
           break;
         case FACTORYCNF:
@@ -264,8 +266,10 @@ void statesMachineJump()
           flashEnvValue.crc8 = crc8((u8*)&flashEnvValue, sizeof(struct SflashEnvValue) - 1);
           flash_erase(FLASH_ENV_DATA_SECTOR, 1);
           flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&flashEnvValue, sizeof(struct SflashEnvValue));
-          NVIC_SystemReset();
           globalV.extiStates.w5500Int = OFF;
+          delay_1us(100000);
+          NVIC_SystemReset();
+
           break;
         default:
           globalV.extiStates.w5500Int = OFF;
@@ -355,6 +359,7 @@ void statesMachineJump()
 	flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
 	usart_debug("GWID updta");
 	usart_send_u8_array(globalV.flashEnvValue.id, 4);
+	delay_1us(100000);
 	NVIC_SystemReset();
       }
     }

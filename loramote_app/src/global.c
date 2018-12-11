@@ -58,4 +58,6 @@ void init_global()
     }
     usart_send_string("\tMOTEID: ");
     usart_send_u8_array(globalV.loraLoginChannelConfig.msgHead.moteId, 4);
+    usart_send_string("\tLogin config: ");
+    usart_send_u8_array((u8*)&globalV.loraLoginChannelConfig, sizeof(struct SconfigMsg));
   }

@@ -115,11 +115,15 @@ void forward_sensorProcess()
   if(globalV.loraWorkChannelData.data[0] == MOTE_RESET_MSG)
   {
     usart_debug("LoRaMote reset");
+    globalV.loraWorkChannelData.msgHead.type = UPSTREAM;
+    *((u8*)&globalV.loraWorkChannelData + globalV.loraWorkChannelData.msgHead.length - 1) =
+	  crc8((u8*)&globalV.loraWorkChannelData, globalV.loraWorkChannelData.msgHead.length - 1);
     sx1278_set_opmode(Stdby_mode);
     sx1278_tx(&globalV.loraWorkChannelConfig,
 	      (u8*)&globalV.loraWorkChannelData,
 	      globalV.loraWorkChannelConfig.msgHead.length,
 	      &globalV.extiStates.sx1278DioMapping1);
+    delay_1us(100000);
     NVIC_SystemReset();
   }
   call_fun(sensor_process);
