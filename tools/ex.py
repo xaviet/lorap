@@ -9,6 +9,24 @@ ex.py
 import sys
 import ctypes
 
+import requests
+
+def json_rpc():
+  # create persistent HTTP connection
+  session = requests.Session()
+  # as defined in https://github.com/ethereum/wiki/wiki/JSON-RPC#net_version
+  method = 'apiinfo.version'
+  params = []
+  payload= {"jsonrpc":"2.0",
+             "method":method,
+             "params":params,
+             "id":1}
+  headers = {'Content-type': 'application/json-rpc'}
+  response = session.post('http://192.168.13.16/zabbix/api_jsonrpc.php', json=payload, headers=headers)
+  print('raw json response: {}'.format(response.json()))
+  print('network id: {}'.format(response.json()))
+
+
 def plt_ex():
   
   import matplotlib as mpl
@@ -82,5 +100,6 @@ def main(a):
   print(s.x * h, s.y * h, s.z * h)
 
 if(__name__ == '__main__'):
-  main(sys.argv)
+  json_rpc()
+  #main(sys.argv)
   
