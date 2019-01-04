@@ -28,12 +28,13 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
+current_page=2
 FILE_NAME_0=4274;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Fgwsetup.py;0;2
 FILE_NAME_1=4538;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Ftools%2Ftestlora.py;0;2
+FILE_NAME_2=596;C++;0;EUTF-8;0;1;1;%2Fhome%2Fmose%2Fcode%2Florap%2Floragw_app%2Finc%2Fdefault_config.h;0;2
 
 [VTE]
-last_dir=/home/mose/code/lorap/tools
+last_dir=/home/mose/code/lorap/loragw_app/inc
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
