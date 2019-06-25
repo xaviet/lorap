@@ -8,7 +8,7 @@ ex.py
 
 import sys
 import ctypes
-
+import time
 import requests
 
 def json_rpc():
@@ -100,6 +100,23 @@ def main(a):
   print(s.x * h, s.y * h, s.z * h)
 
 if(__name__ == '__main__'):
-  json_rpc()
+  #json_rpc()
   #main(sys.argv)
-  
+  # def f(n):
+    # return(f(n-1) + f(n-2) if(n > 1) else 1)
+  # for el0 in range(34):
+    # s = time.time()
+    # r = f(el0)
+    # print(el0, time.time() - s)
+  import time
+  import math
+
+  if(__name__ == '__main__'):
+    s = time.time()
+    c = 0
+    while(1):
+      if(time.time() - s > 6):
+        break;
+      c += 1
+      r = math.sqrt(c)
+    print(c)

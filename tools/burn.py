@@ -13,7 +13,7 @@ def burn_Run(p):
   os.system('./stm32flash.py -p {0} -w {1} -f -v'.format(p[1], p[2])) 
 
 def main(sys_arg):
-  gwp = ('g', '/dev/ttyUSB1', 'gw.bin')
+  gwp = ('g', '/dev/ttyUSB0', 'gw.bin')
   mp = ('m', '/dev/ttyUSB0', 'mote.bin')
   p = mp
   if(len(sys_arg) < 2):

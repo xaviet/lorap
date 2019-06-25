@@ -86,13 +86,13 @@ def main():
   upgrade_req = 0xfa
   file_name = 'loragw_app.bin'
   host = ('0.0.0.0', 1700)
-  gw = ('100.1.1.200', 38564)
+  gw = ('192.168.127.164', 38564)
   msg_upgrade_req = [0xf0, 
                      upgrade_req, 
                      0x21, 
                      0x00, 0x00, 0x00, 0x00, 
                      0x00, 
-                     0x10, 0x00, 0x00, 0x02,
+                     0x00, 0x00, 0x00, 0x01, # LoRaGW ID
                      ver,
                      0x00, 0x00, 0x00, 0x00, 
                      0x00, 0x00, 0x00, 0x00, 

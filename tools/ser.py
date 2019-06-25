@@ -3,7 +3,7 @@
 '''
   ser.py
   ref : ./stm32flash.py -w stm32f103c8t6_stdperiph.bin -f -t
-  ref : ./ser.py /dev/ttyUSB0 01000003
+  ref : ./ser.py /dev/ttyUSB0 00000001
 '''
 
 import time
@@ -24,11 +24,14 @@ def crc8(chars, length):
   return(rt)
   
 def main(a):
+  logFile = open('./serlog.txt', 'wt')
+  logFile.close()
   port = '/dev/ttyUSB0' if(len(a) < 2) else a[1]
+  print(port)
   idsLen = 0x0c
   newId = []
   if(len(a) > 2):
-    newId = [0xf0, 0x00, idsLen] + [int(a[2][i:i+2],16) for i in range(0,len(a[2]),2)] + [0, 0, 0, 0] + [0]
+    newId = [0xf0, 0x82, idsLen] + [int(a[2][i:i+2],16) for i in range(0,len(a[2]),2)] + [0, 0, 0, 0] + [0]
     newId[idsLen - 1] = crc8(newId, idsLen - 1)
   ids = bytes(newId)
   print(['%02x'% (el0) for el0 in newId])
@@ -50,10 +53,14 @@ def main(a):
         rd += chr(s.read(1)[0])
       if(len(rd) > 0):
         print(rd, end = '')
+        logFile = open('./serlog.txt', 'wt')
+        logFile.write(rd + '\n')
+        logFile.close()
         rd = ''
         if(t == 0):
           t = time.time()
       if((t != 0) and (time.time() - t > 4) and (t != -1) and len(ids) == idsLen):
+        print(s.write)
         s.write(ids)
         t = -1
     s.close()

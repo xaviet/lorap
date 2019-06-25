@@ -155,6 +155,7 @@ def main():
       if(el0.strip()[0] == '#'):
         continue
       mote = [int(el1, 16) for el1 in el0.strip().split(' ')]
+      mote[-1] = crc8(mote, mote[2] - 1)
       loginMotes.append(mote)
     print(loginMotes)
     moteNum = len(loginMotes)
@@ -164,16 +165,16 @@ def main():
     f.close()
   loginTime = time.time()
   host = ('0.0.0.0', 1700)
-  gw = ('100.1.1.200', 38564)
+  gw = ('192.168.127.164', 38564)
   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   s.bind(host)
   while(1):
-    time.sleep(0)
+    time.sleep(0.01)
     r, w, e = select.select([s], [], [], 0)
     if(s in r):
       d, a = s.recvfrom(2048)
       rxData = list(d)
-      debug('rx', bytes(rxData).decode())
+      debug('rx', str(a), bytes(rxData).decode())
       rxMsg = decoder(rxData)
       debug(' '.join('%02x' % el0 for el0 in rxMsg))
       if(rxMsg[-1] != crc8(rxMsg, rxMsg[2] - 1)):

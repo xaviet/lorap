@@ -351,10 +351,11 @@ void statesMachineJump()
     for(int i = 0; i <= globalV.usart1RxBuffer.length - idSetupLen; i = i + 0x80)
     {
       struct SworkDataMsg* msgSetup = (struct SworkDataMsg*)(&globalV.usart1RxBuffer.data + i);
-      if(data_msg_format(msgSetup))
+      if((data_msg_format(msgSetup) && (*((u8*)msgSetup + 1) == FACTORYCNF)))
       {
 	memcpy(globalV.loraLoginChannelConfig.msgHead.gwId, globalV.usart1RxBuffer.data + 3, 4);
 	memcpy(globalV.flashEnvValue.id, globalV.usart1RxBuffer.data + 3, 4);
+	globalV.usart1RxBuffer.length = 0;
 	globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
 	flash_erase(FLASH_ENV_DATA_SECTOR, 1);
 	flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));

@@ -174,16 +174,17 @@ void statesMachineJump()
     for(int i = 0; i <= globalV.usart1RxBuffer.length - idSetupLen; i = i + 0x80)
     {
       struct SmsgHead* msgSetup = (struct SmsgHead*)(&globalV.usart1RxBuffer.data + i);
-      if(config_msg_format(msgSetup, *(((u8*)msgSetup) + idSetupLen - 1), OFF))
+      if((config_msg_format(msgSetup, *(((u8*)msgSetup) + idSetupLen - 1), OFF)) && (*((u8*)msgSetup + 1) == FACTORYCNF))
       {
 	memcpy(globalV.loraLoginChannelConfig.msgHead.gwId, globalV.usart1RxBuffer.data + 3, 4);
 	memcpy(globalV.flashEnvValue.id, globalV.usart1RxBuffer.data + 3, 4);
+	globalV.usart1RxBuffer.length = 0;
 	globalV.flashEnvValue.crc8 = crc8((u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue) - 1);
 	flash_erase(FLASH_ENV_DATA_SECTOR, 1);
 	flash_write(FLASH_ENV_DATA_SECTOR, (u8*)&globalV.flashEnvValue, sizeof(struct SflashEnvValue));
 	usart_debug("MoteID updta");
 	usart_send_u8_array(globalV.flashEnvValue.id, 4);
-	globalV.usart1RxBuffer.length = 0;
+	delay_1us(100000);
 	NVIC_SystemReset();
       }
     }

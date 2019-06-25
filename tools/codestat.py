@@ -6,10 +6,12 @@
 import os
 
 def main():
-  fileType = ['c', 'h', 'cpp', 'py', 'ld', 's']
+  #fileType = ['c', 'h', 'cpp', 'py', 'ld', 's']
+  fileType = ['h']
   commont = []
   cDir = '../'
   totalLn = 0
+  fileNum = 0
   maxfile = [0, '']
   for parent, dirNames, fileNames in os.walk(cDir):
     if('app' + os.sep + 'src' not in parent and
@@ -22,6 +24,7 @@ def main():
     for el0 in fileNames:
       try:
         if(el0.split('.')[-1] in fileType):
+          fileNum += 1
           fd = open(parent + os.sep + el0, 'rt')
           ln = 0
           for el1 in fd:
@@ -36,7 +39,7 @@ def main():
             maxfile[1] = '[' + parent + os.sep + el0 + ']'
       except:
         pass
-  print('\nAll lines: {0}\nFile max lines: {2} {1}'.format(str(totalLn), maxfile[1], str(maxfile[0])))
+  print('\nFile: {3}\nAll lines: {0}\nFile max lines: {2} {1}'.format(str(totalLn), maxfile[1], str(maxfile[0]), str(fileNum)))
 
 if(__name__ == '__main__'):
   main()

@@ -3,8 +3,8 @@
 
 '''
 gwsetup.py
-  ref: ./gwsetup.py 100.1.1.200 16.0.0.1 100.1.1.201 100.1.1.253
-
+  ref: ./gwsetup.py 192.168.127.164 00.00.00.01 192.168.127.164 192.168.127.213
+       ./gwsetup.py loragwip loragwid setloragwip setnsip
 '''
 
 import time
@@ -130,7 +130,7 @@ def main(a):
   txMsg.head.alignMark = 0xf0
   txMsg.head.type = 0xfc
   txMsg.head.length = 0x2c
-  txMsg.head.ver = 0x01
+  txMsg.head.ver = 0x02
   txMsg.head.gwId[0], txMsg.head.gwId[1], txMsg.head.gwId[2], txMsg.head.gwId[3] = [int(el0) for el0 in gwId.strip().split('.')]
 
   rxData = []

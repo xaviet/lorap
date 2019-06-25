@@ -27,10 +27,10 @@
 #define SYMBTIMEOUTLSB 0xff
 #define HOPPERIOD 0x00
 
-#define GWIP0 100
-#define GWIP1 1
-#define GWIP2 1
-#define GWIP3 1
+#define GWIP0 192
+#define GWIP1 168
+#define GWIP2 127
+#define GWIP3 5
 
 #define MASK0 255
 #define MASK1 255
@@ -40,14 +40,14 @@
 #define MAC0 0x48
 #define MAC1 0xdf
 #define MAC2 0x1c
-#define MAC3 0x01
-#define MAC4 0x01
-#define MAC5 0xc8
+#define MAC3 0xa8
+#define MAC4 0x7f
+#define MAC5 0xe6
 
-#define IP0 100
-#define IP1 1
-#define IP2 1
-#define IP3 200
+#define IP0 192
+#define IP1 168
+#define IP2 127
+#define IP3 230
 
 #define S0SPORT0 0xea // 60013
 #define S0SPORT1 0x6d
@@ -60,10 +60,10 @@
 
 #define S1SPORT0 0x96 // 38564
 #define S1SPORT1 0xa4
-#define S1DIP0 100
-#define S1DIP1 1
-#define S1DIP2 1
-#define S1DIP3 224
+#define S1DIP0 192
+#define S1DIP1 168
+#define S1DIP2 127
+#define S1DIP3 213
 #define S1DPORT0 0x06 // 1700
 #define S1DPORT1 0xa4
 

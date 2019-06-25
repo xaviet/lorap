@@ -18,7 +18,7 @@ void (*sensor_process)();
 
 void forward_init()
 {
-  sensor_process = sensor_rw;
+  sensor_process = (void*)sensor_rw;
 }
 
 void forward_run()
