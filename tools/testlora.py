@@ -36,7 +36,7 @@ def time_stamp():
 
 def debug(*args):
   s = '[%s]' % (time_stamp(),), args
-  f = open('log.txt', 'a')
+  f = open('/home/mose/code/lorap/tools/log.txt', 'a')
   f.write(str(s) + '\n')
   f.close()
   print(s)
@@ -134,7 +134,7 @@ class msg_roadled_stream(ctypes.Structure):
 # class end
 
 def main():
-  moteListFile = 'motelist'
+  moteListFile = '/home/mose/code/lorap/tools/motelist'
   readledStat = False
   msgBuffer = msg_buffer()
   msgHead = msg_head()

@@ -1,3 +1,16 @@
-	00 00 00 64 forward_upStreamMsgTxDone
-	00 00 00 64 forward_downStreamMsgRx
+
+	Complie: Jun 25 2019 09:36:30
+********************************************************************************
+	LoRaGW boot app ver: 02  upgrade: 00  size: FF FF FF FF 
+	Load env data OK
+	GWID: 00 00 00 03 
+	IP: C0 A8 7F E6 
+	server IP: C0 A8 7F D5 
+	Login config: F0 05 19 00 00 00 00 02 00 00 00 03 75 C0 00 FF 68 A7 FF 00 00 00 00 08 D4 
+	Sx1278 Ver: 0x12 
+	w5500 Ver: 04 
+	iTemp: 0C 65 
+	LoRaGW running
+	Compile: Jun 25 2019 09:38:34
+	00 00 00 00 forward_loginChannelListen
 
